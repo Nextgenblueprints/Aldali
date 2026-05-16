@@ -15,6 +15,72 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <style>
+      .intro-section {
+        padding: 7rem 2rem 6rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        background: #0d0d0d;
+      }
+      .intro-inner {
+        max-width: 860px;
+        margin: 0 auto;
+      }
+      .intro-section .section-mark {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.6rem;
+      }
+      .intro-section .section-mark span {
+        display: block;
+        width: 32px;
+        height: 1px;
+        background: currentColor;
+        opacity: 0.35;
+      }
+      .intro-section .section-mark p {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+      .intro-section h2 {
+        font-family: 'Barlow Condensed', sans-serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        line-height: 1.15;
+        margin-bottom: 2.4rem;
+        color: #fff;
+      }
+      .intro-section h2 em {
+        font-style: normal;
+        opacity: 0.45;
+        font-weight: 300;
+      }
+      .intro-body {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem 3rem;
+      }
+      .intro-body p {
+        font-family: 'Barlow', sans-serif;
+        font-size: 0.97rem;
+        font-weight: 300;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .intro-body p strong {
+        color: #fff;
+        font-weight: 500;
+      }
+      @media (max-width: 640px) {
+        .intro-section { padding: 5rem 1.4rem 4rem; }
+        .intro-body { grid-template-columns: 1fr; }
+      }
+    </style>
   </head>
   <body>
     <div class="fixed-hero grain" id="top">
@@ -140,6 +206,32 @@
       </section>
 
       <div class="content-shell">
+
+        <section class="intro-section" id="about">
+          <div class="intro-inner">
+            <div class="section-mark">
+              <span></span>
+              <p>Welcome</p>
+            </div>
+            <h2>Aldali International Co.<br /><em>for General Trading &amp; Cont. W.L.L</em></h2>
+            <div class="intro-body">
+              <p>
+                Founded in 2003 as a private company offering Heavy Equipment and Machinery support services
+                to the industries in Kuwait, today DIC has exponentially grown and established itself as one
+                of the most cherished multi-diversified contractors across the State of Kuwait. DIC's
+                exponential growth since its modest beginning is a reflection of its commitment to customers,
+                who come year after year.
+              </p>
+              <p>
+                DIC with dedicated and experienced Human assets of <strong>800+</strong> and Equipment assets
+                exceeding <strong>1000+</strong> Heavy Equipment &amp; Machinery, along with innovative
+                technological partners, is marching towards achieving its vision of becoming a market leader
+                and preferred partner for Integrated Energy and Infrastructure sectors — a services provider
+                closer to the heart of its clients.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <section class="domains-section" id="domains">
           <div class="domains-inner">
