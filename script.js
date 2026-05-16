@@ -154,7 +154,3 @@ cookieBox?.querySelectorAll("[data-cookie]").forEach((button) => {
     cookieBox.classList.add("is-hidden");
   });
 });
-
-document.querySelector(".contact-form")?.addEventListener("submit", (event) => {
-  event.preventDefault();
-});

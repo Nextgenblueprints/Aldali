@@ -1385,6 +1385,15 @@ dd {
   letter-spacing: 0.16em;
 }
 
+.form-honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .faq-list {
   max-width: 820px;
 }

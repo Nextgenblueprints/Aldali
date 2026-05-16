@@ -680,14 +680,20 @@
             <span>Private enquiry</span>
             <h2>Start a<br /><em>conversation.</em></h2>
           </div>
-          <form class="contact-form">
+          <form class="contact-form" action="https://formsubmit.co/info@aldali-int.com" method="POST">
+            <input type="hidden" name="_subject" value="New enquiry from Al Dali website" />
+            <input type="hidden" name="_cc" value="sales@aldali-int.com" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value="https://nextgenblueprints.github.io/Aldali/thank-you.html" />
+            <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="form-honey" />
             <label>
               Full Name
-              <input type="text" name="name" autocomplete="name" />
+              <input type="text" name="name" autocomplete="name" required />
             </label>
             <label>
               Email Address
-              <input type="email" name="email" autocomplete="email" />
+              <input type="email" name="email" autocomplete="email" required />
             </label>
             <label>
               Company
