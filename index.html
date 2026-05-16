@@ -16,6 +16,59 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <style>
+      /* ── CINEMATIC HERO OVERRIDES ── */
+      .hero-copy {
+        justify-content: flex-end !important;
+        padding-bottom: 3rem !important;
+      }
+      .hero-kicker {
+        display: none !important;
+      }
+      #hero-title {
+        font-size: clamp(0.85rem, 1.2vw, 1.1rem) !important;
+        font-family: 'Barlow Condensed', sans-serif !important;
+        font-weight: 400 !important;
+        letter-spacing: 0.35em !important;
+        text-transform: uppercase !important;
+        white-space: nowrap !important;
+        line-height: 1 !important;
+        opacity: 0.85 !important;
+        margin-bottom: 0.6rem !important;
+      }
+      #hero-title br { display: none !important; }
+      #hero-title em {
+        font-style: normal !important;
+        font-weight: 400 !important;
+        opacity: 0.6 !important;
+      }
+      #hero-description {
+        font-size: clamp(0.65rem, 0.85vw, 0.78rem) !important;
+        letter-spacing: 0.18em !important;
+        text-transform: uppercase !important;
+        opacity: 0.4 !important;
+        white-space: nowrap !important;
+        font-weight: 300 !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .hero-slide-controls {
+        gap: 1.5rem !important;
+      }
+      .hero-slide-dot {
+        font-size: 0.62rem !important;
+        letter-spacing: 0.18em !important;
+        opacity: 0.4 !important;
+        text-transform: uppercase !important;
+      }
+      .hero-slide-dot.is-active {
+        opacity: 1 !important;
+      }
+      .scroll-cue {
+        display: none !important;
+      }
+      @media (max-width: 640px) {
+        #hero-title { white-space: normal !important; font-size: 0.9rem !important; }
+        #hero-description { white-space: normal !important; }
+      }
       .intro-section {
         padding: 7rem 2rem 6rem;
         border-bottom: 1px solid rgba(255, 255, 255, 0.07);
