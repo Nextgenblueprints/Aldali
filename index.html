@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -159,137 +159,140 @@
           <button class="plain-button" type="button">Our Story</button>
         </section>
 
-        <section class="domains-section grain" id="domains">
-          <video
-            class="services-background-video"
-            src="service-firefly-background.mp4"
-            muted
-            playsinline
-            autoplay
-            loop
-            preload="metadata"
-            aria-hidden="true"
-          ></video>
-          <div class="services-background-fallback" aria-hidden="true"></div>
-          <div class="services-background-shade" aria-hidden="true"></div>
-
-          <div class="section-title services-title">
-            <span>Al Dali services</span>
-            <h2>
-              Marching towards<br />
-              <em>sustainable excellence</em><br />
-              through adaptive business strategy
-            </h2>
-          </div>
-
-          <div class="live-services">
-            <div class="service-intro">
-              <p class="service-board-kicker">Master the sector. Master the operation.</p>
-              <div class="service-caption">
-                <span id="service-count">01</span>
-                <p id="service-caption-title">Construction & Maintenance</p>
-              </div>
+        <section class="domains-section" id="domains">
+          <div class="domains-inner">
+            <div class="domains-header">
+              <div class="domains-eyebrow">Al Dali Services</div>
+              <h2 class="domains-title">OUR SERVICES</h2>
+              <p class="domains-subtitle">Master the sector. Master the operation.</p>
             </div>
 
-            <div class="service-board">
-              <div class="service-options" role="tablist" aria-label="Al Dali service domains">
-                <button
-                  class="service-option is-active"
-                  type="button"
-                  role="tab"
-                  aria-selected="true"
-                  data-service-index="0"
-                  data-service-title="Construction & Maintenance"
-                >
-                  <span>01</span>
-                  <small>Domain</small>
-                  <strong>Construction & Maintenance</strong>
-                  <em>
-                    DIC prefers to be a partner of choice for sustainable construction with its clients, accelerating
-                    the transformation of living environments, infrastructure, and mobility.
-                  </em>
-                </button>
-                <button
-                  class="service-option"
-                  type="button"
-                  role="tab"
-                  aria-selected="false"
-                  data-service-index="1"
-                  data-service-title="Equipment & Machinery"
-                >
-                  <span>02</span>
-                  <small>Domain</small>
-                  <strong>Equipment & Machinery</strong>
-                  <em>
-                    Clients in Kuwait prefer DIC as their partner for logistics, equipment, and machinery services
-                    that support operational excellence.
-                  </em>
-                </button>
-                <button
-                  class="service-option"
-                  type="button"
-                  role="tab"
-                  aria-selected="false"
-                  data-service-index="2"
-                  data-service-title="Upstream Oil Field"
-                >
-                  <span>03</span>
-                  <small>Domain</small>
-                  <strong>Upstream Oil Field</strong>
-                  <em>
-                    DIC is expanding its upstream oil field services to offer integrated drilling services as a
-                    successful Kuwaiti services contractor.
-                  </em>
-                </button>
-                <button
-                  class="service-option"
-                  type="button"
-                  role="tab"
-                  aria-selected="false"
-                  data-service-index="3"
-                  data-service-title="Offshore & Marine"
-                >
-                  <span>04</span>
-                  <small>Domain</small>
-                  <strong>Offshore & Marine</strong>
-                  <em>
-                    With experienced partners, DIC offers marine services and equipment support so major jobs can be
-                    executed with confidence and safety.
-                  </em>
-                </button>
-                <button
-                  class="service-option"
-                  type="button"
-                  role="tab"
-                  aria-selected="false"
-                  data-service-index="4"
-                  data-service-title="Partnership Representation"
-                >
-                  <span>05</span>
-                  <small>Domain</small>
-                  <strong>Partnership Representation</strong>
-                  <em>
-                    DIC supports international organizations with business development, marketing expertise, principal
-                    representation, and growth strategies.
-                  </em>
-                </button>
-                <button
-                  class="service-option"
-                  type="button"
-                  role="tab"
-                  aria-selected="false"
-                  data-service-index="5"
-                  data-service-title="Medical & Health"
-                >
-                  <span>06</span>
-                  <small>Domain</small>
-                  <strong>Medical & Health</strong>
-                  <em>
-                    DIC's healthcare background and industry knowledge shape holistic services for the complexities of
-                    an ever-changing environment.
-                  </em>
-                </button>
-              </div>
+            <div class="domains-grid">
+
+              <a href="construction-maintenance.html" class="domain-card">
+                <div class="domain-card-media">
+                  <span class="domain-card-num">01</span>
+                  <video autoplay muted loop playsinline preload="auto">
+                    <source src="svc-construction.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="domain-card-body">
+                  <div class="domain-card-label">Domain</div>
+                  <div class="domain-card-title">Construction &amp; Maintenance</div>
+                  <div class="domain-card-desc">Partner of choice for sustainable construction, accelerating the transformation of living environments, infrastructure, and mobility.</div>
+                  <div class="domain-card-arrow">
+                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
+                  </div>
+                </div>
+              </a>
+
+              <a href="equipment-machinery.html" class="domain-card">
+                <div class="domain-card-media">
+                  <span class="domain-card-num">02</span>
+                  <video autoplay muted loop playsinline preload="auto">
+                    <source src="svc-equipment.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="domain-card-body">
+                  <div class="domain-card-label">Domain</div>
+                  <div class="domain-card-title">Equipment &amp; Machinery</div>
+                  <div class="domain-card-desc">Heavy equipment, lifting, logistics, and 24/7 support for demanding operational site conditions across Kuwait.</div>
+                  <div class="domain-card-arrow">
+                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
+                  </div>
+                </div>
+              </a>
+
+              <a href="upstream-oil-field-services.html" class="domain-card">
+                <div class="domain-card-media">
+                  <span class="domain-card-num">03</span>
+                  <video autoplay muted loop playsinline preload="auto">
+                    <source src="svc-upstream.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="domain-card-body">
+                  <div class="domain-card-label">Domain</div>
+                  <div class="domain-card-title">Upstream Oil Field</div>
+                  <div class="domain-card-desc">Integrated drilling, rig support, completions, and field automation as a reliable Kuwaiti services contractor.</div>
+                  <div class="domain-card-arrow">
+                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
+                  </div>
+                </div>
+              </a>
+
+              <a href="offshore-marine-services.html" class="domain-card">
+                <div class="domain-card-media">
+                  <span class="domain-card-num">04</span>
+                  <video autoplay muted loop playsinline preload="auto">
+                    <source src="svc-marine.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="domain-card-body">
+                  <div class="domain-card-label">Domain</div>
+                  <div class="domain-card-title">Offshore &amp; Marine</div>
+                  <div class="domain-card-desc">Marine services, vessel support, crew management, and procurement through experienced offshore partners.</div>
+                  <div class="domain-card-arrow">
+                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
+                  </div>
+                </div>
+              </a>
+
+              <a href="partnership-representation.html" class="domain-card">
+                <div class="domain-card-media">
+                  <span class="domain-card-num">05</span>
+                  <video autoplay muted loop playsinline preload="auto">
+                    <source src="svc-partnership.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="domain-card-body">
+                  <div class="domain-card-label">Domain</div>
+                  <div class="domain-card-title">Partnership Representation</div>
+                  <div class="domain-card-desc">Business development, market access, and growth strategy for international organizations entering Kuwait.</div>
+                  <div class="domain-card-arrow">
+                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
+                  </div>
+                </div>
+              </a>
+
+              <a href="medical-health-services.html" class="domain-card">
+                <div class="domain-card-media">
+                  <span class="domain-card-num">06</span>
+                  <video autoplay muted loop playsinline preload="auto">
+                    <source src="svc-medical.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="domain-card-body">
+                  <div class="domain-card-label">Domain</div>
+                  <div class="domain-card-title">Medical &amp; Health</div>
+                  <div class="domain-card-desc">Occupational health, risk assessment, and holistic healthcare solutions for complex and ever-changing environments.</div>
+                  <div class="domain-card-arrow">
+                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
+                  </div>
+                </div>
+              </a>
+
+              <a href="sustainability-services.html" class="domain-card">
+                <div class="domain-card-media">
+                  <span class="domain-card-num">07</span>
+                  <video autoplay muted loop playsinline preload="auto">
+                    <source src="svc-sustainability.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="domain-card-body">
+                  <div class="domain-card-label">Domain</div>
+                  <div class="domain-card-title">Sustainability Services</div>
+                  <div class="domain-card-desc">Circular carbon economy, renewable energy, and environmental management for pragmatic sustainable growth.</div>
+                  <div class="domain-card-arrow">
+                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
+                  </div>
+                </div>
+              </a>
+
+            </div>
+
+            <div class="domains-footer">
+              <span class="domains-footer-text">7 Domains &nbsp;·&nbsp; Kuwait &amp; Beyond</span>
+              <a href="our-services.html" class="domains-cta">Explore All Services &#8599;</a>
             </div>
           </div>
         </section>
