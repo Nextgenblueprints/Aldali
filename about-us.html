@@ -1,64 +1,617 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us | Al Dali International</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body class="detail-page">
-    <header class="page-header">
-      <a class="brand" href="index.html"><span class="brand-icon">D</span><span>AL DALI</span></a>
-      <nav class="page-nav">
-        <a href="index.html">Home</a><a href="about-us.html">About Us</a><a href="our-services.html">Services</a>
-        <a href="our-partners.html">Our Partners</a><a href="our-clients.html">Our Clients</a><a href="contact.html">Contact Us</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | AL DALI DIC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #B79130;
+      --gold-dark: #7D5A00;
+      --black: #000000;
+      --text: #56585D;
+      --text-light: #888;
+      --bg: #FFFFFF;
+      --bg-alt: #F8F8F8;
+      --bg-dark: #211E1E;
+      --border: #E2E2E2;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--bg); color: var(--text);
+      font-size: 15px; line-height: 1.8; overflow-x: hidden;
+    }
+
+    /* HEADER */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      transition: box-shadow 0.3s;
+    }
+    .header-inner {
+      max-width: 1170px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px;
+    }
+    .logo-wrap { padding: 18px 0; transition: padding 0.3s; }
+    .logo-wrap img { height: 40px; display: block; }
+    .main-nav { display: flex; }
+    .main-nav a {
+      display: block; padding: 18px 13px; text-decoration: none;
+      color: var(--black); font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 14px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.02em; transition: color 0.2s; position: relative;
+    }
+    .main-nav a:hover { color: var(--gold); }
+    .main-nav a.active { color: var(--gold); }
+    .main-nav a.active::after {
+      content: ''; position: absolute; bottom: 0; left: 13px; right: 13px;
+      height: 2px; background: var(--gold);
+    }
+
+    /* TITLEBAR */
+    .titlebar {
+      background-image: url('https://aldali-int.com/wp-content/uploads/2021/08/Mask-Group-1@2x1.jpg');
+      background-size: cover; background-position: left center;
+      padding-top: 86px; position: relative;
+    }
+    .titlebar::before {
+      content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.5);
+    }
+    .titlebar-inner {
+      max-width: 1170px; margin: 0 auto; padding: 80px 20px 50px;
+      position: relative; z-index: 1;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .titlebar h1 {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 40px; font-weight: 700; color: #fff; line-height: 1.1;
+    }
+    .titlebar-sub { font-size: 15px; color: rgba(255,255,255,0.65); margin-top: 10px; }
+    .breadcrumb {
+      font-size: 13px; color: rgba(255,255,255,0.65);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .breadcrumb a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: #fff; }
+
+    /* COMMONS */
+    .container { max-width: 1170px; margin: 0 auto; padding: 0 20px; }
+    .eyebrow {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    h2.sec-title {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 25px; font-weight: 600; color: var(--black); line-height: 1.25;
+    }
+
+    /* STORY */
+    .story-section { padding: 60px 0; }
+    .story-grid { display: grid; grid-template-columns: 47.6% 56.1%; gap: 60px; align-items: center; }
+    .story-img img { width: 100%; display: block; }
+    .story-text h2 { margin-bottom: 18px; }
+    .story-text p { font-size: 16px; line-height: 1.5; color: var(--text); margin-bottom: 14px; }
+
+    /* STATS BAR */
+    .stats-bar { background: var(--bg-dark); padding: 50px 0; position: relative; overflow: hidden; }
+    .stats-bar::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url('https://aldali-int.com/wp-content/uploads/2021/08/Aldali-DIC-Footer-Banner.jpg');
+      background-size: cover; opacity: 0.12;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      position: relative; z-index: 1;
+    }
+    .stat-item {
+      text-align: center; padding: 16px 20px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 46px; font-weight: 700; color: var(--gold);
+      line-height: 1; display: block;
+    }
+    .stat-label {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.1em; color: rgba(255,255,255,0.55);
+      margin-top: 8px; display: block;
+    }
+
+    /* VMV */
+    .vmv-section { background: var(--bg-alt); padding: 90px 0 40px; }
+    .vmv-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; margin-top: 40px; }
+    .vmv-tabs-nav {
+      display: flex; border-bottom: 1px solid var(--gold);
+      margin-bottom: 28px;
+    }
+    .tab-btn {
+      background: none; border: none; border-bottom: 3px solid transparent;
+      margin-bottom: -1px; cursor: pointer;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 18px; font-weight: 600; color: var(--gold);
+      padding: 10px 28px; transition: all 0.2s;
+    }
+    .tab-btn.active { color: var(--gold-dark); border-bottom-color: var(--gold-dark); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .tab-pane p, .tab-pane li { font-size: 15px; line-height: 1.8; color: var(--text); }
+    .tab-pane ul { padding-left: 18px; }
+    .tab-pane li { margin-bottom: 6px; }
+    .vmv-img img { width: 100%; display: block; }
+
+    /* PEOPLE */
+    .people-section { background: var(--bg); padding: 60px 0; }
+    .people-header { text-align: center; margin-bottom: 30px; }
+    .people-header h2 { font-family: 'IBM Plex Sans', sans-serif; font-size: 25px; font-weight: 600; color: var(--black); }
+    .people-header p { font-size: 18px; color: var(--text); margin-top: 8px; }
+    .people-row { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; margin-bottom: 9px; }
+    .img-cell { overflow: hidden; }
+    .img-cell img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.4s, opacity 0.3s; }
+    .img-cell:hover img { transform: scale(1.04); opacity: 0.88; }
+
+    /* TIMELINE */
+    .timeline-section { background: var(--bg-alt); padding: 80px 0; }
+    .timeline-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 40px; }
+    .tl-card {
+      background: var(--bg); padding: 30px 26px;
+      border-top: 3px solid var(--border); transition: border-color 0.3s, transform 0.3s;
+    }
+    .tl-card:hover { border-top-color: var(--gold); transform: translateY(-4px); }
+    .tl-year {
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 36px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 10px;
+    }
+    .tl-card h4 { font-family: 'IBM Plex Sans', sans-serif; font-size: 15px; font-weight: 600; color: var(--black); margin-bottom: 8px; }
+    .tl-card p { font-size: 14px; color: var(--text); line-height: 1.75; }
+
+    /* QHSE */
+    .qhse-section { background: var(--bg); padding: 60px 0; }
+    .qhse-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .qhse-text h2 { margin-bottom: 18px; }
+    .qhse-text p { font-size: 15px; line-height: 1.8; color: var(--text); margin-bottom: 12px; }
+    .qhse-list { margin-top: 6px; }
+    .qhse-item {
+      display: flex; gap: 14px; padding: 16px 0;
+      border-bottom: 1px solid var(--border); transition: padding-left 0.25s;
+    }
+    .qhse-item:first-child { border-top: 1px solid var(--border); }
+    .qhse-item:hover { padding-left: 5px; }
+    .qhse-num { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); min-width: 22px; padding-top: 2px; }
+    .qhse-body h4 { font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; font-weight: 600; color: var(--black); margin-bottom: 3px; }
+    .qhse-body p { font-size: 13px; color: var(--text); line-height: 1.7; }
+    .qhse-right img { width: 100%; display: block; }
+    .iso-strip { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--border); }
+    .iso-cell { text-align: center; padding: 14px; border-right: 1px solid var(--border); background: var(--bg-alt); }
+    .iso-cell:last-child { border-right: none; }
+    .iso-cell .ititle { font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); }
+    .iso-cell .isub { font-size: 11px; color: var(--text-light); margin-top: 3px; }
+
+    /* COMMITMENT */
+    .commitment-section { background: var(--bg-alt); padding: 60px 0; }
+    .commitment-section h2 { margin-bottom: 30px; }
+    .commit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 60px; }
+    .commit-grid li {
+      font-size: 15px; line-height: 1.8; color: var(--text);
+      padding: 10px 0 10px 20px; border-bottom: 1px solid var(--border);
+      list-style: none; position: relative;
+    }
+    .commit-grid li::before {
+      content: ''; position: absolute; left: 0; top: 20px;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--gold);
+    }
+
+    /* CERTS */
+    .certs-section { background: var(--bg); padding: 60px 0; }
+    .certs-header { text-align: center; margin-bottom: 40px; }
+    .certs-header h2 { font-family: 'IBM Plex Sans', sans-serif; font-size: 25px; font-weight: 600; color: var(--black); }
+    .certs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 0; }
+    .cert-item {
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px 16px; transition: opacity 0.2s, transform 0.3s; cursor: pointer;
+    }
+    .cert-item:hover { opacity: 0.75; transform: translateY(-3px); }
+    .cert-item img { width: 100%; max-height: 200px; object-fit: contain; display: block; }
+
+    /* AWARDS */
+    .awards-section { background: var(--bg-alt); padding: 60px 0; }
+    .awards-section h2 { margin-bottom: 30px; }
+    .awards-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 17px; }
+    .award-item { cursor: pointer; transition: opacity 0.2s, transform 0.3s; }
+    .award-item:hover { opacity: 0.8; transform: translateY(-3px); }
+    .award-item img { width: 100%; display: block; }
+
+    /* CTA */
+    .cta-section { background: var(--gold); padding: 60px 0; }
+    .cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 30px; }
+    .cta-inner h2 { font-family: 'IBM Plex Sans', sans-serif; font-size: 30px; font-weight: 700; color: #fff; line-height: 1.2; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--bg-dark); color: #fff; text-decoration: none;
+      font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      padding: 16px 32px; border-radius: 4px; white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #111; }
+
+    /* FOOTER */
+    footer { background: var(--bg-dark); position: relative; overflow: hidden; }
+    footer::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url('https://aldali-int.com/wp-content/uploads/2021/08/Aldali-DIC-Footer-Banner.jpg');
+      background-size: cover; opacity: 0.12; pointer-events: none;
+    }
+    .footer-top { position: relative; z-index: 1; padding: 80px 0 0; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1.3fr 1.2fr 1.2fr; gap: 30px 40px; padding-bottom: 40px; }
+    .footer-logo img { max-width: 140px; margin-bottom: 18px; display: block; }
+    .footer-about p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.5); }
+    .footer-socials { display: flex; gap: 14px; margin-top: 18px; }
+    .footer-socials a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: #fff; }
+    .footer-col h5 { font-family: 'IBM Plex Sans', sans-serif; font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 20px; }
+    .footer-col a { display: block; font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; margin-bottom: 9px; transition: color 0.2s; }
+    .footer-col a:hover { color: #fff; }
+    .contact-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 4px; margin-top: 14px; font-family: 'IBM Plex Sans', sans-serif; font-weight: 600; }
+    .contact-label:first-child { margin-top: 0; }
+    .contact-val { font-size: 14px; color: rgba(255,255,255,0.65); }
+    hr.divider { border: none; border-top: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 1; }
+    .footer-bottom { position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: center; padding: 24px 0 28px; }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.35); }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.65); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+
+    /* ANIMATIONS */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s, transform 0.65s; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; } .d2 { transition-delay: 0.2s; } .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; } .d5 { transition-delay: 0.5s; }
+
+    @media (max-width: 1024px) {
+      .story-grid, .vmv-layout, .qhse-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .timeline-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .commit-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 680px) {
+      .main-nav { display: none; }
+      .timeline-grid { grid-template-columns: 1fr; }
+      .certs-grid { grid-template-columns: repeat(2,1fr); }
+      .awards-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr; }
+      .cta-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <img src="dic.png" alt="AL DALI DIC" />
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about-us.html" class="active">About Us</a>
+        <a href="our-services.html">Services</a>
+        <a href="our-partners.html">Our Partners</a>
+        <a href="our-clients.html">Our Clients</a>
+        <a href="contact.html">Contact Us</a>
       </nav>
-    </header>
-    <main>
-      <section class="page-hero">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/Mask-Group-1@2x1.jpg" alt="" />
-        <div><p>Al Dali International - DIC</p><h1>About Us</h1><span>Rising to excellence through energy, infrastructure, equipment, and QHSE-led operations.</span></div>
-      </section>
-      <section class="page-split">
-        <div><p>Rising to Excellence</p><h2>DIC's remarkable journey</h2></div>
+    </div>
+  </header>
+
+  <div class="titlebar">
+    <div class="titlebar-inner">
+      <div>
+        <h1>About Us</h1>
+        <p class="titlebar-sub">Al Dali International - DIC</p>
+      </div>
+      <nav class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span>›</span>
+        <span style="color:#fff">About Us</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- STORY -->
+  <section class="story-section">
+    <div class="container">
+      <div class="story-grid">
+        <div class="reveal">
+          <img src="14.png" alt="DIC" style="width:100%;display:block;" />
+        </div>
         <div>
-          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-About-1.jpg" alt="Al Dali field operations" />
-          <p>Founded in 2003 as a private company offering heavy equipment and machinery support services to industries in Kuwait, DIC has grown into a multi-diversified contractor across the State of Kuwait.</p>
-          <p>With 800+ experienced human assets and 1000+ heavy equipment and machinery assets, DIC is marching toward its vision of becoming a market leader and preferred partner for integrated energy and infrastructure services.</p>
+          <p class="eyebrow reveal">Rising to Excellence: DIC's Remarkable Journey</p>
+          <h2 class="sec-title reveal">Leading Innovation &amp; Growth</h2>
+          <p class="reveal">Founded in 2003 as a private Company offering Heavy Equipment and Machinery support services to the Industries in Kuwait, today DIC has exponentially grown and established itself as one of the most cherished multi diversified contractor across the State of Kuwait.</p>
+          <p class="reveal d1">DIC with dedicated and experienced Human assets of 800+ nos. and with Equipment assets exceeding 1000+ nos. of Heavy Equipment &amp; Machinery along with Innovative technological partners, is marching towards achieving its vision of becoming a market leader and preferred partner for Integrated Energy and Infrastructure sectors services provider closer to the heart of its clients.</p>
         </div>
-      </section>
-      <section class="page-grid three">
-        <article><p>Vision</p><h3>Market leader and preferred business partner.</h3><span>Providing comprehensive, innovative, and competitive solutions that enhance operational and sustainable excellence.</span></article>
-        <article><p>Mission</p><h3>Sustainable growth for clients and stakeholders.</h3><span>Serving clients safely and competitively while building trustworthy customer relationships and shareholder value.</span></article>
-        <article><p>Values</p><h3>Innovation, sustainability, ethics, knowledge.</h3><span>Creating value through adaptability, responsible operations, optimized solutions, and enriched customer experience.</span></article>
-      </section>
-      <section class="page-gallery">
-        <div class="section-title"><span>Our People</span><h2>Our people,<br /><em>our strength.</em></h2></div>
-        <div class="image-grid">
-          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-1-1.jpg" alt="Al Dali team and site work" />
-          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-2.jpg" alt="Al Dali operations" />
-          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-3.jpg" alt="Al Dali project team" />
-          <img src="https://aldali-int.com/wp-content/uploads/2024/10/ALDALI-DIC-ABOUT-4.jpg" alt="Al Dali field execution" />
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal"><span class="stat-num">2003</span><span class="stat-label">Established</span></div>
+        <div class="stat-item reveal d1"><span class="stat-num">800<sup style="font-size:.48em">+</sup></span><span class="stat-label">Human Assets</span></div>
+        <div class="stat-item reveal d2"><span class="stat-num">1000<sup style="font-size:.48em">+</sup></span><span class="stat-label">Equipment Units</span></div>
+        <div class="stat-item reveal d3"><span class="stat-num">3</span><span class="stat-label">ISO Certifications</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISION / MISSION / VALUES -->
+  <section class="vmv-section">
+    <div class="container">
+      <p class="eyebrow reveal">Pioneering Excellence in Energy and Infrastructure</p>
+      <h2 class="sec-title reveal">Innovative &amp; Sustainable Solutions for Growth</h2>
+      <div class="vmv-layout">
+        <div class="reveal">
+          <div class="vmv-tabs-nav">
+            <button class="tab-btn active" data-tab="vision">Vision</button>
+            <button class="tab-btn" data-tab="mission">Mission</button>
+            <button class="tab-btn" data-tab="values">Values</button>
+          </div>
+          <div class="tab-pane active" id="tab-vision">
+            <p>To be recognized as a 'Market Leader and preferred Business Partner' in the Energy and Infrastructure segment providing comprehensive, innovative and competitive solutions to optimally enhance client's Operational &amp; Sustainable Excellence.</p>
+          </div>
+          <div class="tab-pane" id="tab-mission">
+            <ul>
+              <li>Safely and competitively serve the Clients towards their sustainable growth and for all stakeholders.</li>
+              <li>Increasing the Shareholder value through trustworthy Customer relationship and providing quality, reliable services.</li>
+              <li>Enhancing societal value by offering optimal technological and operational solutions reducing the environmental footprint.</li>
+              <li>Be a 'Model service provider' setting a path in providing unique solutions in the Industry promoting a better way of life for all.</li>
+            </ul>
+          </div>
+          <div class="tab-pane" id="tab-values">
+            <ul>
+              <li>We create value through innovation and adaptability to change.</li>
+              <li>We add value acting sustainable in all operational process.</li>
+              <li>We realize value acting ethically and optimized solutions.</li>
+              <li>We distribute value sharing our knowledge and enriching customer experience.</li>
+            </ul>
+          </div>
         </div>
-      </section>
-      <section class="page-split dark">
-        <div><p>QHSE</p><h2>Quality, Health, Safety & Environment</h2></div>
+        <div class="vmv-img reveal d1">
+          <img src="2.png" alt="DIC operations" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEOPLE -->
+  <section class="people-section">
+    <div class="container">
+      <div class="people-header reveal">
+        <h2>Our People, Our Strength</h2>
+        <p>Celebrating the Dedication and Hard Work of Our Team – The Backbone of Our Success Across Sites and Offices.</p>
+      </div>
+      <div class="people-row reveal">
+        <div class="img-cell"><img src="3.png" alt="Al Dali team" /></div>
+        <div class="img-cell"><img src="4.png" alt="Al Dali team" /></div>
+      </div>
+      <div class="people-row reveal">
+        <div class="img-cell"><img src="5.png" alt="Al Dali team" /></div>
+        <div class="img-cell"><img src="2.png" alt="Al Dali team" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section class="timeline-section">
+    <div class="container">
+      <p class="eyebrow reveal">Our Journey</p>
+      <h2 class="sec-title reveal">Two Decades of Growth</h2>
+      <div class="timeline-grid">
+        <div class="tl-card reveal"><div class="tl-year">2003</div><h4>Foundation</h4><p>Established in Kuwait providing heavy equipment and machinery support to local industries.</p></div>
+        <div class="tl-card reveal d1"><div class="tl-year">2008</div><h4>Infrastructure Growth</h4><p>Expanded into construction and infrastructure services, broadening contractor capabilities.</p></div>
+        <div class="tl-card reveal d2"><div class="tl-year">2014</div><h4>Energy Sector Entry</h4><p>Strategic entry into upstream oil field services and key energy sector partnerships.</p></div>
+        <div class="tl-card reveal d3"><div class="tl-year">2018</div><h4>QHSE Recognition</h4><p>Multiple safety awards earned, cementing DIC's reputation as a safety-first contractor.</p></div>
+        <div class="tl-card reveal d4"><div class="tl-year">2021</div><h4>Triple ISO Certification</h4><p>ISO 9001, ISO 14001 &amp; ISO 45001 certifications achieved — world-class standards affirmed.</p></div>
+        <div class="tl-card reveal d5"><div class="tl-year">Now</div><h4>Integrated Contractor</h4><p>800+ people, 1,000+ equipment units, full-suite energy and infrastructure services.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QHSE -->
+  <section class="qhse-section">
+    <div class="container">
+      <div class="qhse-grid">
         <div>
-          <p>QHSE stewardship is ingrained in DIC operations and service delivery. Management, employees, and contractors are responsible for driving a strong QHSE culture through standards, reporting, training, and continuous improvement.</p>
-          <ul><li>Clear QHSE objectives and measurable targets.</li><li>Environmental risk management and climate-related mitigation.</li><li>Strong reporting culture, near-miss investigation, and accident prevention.</li><li>Workforce training, stakeholder communication, and emergency response planning.</li></ul>
+          <p class="eyebrow reveal">Striving for Excellence in Management</p>
+          <h2 class="sec-title reveal">Quality, Health, Safety &amp; Environment</h2>
+          <p class="reveal">DIC's commitment to Quality, Health, Safety, and Environmental stewardship are ingrained in its entire operations. It's visible in its core values and the work it performs and in its people.</p>
+          <p class="reveal">DIC believes that an essential factor in its business growth is the emphasis it places on QHSE. Management and employees are empowered, responsible and accountable for driving a strong QHSE culture by ensuring effective implementation of our standards.</p>
+          <div class="qhse-list">
+            <div class="qhse-item reveal">
+              <div class="qhse-num">01</div>
+              <div class="qhse-body"><h4>Measurable Objectives</h4><p>Clear QHSE targets tied to business performance monitoring for continuous improvements.</p></div>
+            </div>
+            <div class="qhse-item reveal d1">
+              <div class="qhse-num">02</div>
+              <div class="qhse-body"><h4>Environmental Risk Management</h4><p>Identifying, managing, and mitigating environmental risks including climate-related impacts.</p></div>
+            </div>
+            <div class="qhse-item reveal d2">
+              <div class="qhse-num">03</div>
+              <div class="qhse-body"><h4>Strong Reporting Culture</h4><p>No-defects mindset with near-miss investigation and effective accident prevention.</p></div>
+            </div>
+            <div class="qhse-item reveal d3">
+              <div class="qhse-num">04</div>
+              <div class="qhse-body"><h4>Workforce Training &amp; Emergency Response</h4><p>Continuous HSE training and maintained emergency response plans across all sites.</p></div>
+            </div>
+          </div>
         </div>
-      </section>
-      <section class="page-gallery">
-        <div class="section-title"><span>Certificates</span><h2>Quality and<br /><em>certification.</em></h2></div>
-        <div class="certificate-grid">
-          <a href="https://aldali-int.com/wp-content/uploads/2024/09/ISO-9001-2015-min.png"><img src="https://aldali-int.com/wp-content/uploads/2024/09/ISO-9001-2015-min-212x300.png" alt="ISO 9001 2015 certificate" /></a>
-          <a href="https://aldali-int.com/wp-content/uploads/2024/09/ISO-14001-2015-min.png"><img src="https://aldali-int.com/wp-content/uploads/2024/09/ISO-14001-2015-min-212x300.png" alt="ISO 14001 2015 certificate" /></a>
-          <a href="https://aldali-int.com/wp-content/uploads/2024/09/ISO-45001-2018-min.png"><img src="https://aldali-int.com/wp-content/uploads/2024/09/ISO-45001-2018-min-212x300.png" alt="ISO 45001 2018 certificate" /></a>
-          <a href="https://aldali-int.com/wp-content/uploads/2024/09/CERT-6.png"><img src="https://aldali-int.com/wp-content/uploads/2024/09/CERT-6.png" alt="Al Dali certificate" /></a>
-          <a href="https://aldali-int.com/wp-content/uploads/2024/09/CERT-7.png"><img src="https://aldali-int.com/wp-content/uploads/2024/09/CERT-7.png" alt="Al Dali certificate" /></a>
-          <a href="https://aldali-int.com/wp-content/uploads/2024/09/CERT-8.png"><img src="https://aldali-int.com/wp-content/uploads/2024/09/CERT-8.png" alt="Al Dali certificate" /></a>
+        <div class="reveal d1 qhse-right">
+          <img src="4.png" alt="QHSE" />
+          <div class="iso-strip">
+            <div class="iso-cell"><div class="ititle">ISO 9001</div><div class="isub">Quality</div></div>
+            <div class="iso-cell"><div class="ititle">ISO 14001</div><div class="isub">Environment</div></div>
+            <div class="iso-cell"><div class="ititle">ISO 45001</div><div class="isub">Safety</div></div>
+          </div>
         </div>
-      </section>
-    </main>
-  </body>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMITMENT -->
+  <section class="commitment-section">
+    <div class="container">
+      <p class="eyebrow reveal">Striving for Excellence in Quality</p>
+      <h2 class="sec-title reveal" style="margin-bottom:30px;">DIC Demonstration to QHSE Commitment</h2>
+      <ul class="commit-grid">
+        <li class="reveal">Setting clear QHSE objectives and measurable, progressive targets as part of our business performance monitoring for continuous improvements</li>
+        <li class="reveal d1">Identifying, managing, and mitigating environmental risks, including the risks associated with climate change</li>
+        <li class="reveal">Driving HSE behaviors with a "no defects" mindset, and rewarding outstanding HSE performance and initiatives</li>
+        <li class="reveal d1">Eliminating HSE events and accidents with a strong reporting culture and effective investigation of near-misses</li>
+        <li class="reveal">Training its workforce on HSE standards to increase awareness of HSE risks and prevention methods</li>
+        <li class="reveal d1">Effectively communicating with stakeholders its HSE policies, standards, programs and performance</li>
+        <li class="reveal">Protecting the health, safety and security of its workforce at all times</li>
+        <li class="reveal d1">Meeting international, national and customer standards &amp; requirements</li>
+        <li class="reveal">Protecting the environment through responsible planning, providing solutions aimed at decreasing environmental impact and reducing carbon footprint</li>
+        <li class="reveal d1">Ensuring HSE considerations are factored into the design, engineering, and deployment in its products and services</li>
+        <li class="reveal">Maintaining an updated response plan to minimize the effect of any emergency, business disruption, or crisis</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CERTIFICATES -->
+  <section class="certs-section">
+    <div class="container">
+      <div class="certs-header">
+        <p class="eyebrow reveal">Certifications</p>
+        <h2 class="reveal">Quality &amp; Certification</h2>
+      </div>
+      <div class="certs-grid">
+        <div class="cert-item reveal"><img src="6.png" alt="ISO 9001:2015" /></div>
+        <div class="cert-item reveal d1"><img src="7.png" alt="ISO 14001:2015" /></div>
+        <div class="cert-item reveal d2"><img src="8.png" alt="ISO 45001:2018" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AWARDS -->
+  <section class="awards-section">
+    <div class="container">
+      <p class="eyebrow reveal">Recognition</p>
+      <h2 class="sec-title reveal" style="margin-bottom:30px;">Safety Awards &amp; Recognition</h2>
+      <div class="awards-grid">
+        <div class="award-item reveal"><img src="9.png" alt="Safety Award" /></div>
+        <div class="award-item reveal d1"><img src="10.png" alt="Safety Award" /></div>
+        <div class="award-item reveal d2"><img src="11.png" alt="Safety Award" /></div>
+        <div class="award-item reveal d3"><img src="12.png" alt="Safety Award" /></div>
+        <div class="award-item reveal d4"><img src="13.png" alt="Safety Award" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <h2>Ready to partner with Al Dali International?</h2>
+        <a href="contact.html" class="cta-btn">
+          Get In Touch
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <div class="footer-logo">
+              <img src="dic.png" alt="AL DALI DIC" style="filter:brightness(0) invert(1)" />
+            </div>
+            <p>We strive to be the market leader through our core values of innovation, sustainability, and ethical practices, ensuring quality, health, safety, and environmental stewardship in all operations.</p>
+            <div class="footer-socials">
+              <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+              <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 512 512" fill="currentColor"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg></a>
+              <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 448 512" fill="currentColor"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h5>COMMUNICATION</h5>
+            <p class="contact-label">Our Location</p>
+            <p class="contact-val">Ahmadi Corner Complex, 1st Floor, Office #8 &amp; 9, P.O. Box: 3268, Safat 13033, Kuwait</p>
+            <p class="contact-label">Contact Us</p>
+            <p class="contact-val">+965 23984890</p>
+            <p class="contact-label">Email Us</p>
+            <p class="contact-val">info@aldali-int.com</p>
+          </div>
+          <div class="footer-col">
+            <h5>SERVICES</h5>
+            <a href="#">Construction &amp; Maintenance</a>
+            <a href="#">Upstream Oil Field Services</a>
+            <a href="#">Equipment &amp; Machinery</a>
+            <a href="#">Offshore &amp; Marine Services</a>
+            <a href="#">Partnership Representation</a>
+            <a href="#">Medical &amp; Health Services</a>
+            <a href="#">Sustainability Services</a>
+          </div>
+          <div class="footer-col">
+            <h5>QUICK LINKS</h5>
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="our-services.html">Our Services</a>
+            <a href="our-clients.html">Our Clients</a>
+            <a href="our-partners.html">Our Partners</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="divider" />
+    <div class="container">
+      <div class="footer-bottom">
+        <p>Copyright &copy;2024 | Al Dali International. All Rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+      });
+    });
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 40 ? '0 2px 18px rgba(0,0,0,0.1)' : 'none';
+    });
+  </script>
+</body>
 </html>
