@@ -9,246 +9,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --dark:   #111111;
-      --panel:  #181818;
-      --border: #272727;
-      --muted:  #888;
-      --light:  #c8c8c8;
-      --white:  #f0ede8;
-      --accent: #b8a98a;
-      --font-display: 'Bebas Neue', sans-serif;
-      --font-body:    'DM Sans', sans-serif;
+      --dark:#111111; --panel:#181818; --border:#272727; --muted:#888;
+      --light:#c8c8c8; --white:#f0ede8; --accent:#b8a98a;
+      --font-display:'Bebas Neue',sans-serif; --font-body:'DM Sans',sans-serif;
     }
-
-    body {
-      background: var(--dark);
-      color: var(--light);
-      font-family: var(--font-body);
-      font-size: 14px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-
-    /* ── HEADER ── */
-    .page-header {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 58px;
-      background: rgba(11,11,11,0.94);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      text-decoration: none;
-      color: var(--white);
-      font-family: var(--font-display);
-      font-size: 17px;
-      letter-spacing: 0.14em;
-    }
-
-    .brand-icon {
-      width: 26px; height: 26px;
-      border: 1px solid var(--accent);
-      display: grid;
-      place-items: center;
-      font-size: 12px;
-      color: var(--accent);
-    }
-
-    .page-nav {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-
-    .page-nav a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
-    .page-nav a:hover,
-    .page-nav a.active {
-      color: var(--white);
-    }
-
-    /* ── PAGE BANNER ── */
-    .page-banner {
-      margin-top: 58px;
-      padding: 52px 48px 40px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      background: var(--panel);
-    }
-
-    .page-banner h1 {
-      font-family: var(--font-display);
-      font-size: 32px;
-      letter-spacing: 0.08em;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .page-banner p {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 300;
-    }
-
-    .breadcrumb {
-      font-size: 11px;
-      color: var(--muted);
-      letter-spacing: 0.06em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .breadcrumb a {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .breadcrumb a:hover { color: var(--white); }
-
-    .breadcrumb .sep { color: var(--border); }
-
-    .breadcrumb .current { color: var(--accent); }
-
-    /* ── MAIN CONTENT ── */
-    .page-content {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 64px 48px 100px;
-    }
-
-    .clients-label {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .clients-heading {
-      font-family: var(--font-display);
-      font-size: 20px;
-      letter-spacing: 0.07em;
-      color: var(--white);
-      margin-bottom: 36px;
-    }
-
-    /* ── LOGO GRID ── */
-    .logo-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-    }
-
-    .logo-cell {
-      background: var(--panel);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px 24px;
-      min-height: 96px;
-      transition: background 0.22s;
-    }
-
-    .logo-cell:not(.empty):hover {
-      background: #1e1e1e;
-    }
-
-    .logo-cell.empty {
-      pointer-events: none;
-    }
-
-    /* Images: white-ified + dimmed, brighten on hover */
-    .logo-cell img {
-      max-width: 130px;
-      max-height: 48px;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-      filter: brightness(0) invert(1) opacity(0.5);
-      transition: filter 0.25s;
-    }
-
-    .logo-cell:hover img {
-      filter: brightness(0) invert(1) opacity(0.88);
-    }
-
-    /* Text fallback */
-    .logo-cell strong {
-      font-family: var(--font-display);
-      font-size: 15px;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-      transition: color 0.22s;
-      text-align: center;
-    }
-
-    .logo-cell:hover strong {
-      color: var(--white);
-    }
-
-    /* ── FOOTER ── */
-    .page-footer {
-      border-top: 1px solid var(--border);
-      padding: 20px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .page-footer span {
-      font-size: 10px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #444;
-    }
-
-    @media (max-width: 768px) {
-      .page-header { padding: 0 20px; }
-      .page-nav { gap: 14px; }
-      .page-nav a { font-size: 10px; letter-spacing: 0.08em; }
-      .page-banner { padding: 36px 20px 28px; flex-direction: column; gap: 14px; align-items: flex-start; }
-      .page-content { padding: 44px 20px 72px; }
-      .logo-grid { grid-template-columns: repeat(2, 1fr); }
-      .page-footer { padding: 18px 20px; flex-direction: column; gap: 6px; }
+    body { background:var(--dark); color:var(--light); font-family:var(--font-body); font-size:14px; line-height:1.6; -webkit-font-smoothing:antialiased; min-height:100vh; }
+    .page-header { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 48px; height:58px; background:rgba(11,11,11,0.94); backdrop-filter:blur(14px); border-bottom:1px solid var(--border); }
+    .brand { display:flex; align-items:center; gap:9px; text-decoration:none; color:var(--white); font-family:var(--font-display); font-size:17px; letter-spacing:0.14em; }
+    .brand-icon { width:26px; height:26px; border:1px solid var(--accent); display:grid; place-items:center; font-size:12px; color:var(--accent); }
+    .page-nav { display:flex; gap:30px; align-items:center; }
+    .page-nav a { text-decoration:none; color:var(--muted); font-size:11px; letter-spacing:0.13em; text-transform:uppercase; transition:color 0.2s; }
+    .page-nav a:hover,.page-nav a.active { color:var(--white); }
+    .page-banner { margin-top:58px; padding:52px 48px 40px; border-bottom:1px solid var(--border); display:flex; align-items:flex-end; justify-content:space-between; background:var(--panel); }
+    .page-banner h1 { font-family:var(--font-display); font-size:32px; letter-spacing:0.08em; color:var(--white); line-height:1; margin-bottom:6px; }
+    .page-banner p { font-size:12px; color:var(--muted); font-weight:300; }
+    .breadcrumb { font-size:11px; color:var(--muted); letter-spacing:0.06em; display:flex; align-items:center; gap:6px; }
+    .breadcrumb a { color:var(--muted); text-decoration:none; transition:color 0.2s; }
+    .breadcrumb a:hover { color:var(--white); }
+    .breadcrumb .sep { color:var(--border); }
+    .breadcrumb .current { color:var(--accent); }
+    .page-content { max-width:860px; margin:0 auto; padding:64px 48px 100px; }
+    .clients-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+    .clients-heading { font-family:var(--font-display); font-size:20px; letter-spacing:0.07em; color:var(--white); margin-bottom:36px; }
+    .logo-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); }
+    .logo-cell { background:var(--panel); display:flex; align-items:center; justify-content:center; padding:32px 24px; min-height:96px; transition:background 0.22s; }
+    .logo-cell:not(.empty):hover { background:#1e1e1e; }
+    .logo-cell.empty { pointer-events:none; }
+    .logo-cell img { max-width:130px; max-height:48px; width:auto; height:auto; object-fit:contain; filter:brightness(0) invert(1) opacity(0.5); transition:filter 0.25s; }
+    .logo-cell:hover img { filter:brightness(0) invert(1) opacity(0.88); }
+    .page-footer { border-top:1px solid var(--border); padding:20px 48px; display:flex; justify-content:space-between; align-items:center; }
+    .page-footer span { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#444; }
+    @media (max-width:768px) {
+      .page-header { padding:0 20px; } .page-nav { gap:14px; } .page-nav a { font-size:10px; }
+      .page-banner { padding:36px 20px 28px; flex-direction:column; gap:14px; align-items:flex-start; }
+      .page-content { padding:44px 20px 72px; } .logo-grid { grid-template-columns:repeat(2,1fr); }
+      .page-footer { padding:18px 20px; flex-direction:column; gap:6px; }
     }
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
   <header class="page-header">
-    <a class="brand" href="index.html">
-      <span class="brand-icon">D</span>
-      <span>AL DALI</span>
-    </a>
+    <a class="brand" href="index.html"><span class="brand-icon">D</span><span>AL DALI</span></a>
     <nav class="page-nav">
       <a href="index.html">Home</a>
       <a href="about-us.html">About Us</a>
@@ -259,85 +61,33 @@
     </nav>
   </header>
 
-  <!-- PAGE BANNER -->
   <div class="page-banner">
-    <div>
-      <h1>OUR CLIENTS</h1>
-      <p>We are here to answer any question you may have.</p>
-    </div>
-    <div class="breadcrumb">
-      <a href="index.html">Home</a>
-      <span class="sep">›</span>
-      <span class="current">Our Clients</span>
-    </div>
+    <div><h1>OUR CLIENTS</h1><p>We are here to answer any question you may have.</p></div>
+    <div class="breadcrumb"><a href="index.html">Home</a><span class="sep">›</span><span class="current">Our Clients</span></div>
   </div>
 
-  <!-- MAIN -->
   <main class="page-content">
-
     <span class="clients-label">Some of Our Recent Clients</span>
     <h2 class="clients-heading">Serving Over 100 Clients and Counting</h2>
-
     <div class="logo-grid">
-
-      <!-- Row 1: KNPC, KOC, MEW -->
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/knpc-logo.png" alt="KNPC"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'KNPC'}))" />
-      </div>
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/koc-logo.png" alt="KOC"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'KOC'}))" />
-      </div>
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/mew-logo.png" alt="MEW"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'MEW'}))" />
-      </div>
-
-      <!-- Row 2: Kharafi National, KIPIC, Joint Operations -->
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/kharafi-national-logo.png" alt="Kharafi National"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'KHARAFI NATIONAL'}))" />
-      </div>
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/kipic-logo.png" alt="KIPIC"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'KIPIC'}))" />
-      </div>
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/joint-operations-logo.png" alt="Joint Operations"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'JOINT OPERATIONS'}))" />
-      </div>
-
-      <!-- Row 3: Samsung C&T, Schlumberger, Larsen & Toubro -->
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/samsung-ct-logo.png" alt="Samsung C&T"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'SAMSUNG C&T'}))" />
-      </div>
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/schlumberger-logo.png" alt="Schlumberger"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'SCHLUMBERGER'}))" />
-      </div>
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/larsen-toubro-logo.png" alt="Larsen &amp; Toubro"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'LARSEN & TOUBRO'}))" />
-      </div>
-
-      <!-- Row 4: Hyundai + 2 empty -->
-      <div class="logo-cell">
-        <img src="https://aldali-int.com/wp-content/uploads/2021/08/hyundai-logo.png" alt="Hyundai"
-          onerror="this.replaceWith(Object.assign(document.createElement('strong'),{textContent:'HYUNDAI'}))" />
-      </div>
+      <div class="logo-cell"><img src="KNPC.PNG" alt="KNPC" /></div>
+      <div class="logo-cell"><img src="koc1.png" alt="KOC" /></div>
+      <div class="logo-cell"><img src="ministrymain.png" alt="MEW" /></div>
+      <div class="logo-cell"><img src="kharafinational.png" alt="Kharafi National" /></div>
+      <div class="logo-cell"><img src="LIPIC.PNG" alt="KIPIC" /></div>
+      <div class="logo-cell"><img src="CHEVRON.PNG" alt="Joint Operations" /></div>
+      <div class="logo-cell"><img src="samsungc.png" alt="Samsung C&T" /></div>
+      <div class="logo-cell"><img src="sxhlumberger.png" alt="Schlumberger" /></div>
+      <div class="logo-cell"><img src="larsenandtourbo.png" alt="Larsen &amp; Toubro" /></div>
+      <div class="logo-cell"><img src="hyndaiengiand.png" alt="Hyundai" /></div>
       <div class="logo-cell empty"></div>
       <div class="logo-cell empty"></div>
-
     </div>
-
   </main>
 
   <footer class="page-footer">
     <span>© Al Dali International · Kuwait</span>
     <span>glasshaven</span>
   </footer>
-
 </body>
 </html>
