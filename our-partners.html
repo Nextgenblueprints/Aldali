@@ -1,659 +1,277 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Al Dali International</title>
-    <meta
-      name="description"
-      content="Al Dali International landing page for integrated energy, infrastructure, construction, machinery, marine, medical, and sustainability services."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Barlow+Condensed:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-    <style>
-      /* ── CINEMATIC HERO OVERRIDES ── */
-      .hero-copy {
-        justify-content: flex-end !important;
-        padding-bottom: 3rem !important;
-      }
-      .hero-kicker {
-        display: none !important;
-      }
-      #hero-title {
-        font-size: clamp(0.85rem, 1.2vw, 1.1rem) !important;
-        font-family: 'Barlow Condensed', sans-serif !important;
-        font-weight: 400 !important;
-        letter-spacing: 0.35em !important;
-        text-transform: uppercase !important;
-        white-space: nowrap !important;
-        line-height: 1 !important;
-        opacity: 0.85 !important;
-        margin-bottom: 0.6rem !important;
-      }
-      #hero-title br { display: none !important; }
-      #hero-title em {
-        font-style: normal !important;
-        font-weight: 400 !important;
-        opacity: 0.6 !important;
-      }
-      #hero-description {
-        font-size: clamp(0.65rem, 0.85vw, 0.78rem) !important;
-        letter-spacing: 0.18em !important;
-        text-transform: uppercase !important;
-        opacity: 0.4 !important;
-        white-space: nowrap !important;
-        font-weight: 300 !important;
-        margin-bottom: 1.5rem !important;
-      }
-      .hero-slide-controls {
-        gap: 1.5rem !important;
-      }
-      .hero-slide-dot {
-        font-size: 0.62rem !important;
-        letter-spacing: 0.18em !important;
-        opacity: 0.4 !important;
-        text-transform: uppercase !important;
-      }
-      .hero-slide-dot.is-active {
-        opacity: 1 !important;
-      }
-      .scroll-cue {
-        display: none !important;
-      }
-      @media (max-width: 640px) {
-        #hero-title { white-space: normal !important; font-size: 0.9rem !important; }
-        #hero-description { white-space: normal !important; }
-      }
-      .intro-section {
-        padding: 7rem 2rem 6rem;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        background: #0d0d0d;
-      }
-      .intro-inner {
-        max-width: 860px;
-        margin: 0 auto;
-      }
-      .intro-section .section-mark {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 1.6rem;
-      }
-      .intro-section .section-mark span {
-        display: block;
-        width: 32px;
-        height: 1px;
-        background: currentColor;
-        opacity: 0.35;
-      }
-      .intro-section .section-mark p {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: 0.72rem;
-        letter-spacing: 0.26em;
-        text-transform: uppercase;
-        opacity: 0.5;
-      }
-      .intro-section h2 {
-        font-family: 'Barlow Condensed', sans-serif;
-        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        line-height: 1.15;
-        margin-bottom: 2.4rem;
-        color: #fff;
-      }
-      .intro-section h2 em {
-        font-style: normal;
-        opacity: 0.45;
-        font-weight: 300;
-      }
-      .intro-body {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2rem 3rem;
-      }
-      .intro-body p {
-        font-family: 'Barlow', sans-serif;
-        font-size: 0.97rem;
-        font-weight: 300;
-        line-height: 1.8;
-        color: rgba(255, 255, 255, 0.6);
-      }
-      .intro-body p strong {
-        color: #fff;
-        font-weight: 500;
-      }
-      @media (max-width: 640px) {
-        .intro-section { padding: 5rem 1.4rem 4rem; }
-        .intro-body { grid-template-columns: 1fr; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="fixed-hero grain" id="top">
-      <video
-        class="hero-video is-active"
-        src="hero-slide-01.mp4"
-        muted
-        playsinline
-        autoplay
-        loop
-        preload="metadata"
-      ></video>
-      <video class="hero-video" src="hero-slide-02-sustainable.mp4" muted playsinline loop preload="metadata"></video>
-      <video class="hero-video" src="hero-slide-03-offshore-marine.mp4" muted playsinline loop preload="metadata"></video>
-      <video class="hero-video" src="hero-slide-01.mp4" muted playsinline loop preload="metadata"></video>
-      <div class="hero-fallback"></div>
-      <div class="hero-shade"></div>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Partners | Al Dali International</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .inner-hero {
+      padding: clamp(110px, 14vw, 160px) clamp(24px, 6vw, 96px) clamp(60px, 8vw, 90px);
+      background: var(--bg-base);
+      border-bottom: 1px solid rgba(12,12,14,0.08);
+    }
+    .inner-hero .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      color: var(--accent-light);
+      margin-bottom: 18px;
+    }
+    .inner-hero .eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.5;
+    }
+    .inner-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(52px, 9vw, 118px);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      margin: 0 0 20px;
+    }
+    .inner-hero h1 em {
+      font-style: normal;
+      color: var(--muted);
+    }
+    .inner-hero p {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.18em;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 28px;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: rgba(12,12,14,0.35);
+    }
+    .breadcrumb a { color: rgba(12,12,14,0.35); transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--accent); }
+    .breadcrumb .cur { color: var(--accent); }
 
-    <header class="navbar-pill" aria-label="Primary navigation">
-      <a class="brand" href="#top" aria-label="Al Dali International home">
-        <span class="brand-icon" aria-hidden="true">D</span>
-        <span>AL DALI</span>
-      </a>
-      <nav class="nav-links" aria-label="Main menu">
-        <a href="index.html">Home</a>
-        <a href="about-us.html">About Us</a>
-        <div class="nav-dropdown">
-          <a href="our-services.html">Services</a>
-          <div class="nav-dropdown-menu" aria-label="Service pages">
-            <a href="construction-maintenance.html">Construction & Maintenance</a>
-            <a href="equipment-machinery.html">Equipment & Machinery</a>
-            <a href="upstream-oil-field-services.html">Upstream Oil Field</a>
-            <a href="offshore-marine-services.html">Offshore & Marine</a>
-            <a href="partnership-representation.html">Partnership Representation</a>
-            <a href="medical-health-services.html">Medical & Health</a>
-            <a href="sustainability-services.html">Sustainability Services</a>
-          </div>
-        </div>
-        <a href="our-partners.html">Partners</a>
-        <a href="our-clients.html">Clients</a>
-      </nav>
-      <a class="nav-cta" href="#contact">Contact Now</a>
-    </header>
+    /* Partners section */
+    .partners-section {
+      padding: clamp(72px, 9vw, 120px) clamp(24px, 6vw, 96px);
+      background: var(--bg-base);
+    }
+    .partners-intro {
+      max-width: 680px;
+      margin-bottom: 52px;
+    }
+    .partners-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      color: var(--accent-light);
+      margin-bottom: 14px;
+    }
+    .partners-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.5;
+    }
+    .partners-heading {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 66px);
+      font-weight: 400;
+      line-height: 0.94;
+      color: var(--ink);
+      margin: 0 0 16px;
+    }
+    .partners-heading em {
+      font-style: normal;
+      color: var(--muted);
+    }
+    .partners-sub {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.85;
+      letter-spacing: 0.14em;
+      margin: 0;
+    }
 
-    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-      <span class="menu-label">
-        <span>Menu</span>
-        <span>Close</span>
-      </span>
-      <span class="menu-icon" aria-hidden="true">+</span>
-    </button>
+    .partners-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+    .partners-logo-grid .logo-cell {
+      border: 1px solid rgba(12,12,14,0.08);
+      background: var(--white);
+      min-height: 150px;
+      padding: 32px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 0.25s, border-color 0.25s;
+    }
+    .partners-logo-grid .logo-cell:hover {
+      border-color: rgba(28,53,87,0.2);
+      box-shadow: 0 6px 28px rgba(12,12,14,0.07);
+    }
+    .partners-logo-grid .logo-cell.empty { pointer-events: none; }
+    .partners-logo-grid .logo-cell img {
+      max-width: 160px;
+      max-height: 64px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      mix-blend-mode: multiply;
+    }
 
-    <aside class="menu-panel" id="site-menu" aria-hidden="true">
-      <nav class="menu-nav" aria-label="Expanded menu">
-        <a href="index.html">Home</a>
-        <a href="about-us.html">About Us</a>
+    @media (max-width: 680px) {
+      .partners-logo-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar-pill" aria-label="Primary navigation">
+    <a class="brand" href="index.html" aria-label="Al Dali International home">
+      <span class="brand-icon" aria-hidden="true">D</span>
+      <span>AL DALI</span>
+    </a>
+    <nav class="nav-links" aria-label="Main menu">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About Us</a>
+      <div class="nav-dropdown">
         <a href="our-services.html">Services</a>
-        <a href="construction-maintenance.html">Construction & Maintenance</a>
-        <a href="equipment-machinery.html">Equipment & Machinery</a>
-        <a href="upstream-oil-field-services.html">Upstream Oil Field</a>
-        <a href="offshore-marine-services.html">Offshore & Marine</a>
-        <a href="partnership-representation.html">Partnership Representation</a>
-        <a href="medical-health-services.html">Medical & Health</a>
-        <a href="sustainability-services.html">Sustainability Services</a>
-        <a href="our-partners.html">Partners</a>
-        <a href="our-clients.html">Clients</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <div class="menu-socials">
-        <span>Communication</span>
-        <a href="tel:+96523984890">Phone</a>
-        <a href="mailto:info@aldali-int.com">Email</a>
-        <a href="https://aldali-int.com/" target="_blank" rel="noreferrer">Website</a>
-        <a href="https://www.facebook.com/1212595272091178" target="_blank" rel="noopener noreferrer">Facebook</a>
-        <a
-          href="https://www.linkedin.com/search/results/companies/?keywords=Al%20Dali%20International%20For%20General%20Trading%20%26%20Contracting"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          LinkedIn
-        </a>
+        <div class="nav-dropdown-menu">
+          <a href="construction-maintenance.html">Construction &amp; Maintenance</a>
+          <a href="equipment-machinery.html">Equipment &amp; Machinery</a>
+          <a href="upstream-oil-field-services.html">Upstream Oil Field</a>
+          <a href="offshore-marine-services.html">Offshore &amp; Marine</a>
+          <a href="partnership-representation.html">Partnership Representation</a>
+          <a href="medical-health-services.html">Medical &amp; Health</a>
+          <a href="sustainability-services.html">Sustainability Services</a>
+        </div>
       </div>
-    </aside>
+      <a href="our-partners.html">Partners</a>
+      <a href="our-clients.html">Clients</a>
+    </nav>
+    <a class="nav-cta" href="contact.html">Contact Now</a>
+  </header>
 
-    <main>
-      <section class="hero-copy" aria-label="Hero content">
-        <div class="hero-kicker">
-          <span></span>
-          <p id="hero-kicker-text">Integrated energy and infrastructure · est. 2003</p>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+    <span class="menu-label"><span>Menu</span><span>Close</span></span>
+    <span class="menu-icon" aria-hidden="true">+</span>
+  </button>
+
+  <aside class="menu-panel" id="site-menu" aria-hidden="true">
+    <nav class="menu-nav" aria-label="Expanded menu">
+      <a href="index.html">Home</a>
+      <a href="about-us.html">About Us</a>
+      <a href="our-services.html">Services</a>
+      <a href="construction-maintenance.html">Construction &amp; Maintenance</a>
+      <a href="equipment-machinery.html">Equipment &amp; Machinery</a>
+      <a href="upstream-oil-field-services.html">Upstream Oil Field</a>
+      <a href="offshore-marine-services.html">Offshore &amp; Marine</a>
+      <a href="partnership-representation.html">Partnership Representation</a>
+      <a href="medical-health-services.html">Medical &amp; Health</a>
+      <a href="sustainability-services.html">Sustainability Services</a>
+      <a href="our-partners.html">Partners</a>
+      <a href="our-clients.html">Clients</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="menu-socials">
+      <span>Communication</span>
+      <a href="tel:+96523984890">Phone</a>
+      <a href="mailto:info@aldali-int.com">Email</a>
+      <a href="https://www.facebook.com/1212595272091178" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.linkedin.com/search/results/companies/?keywords=Al%20Dali%20International" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </aside>
+
+  <main>
+    <div class="content-shell">
+
+      <!-- PAGE HERO -->
+      <div class="inner-hero">
+        <div class="eyebrow">Al Dali International</div>
+        <h1>Our Partners<br /><em>Empowering growth through strategic global partnerships.</em></h1>
+        <p>Empowering Growth Through Strategic Global Partnerships.</p>
+        <div class="breadcrumb">
+          <a href="index.html">Home</a>
+          <span>›</span>
+          <span class="cur">Our Partners</span>
         </div>
-        <h1 id="hero-title">
-          Market leader<br />
-          <em>preferred</em><br />
-          partner.
-        </h1>
-        <p class="hero-description" id="hero-description">
-          A multi-diversified contractor supporting energy, construction, infrastructure, machinery, marine,
-          healthcare, and sustainability sectors across Kuwait.
-        </p>
-        <div class="hero-slide-controls" role="tablist" aria-label="Hero slides">
-          <button class="hero-slide-dot is-active" type="button" role="tab" aria-selected="true" data-hero-index="0">
-            <strong>Rising to Excellence</strong>
-          </button>
-          <button class="hero-slide-dot" type="button" role="tab" aria-selected="false" data-hero-index="1">
-            <strong>Sustainable Solutions</strong>
-          </button>
-          <button class="hero-slide-dot" type="button" role="tab" aria-selected="false" data-hero-index="2">
-            <strong>Offshore & Marine Excellence</strong>
-          </button>
-          <button class="hero-slide-dot" type="button" role="tab" aria-selected="false" data-hero-index="3">
-            <strong>Quality, Health, Safety & Environment</strong>
-          </button>
+      </div>
+
+      <!-- PARTNERS GRID -->
+      <section class="partners-section">
+        <div class="partners-intro">
+          <div class="partners-eyebrow">Collaborating for Greater Success</div>
+          <h2 class="partners-heading">Building Strong Alliances <em>with Industry Leaders</em></h2>
+          <p class="partners-sub">DIC partners with international organisations to grow and expand their business through business development support, marketing expertise, and growth strategies to deliver innovative solutions.</p>
         </div>
-        <div class="scroll-cue" aria-hidden="true">
-          <span></span>
-          <small>Scroll</small>
+
+        <div class="partners-logo-grid">
+          <div class="logo-cell"><img src="vivakor.png" alt="Vivakor" /></div>
+          <div class="logo-cell"><img src="gruppohera.png" alt="Gruppo Hera" /></div>
+          <div class="logo-cell empty"></div>
         </div>
       </section>
 
-      <div class="content-shell">
-
-        <section class="intro-section" id="about">
-          <div class="intro-inner">
-            <div class="section-mark">
-              <span></span>
-              <p>Welcome</p>
-            </div>
-            <h2>Aldali International Co.<br /><em>for General Trading &amp; Cont. W.L.L</em></h2>
-            <div class="intro-body">
-              <p>
-                Founded in 2003 as a private company offering Heavy Equipment and Machinery support services
-                to the industries in Kuwait, today DIC has exponentially grown and established itself as one
-                of the most cherished multi-diversified contractors across the State of Kuwait. DIC's
-                exponential growth since its modest beginning is a reflection of its commitment to customers,
-                who come year after year.
-              </p>
-              <p>
-                DIC with dedicated and experienced Human assets of <strong>800+</strong> and Equipment assets
-                exceeding <strong>1000+</strong> Heavy Equipment &amp; Machinery, along with innovative
-                technological partners, is marching towards achieving its vision of becoming a market leader
-                and preferred partner for Integrated Energy and Infrastructure sectors — a services provider
-                closer to the heart of its clients.
-              </p>
-            </div>
+      <!-- FOOTER — identical to index.html -->
+      <footer class="site-footer">
+        <video src="hero-slide-03-offshore-marine.mp4" muted playsinline autoplay loop preload="metadata"></video>
+        <div class="footer-shade"></div>
+        <div class="footer-content">
+          <div>
+            <a class="footer-brand" href="index.html">AL DALI</a>
+            <p>A Kuwait-based service partner for integrated energy and infrastructure sectors.</p>
+            <span>Est. 2003 · DIC</span>
           </div>
-        </section>
+          <nav>
+            <p>Navigation</p>
+            <a href="index.html">Home</a>
+            <a href="about-us.html">About Us</a>
+            <a href="our-services.html">Services</a>
+            <a href="our-partners.html">Partners</a>
+            <a href="our-clients.html">Clients</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <address>
+            <p>Communication</p>
+            Ahmadi Corner Complex, 1st Floor, Office # 8 &amp; 9<br />
+            P.O. Box: 3268, Safat 13033, Kuwait<br />
+            <a href="tel:+96523984890">+965 23984890</a><br />
+            <a href="mailto:info@aldali-int.com">info@aldali-int.com</a>
+          </address>
+          <nav class="footer-socials" aria-label="Social media">
+            <p>Social Media</p>
+            <a href="https://www.facebook.com/1212595272091178" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">F</span>Facebook
+            </a>
+            <a href="https://www.linkedin.com/search/results/companies/?keywords=Al%20Dali%20International%20For%20General%20Trading%20%26%20Contracting" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">in</span>LinkedIn
+            </a>
+          </nav>
+        </div>
+      </footer>
 
-        <section class="domains-section" id="domains">
-          <div class="domains-inner">
-            <div class="domains-header">
-              <div class="domains-eyebrow">Al Dali Services</div>
-              <h2 class="domains-title">OUR SERVICES</h2>
-              <p class="domains-subtitle">Master the sector. Master the operation.</p>
-            </div>
-
-            <div class="domains-grid">
-
-              <a href="construction-maintenance.html" class="domain-card">
-                <div class="domain-card-media">
-                  <video autoplay muted loop playsinline preload="auto">
-                    <source src="svc-construction.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="domain-card-body">
-                  <div class="domain-card-label">Domain</div>
-                  <div class="domain-card-title">Construction &amp; Maintenance</div>
-                  <div class="domain-card-desc">Partner of choice for sustainable construction, accelerating the transformation of living environments, infrastructure, and mobility.</div>
-                  <div class="domain-card-arrow">
-                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
-                  </div>
-                </div>
-              </a>
-
-              <a href="equipment-machinery.html" class="domain-card">
-                <div class="domain-card-media">
-                  <video autoplay muted loop playsinline preload="auto">
-                    <source src="svc-equipment.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="domain-card-body">
-                  <div class="domain-card-label">Domain</div>
-                  <div class="domain-card-title">Equipment &amp; Machinery</div>
-                  <div class="domain-card-desc">Heavy equipment, lifting, logistics, and 24/7 support for demanding operational site conditions across Kuwait.</div>
-                  <div class="domain-card-arrow">
-                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
-                  </div>
-                </div>
-              </a>
-
-              <a href="upstream-oil-field-services.html" class="domain-card">
-                <div class="domain-card-media">
-                  <video autoplay muted loop playsinline preload="auto">
-                    <source src="svc-upstream.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="domain-card-body">
-                  <div class="domain-card-label">Domain</div>
-                  <div class="domain-card-title">Upstream Oil Field</div>
-                  <div class="domain-card-desc">Integrated drilling, rig support, completions, and field automation as a reliable Kuwaiti services contractor.</div>
-                  <div class="domain-card-arrow">
-                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
-                  </div>
-                </div>
-              </a>
-
-              <a href="offshore-marine-services.html" class="domain-card">
-                <div class="domain-card-media">
-                  <video autoplay muted loop playsinline preload="auto">
-                    <source src="svc-marine.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="domain-card-body">
-                  <div class="domain-card-label">Domain</div>
-                  <div class="domain-card-title">Offshore &amp; Marine</div>
-                  <div class="domain-card-desc">Marine services, vessel support, crew management, and procurement through experienced offshore partners.</div>
-                  <div class="domain-card-arrow">
-                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
-                  </div>
-                </div>
-              </a>
-
-              <a href="partnership-representation.html" class="domain-card">
-                <div class="domain-card-media">
-                  <video autoplay muted loop playsinline preload="auto">
-                    <source src="svc-partnership.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="domain-card-body">
-                  <div class="domain-card-label">Domain</div>
-                  <div class="domain-card-title">Partnership Representation</div>
-                  <div class="domain-card-desc">Business development, market access, and growth strategy for international organizations entering Kuwait.</div>
-                  <div class="domain-card-arrow">
-                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
-                  </div>
-                </div>
-              </a>
-
-              <a href="medical-health-services.html" class="domain-card">
-                <div class="domain-card-media">
-                  <video autoplay muted loop playsinline preload="auto">
-                    <source src="svc-medical.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="domain-card-body">
-                  <div class="domain-card-label">Domain</div>
-                  <div class="domain-card-title">Medical &amp; Health</div>
-                  <div class="domain-card-desc">Occupational health, risk assessment, and holistic healthcare solutions for complex and ever-changing environments.</div>
-                  <div class="domain-card-arrow">
-                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
-                  </div>
-                </div>
-              </a>
-
-              <a href="sustainability-services.html" class="domain-card">
-                <div class="domain-card-media">
-                  <video autoplay muted loop playsinline preload="auto">
-                    <source src="svc-sustainability.mp4" type="video/mp4">
-                  </video>
-                </div>
-                <div class="domain-card-body">
-                  <div class="domain-card-label">Domain</div>
-                  <div class="domain-card-title">Sustainability Services</div>
-                  <div class="domain-card-desc">Circular carbon economy, renewable energy, and environmental management for pragmatic sustainable growth.</div>
-                  <div class="domain-card-arrow">
-                    <svg viewBox="0 0 12 12"><path d="M2 10 L10 2 M4 2 h6 v6"/></svg>
-                  </div>
-                </div>
-              </a>
-
-            </div>
-
-            <div class="domains-footer">
-              <span class="domains-footer-text">7 Domains &nbsp;·&nbsp; Kuwait &amp; Beyond</span>
-              <a href="our-services.html" class="domains-cta">Explore All Services &#8599;</a>
-            </div>
-          </div>
-        </section>
-
-        <section class="partners-clients" id="partners">
-          <div class="section-title centered">
-            <span>Our Partners</span>
-            <h2>
-              Empowering growth through<br />
-              <em>strategic global partnerships.</em>
-            </h2>
-          </div>
-          <div class="official-partners-copy">
-            <p>Collaborating for Greater Success</p>
-            <h3>Building strong alliances with industry leaders to drive innovation and deliver value.</h3>
-          </div>
-          <div class="partner-slider" aria-label="Al Dali partners and clients">
-            <div class="partner-track">
-              <article class="partner-logo-card partner-image">
-                <img src="https://aldali-int.com/wp-content/uploads/2021/08/image.png" alt="Al Dali DIC symbol" />
-                <span>DIC</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="KNPC.PNG" alt="Kuwait National Petroleum Company" />
-                <span>KNPC</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="koc1.png" alt="Kuwait Oil Company" />
-                <span>KOC</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="ministrymain.png" alt="Ministry of Electricity & Water" />
-                <span>MEW</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="kharafinational.png" alt="Kharafi National" />
-                <span>Kharafi National</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="LIPIC.PNG" alt="KIPIC" />
-                <span>KIPIC</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="CHEVRON.PNG" alt="Chevron KGOC" />
-                <span>Chevron KGOC</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="samsungc.png" alt="Samsung C&T" />
-                <span>Samsung C&amp;T</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="sxhlumberger.png" alt="Schlumberger" />
-                <span>Schlumberger</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="larsenandtourbo.png" alt="Larsen & Toubro" />
-                <span>L&amp;T</span>
-              </article>
-              <article class="partner-logo-card partner-image">
-                <img src="hyndaiengiand.png" alt="Hyundai Engineering & Construction" />
-                <span>Hyundai</span>
-              </article>
-
-              <!-- Duplicate set for seamless infinite scroll -->
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="https://aldali-int.com/wp-content/uploads/2021/08/image.png" alt="" />
-                <span>DIC</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="KNPC.PNG" alt="" />
-                <span>KNPC</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="koc1.png" alt="" />
-                <span>KOC</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="ministrymain.png" alt="" />
-                <span>MEW</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="kharafinational.png" alt="" />
-                <span>Kharafi National</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="LIPIC.PNG" alt="" />
-                <span>KIPIC</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="CHEVRON.PNG" alt="" />
-                <span>Chevron KGOC</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="samsungc.png" alt="" />
-                <span>Samsung C&amp;T</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="sxhlumberger.png" alt="" />
-                <span>Schlumberger</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="larsenandtourbo.png" alt="" />
-                <span>L&amp;T</span>
-              </article>
-              <article class="partner-logo-card partner-image" aria-hidden="true">
-                <img src="hyndaiengiand.png" alt="" />
-                <span>Hyundai</span>
-              </article>
-            </div>
-          </div>
-          <div class="official-partners-copy closing" id="clients">
-            <p>Our Partners</p>
-            <h3>
-              DIC partners with international organizations to grow and expand their business through business
-              development support, marketing expertise, and growth strategies.
-            </h3>
-          </div>
-        </section>
-
-        <section class="contact-panel" id="contact">
-          <div class="section-title centered">
-            <span>Private enquiry</span>
-            <h2>Start a<br /><em>conversation.</em></h2>
-          </div>
-          <form class="contact-form" action="https://formsubmit.co/info@aldali-int.com" method="POST">
-            <input type="hidden" name="_subject" value="New enquiry from Al Dali website" />
-            <input type="hidden" name="_cc" value="sales@aldali-int.com" />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value="https://nextgenblueprints.github.io/Aldali/thank-you.html" />
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="form-honey" />
-            <label>
-              Full Name
-              <input type="text" name="name" autocomplete="name" required />
-            </label>
-            <label>
-              Email Address
-              <input type="email" name="email" autocomplete="email" required />
-            </label>
-            <label>
-              Company
-              <input type="text" name="company" autocomplete="organization" />
-            </label>
-            <label>
-              Service Interest
-              <select name="service">
-                <option>Construction & Maintenance</option>
-                <option>Equipment & Machinery</option>
-                <option>Upstream Oil Field</option>
-                <option>Offshore & Marine</option>
-                <option>Partnership Representation</option>
-                <option>Medical & Health Services</option>
-                <option>Sustainability Services</option>
-              </select>
-            </label>
-            <label class="wide">
-              Project Notes
-              <textarea name="message" rows="4"></textarea>
-            </label>
-            <button type="submit">Contact DIC</button>
-            <p>All enquiries are handled through Al Dali International's communication channels.</p>
-          </form>
-        </section>
-
-        <section class="location-map" id="location">
-          <div class="section-title centered">
-            <span>Our Location</span>
-            <h2>Find us<br /><em>on the map.</em></h2>
-          </div>
-          <div class="map-panel">
-            <div class="map-details">
-              <p>Al Dali International</p>
-              <h3>Ahmadi Corner Complex</h3>
-              <address>
-                1st Floor, Office # 8 &amp; 9<br />
-                P.O. Box: 3268, Safat 13033<br />
-                Kuwait
-              </address>
-              <a href="tel:+96523984890">+965 23984890</a>
-              <a href="mailto:info@aldali-int.com">info@aldali-int.com</a>
-            </div>
-            <iframe
-              title="Al Dali International location map"
-              src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ahmadi%20Corner%20Kuwait&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              allowfullscreen
-            ></iframe>
-          </div>
-        </section>
-
-        <footer class="site-footer">
-          <video src="hero-slide-03-offshore-marine.mp4" muted playsinline autoplay loop preload="metadata"></video>
-          <div class="footer-shade"></div>
-          <div class="footer-content">
-            <div>
-              <a class="footer-brand" href="#top">AL DALI</a>
-              <p>A Kuwait-based service partner for integrated energy and infrastructure sectors.</p>
-              <span>Est. 2003 · DIC</span>
-            </div>
-            <nav>
-              <p>Navigation</p>
-              <a href="index.html">Home</a>
-              <a href="about-us.html">About Us</a>
-              <a href="our-services.html">Services</a>
-              <a href="our-partners.html">Partners</a>
-              <a href="our-clients.html">Clients</a>
-              <a href="contact.html">Contact</a>
-            </nav>
-            <address>
-              <p>Communication</p>
-              Ahmadi Corner Complex, 1st Floor, Office # 8 & 9<br />
-              P.O. Box: 3268, Safat 13033, Kuwait<br />
-              <a href="tel:+96523984890">+965 23984890</a><br />
-              <a href="mailto:info@aldali-int.com">info@aldali-int.com</a>
-            </address>
-            <nav class="footer-socials" aria-label="Social media">
-              <p>Social Media</p>
-              <a href="https://www.facebook.com/1212595272091178" target="_blank" rel="noopener noreferrer">
-                <span aria-hidden="true">F</span>
-                Facebook
-              </a>
-              <a
-                href="https://www.linkedin.com/search/results/companies/?keywords=Al%20Dali%20International%20For%20General%20Trading%20%26%20Contracting"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span aria-hidden="true">in</span>
-                LinkedIn
-              </a>
-            </nav>
-          </div>
-        </footer>
-      </div>
-    </main>
-
-    <div class="cookie-box" role="dialog" aria-label="Privacy notice">
-      <p>Privacy</p>
-      <span>We use minimal analytics to improve your experience. No data is shared with third parties.</span>
-      <div>
-        <button type="button" data-cookie="accept">Accept</button>
-        <button type="button" data-cookie="decline">Decline</button>
-      </div>
     </div>
+  </main>
 
-    <script src="script.js"></script>
-  </body>
+  <script src="script.js"></script>
+</body>
 </html>
