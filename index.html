@@ -1,439 +1,1533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Al Dali International – Integrated Energy & Infrastructure</title>
-  <meta name="description" content="Al Dali International – Integrated energy, infrastructure, construction, machinery, marine, medical, and sustainability services across Kuwait." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="aldali.css?v=20260518200355" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Al Dali International (DIC) — Integrated Energy & Infrastructure | Kuwait</title>
+<meta name="description" content="Al Dali International Co. for General Trading & Contracting W.L.L (DIC). A Kuwaiti multi-diversified contractor since 2003. Energy, Construction, Marine, Drilling, Medical & Sustainability." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Barlow+Condensed:wght@400;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   AL DALI INTERNATIONAL (DIC) — SRMG-INSPIRED EDITORIAL
+   ============================================================ */
+
+:root {
+  --bg-dark: #0A0A0A;
+  --bg-light: #F5F3EE;
+  --gold: #C9A84C;
+  --gold-soft: #e2c673;
+  --white: #FFFFFF;
+  --navy: #0B1828;
+
+  --muted-d: rgba(255,255,255,0.55);
+  --muted-l: rgba(0,0,0,0.55);
+  --border-d: rgba(255,255,255,0.10);
+  --border-l: rgba(0,0,0,0.08);
+
+  --ff-display: 'Cormorant Garamond', Georgia, serif;
+  --ff-cond: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --ff-body: 'Jost', system-ui, -apple-system, sans-serif;
+
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --container: 1320px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--bg-dark);
+  background: var(--bg-light);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img, video, svg { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; background: none; border: none; color: inherit; cursor: pointer; }
+
+.container { max-width: var(--container); margin: 0 auto; padding: 0 32px; }
+
+/* Editorial helpers */
+.eyebrow {
+  font-family: var(--ff-cond);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+.eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--gold);
+  display: inline-block;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.4rem 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s var(--ease), padding 0.3s var(--ease), border-color 0.3s, transform 0.45s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(10,10,10,0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom-color: var(--border-d);
+  padding: 1rem 0;
+}
+.nav.nav-hide { transform: translateY(-110%); }
+
+.nav-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.logo-text {
+  font-family: var(--ff-cond);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.logo-arrow { color: var(--gold); font-family: var(--ff-cond); font-weight: 700; letter-spacing: -0.05em; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  list-style: none;
+}
+.nav-links > li { position: relative; }
+.nav-links > li > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.7rem 1.1rem;
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  position: relative;
+  transition: color 0.25s;
+}
+.nav-links > li > a::after {
+  content: '';
+  position: absolute;
+  left: 1.1rem; right: 1.1rem; bottom: 0.45rem;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s var(--ease);
+}
+.nav-links > li > a:hover { color: var(--gold); }
+.nav-links > li > a:hover::after { transform: scaleX(1); }
+.caret { font-size: 0.6rem; opacity: 0.7; }
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 280px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border-d);
+  padding: 0.6rem 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity 0.3s, transform 0.3s, visibility 0.3s;
+}
+.nav-links > li:hover > .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown a {
+  display: block;
+  padding: 0.7rem 1.4rem;
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: background 0.2s, color 0.2s, padding 0.25s;
+}
+.dropdown a:hover { background: rgba(201,168,76,0.12); color: var(--gold); padding-left: 1.7rem; }
+
+.cta-pill {
+  padding: 0.8rem 1.6rem;
+  background: var(--gold);
+  color: var(--bg-dark);
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: transform 0.3s var(--ease), background 0.3s, box-shadow 0.3s;
+}
+.cta-pill:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px -10px rgba(201,168,76,0.5);
+}
+
+.hamburger {
+  display: none;
+  width: 32px; height: 28px;
+  position: relative;
+}
+.hamburger span {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: var(--white);
+  transition: transform 0.4s var(--ease), opacity 0.25s, top 0.4s;
+}
+.hamburger span:nth-child(1) { top: 4px; }
+.hamburger span:nth-child(2) { top: 13px; }
+.hamburger span:nth-child(3) { top: 22px; }
+.hamburger.open span:nth-child(1) { top: 13px; transform: rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { top: 13px; transform: rotate(-45deg); }
+
+/* Mobile overlay */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-dark);
+  z-index: 99;
+  padding: 100px 32px 40px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: opacity 0.35s, transform 0.35s var(--ease), visibility 0.35s;
+  overflow-y: auto;
+}
+.mobile-menu.open { opacity: 1; visibility: visible; transform: translateY(0); }
+.mobile-menu a {
+  display: block;
+  padding: 1.1rem 0;
+  font-family: var(--ff-cond);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  border-bottom: 1px solid var(--border-d);
+  transition: color 0.25s, padding-left 0.3s;
+}
+.mobile-menu a:hover { color: var(--gold); padding-left: 8px; }
+.mobile-menu a.sub { padding-left: 1.4rem; font-size: 1rem; color: var(--muted-d); }
+.mobile-menu a.sub:hover { padding-left: 1.7rem; color: var(--gold); }
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  background: var(--bg-dark);
+  color: var(--white);
+  overflow: hidden;
+}
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.92) 100%),
+    radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.4) 100%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.hero-eyebrow {
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroIn 0.9s var(--ease) 0.2s forwards;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 56px; height: 1px;
+  background: var(--gold);
+}
+.hero h1 {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: clamp(3.2rem, 9vw, 8rem);
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+  color: var(--white);
+  margin-bottom: 1.6rem;
+  max-width: 1100px;
+}
+.hero h1 .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(50px);
+}
+.hero h1 .line.l1 { animation: heroIn 1s var(--ease) 0.45s forwards; }
+.hero h1 .line.l2 { animation: heroIn 1s var(--ease) 0.65s forwards; }
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 700;
+}
+.hero-desc {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.8;
+  color: rgba(255,255,255,0.78);
+  max-width: 600px;
+  margin-bottom: 2.4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroIn 0.9s var(--ease) 0.85s forwards;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroIn 0.9s var(--ease) 1.05s forwards;
+}
+.hero-actions .btn {
+  padding: 1rem 2rem;
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  transition: all 0.35s var(--ease);
+  display: inline-flex; align-items: center; gap: 0.7rem;
+}
+.btn-gold { background: var(--gold); color: var(--bg-dark); }
+.btn-gold:hover { background: var(--gold-soft); transform: translateY(-2px); box-shadow: 0 18px 36px -12px rgba(201,168,76,0.55); }
+.btn-ghost { border: 1px solid rgba(255,255,255,0.45); color: var(--white); background: transparent; }
+.btn-ghost:hover { background: var(--white); color: var(--bg-dark); border-color: var(--white); }
+.btn .arr { font-family: var(--ff-cond); font-weight: 700; transition: transform 0.3s var(--ease); }
+.btn:hover .arr { transform: translateX(4px); }
+
+@keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+/* Hero marquee bar */
+.hero-marquee {
+  position: absolute;
+  bottom: 90px;
+  left: 0; right: 0;
+  z-index: 2;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 1rem 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  overflow: hidden;
+}
+.hero-marquee .track {
+  display: flex;
+  width: max-content;
+  animation: slideLeft 38s linear infinite;
+  font-family: var(--ff-cond);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.hero-marquee .track span { padding-right: 0; }
+@keyframes slideLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* Slide controls */
+.hero-controls {
+  position: absolute;
+  right: 32px;
+  bottom: 28px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.slide-counter {
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: rgba(255,255,255,0.85);
+}
+.slide-counter .total { color: var(--muted-d); }
+.slide-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(0,0,0,0.3);
+  color: var(--white);
+  font-size: 1.1rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: all 0.3s var(--ease);
+}
+.slide-btn:hover { background: var(--gold); color: var(--bg-dark); border-color: var(--gold); transform: scale(1.06); }
+.slide-dots {
+  position: absolute;
+  left: 32px;
+  bottom: 36px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+}
+.slide-dots button {
+  width: 28px; height: 2px;
+  background: rgba(255,255,255,0.3);
+  transition: background 0.3s, width 0.3s;
+}
+.slide-dots button.active { background: var(--gold); width: 48px; }
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+.about {
+  background: var(--bg-light);
+  padding: 8rem 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.about h2 {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--bg-dark);
+  margin-top: 1.2rem;
+}
+.about .gold-rule {
+  width: 60px; height: 2px;
+  background: var(--gold);
+  margin: 1.6rem 0 2rem;
+}
+.about-stats {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.stat-pill {
+  background: var(--white);
+  border: 1px solid var(--border-l);
+  padding: 1rem 1.6rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  border-radius: 2px;
+}
+.stat-pill .n {
+  font-family: var(--ff-cond);
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.02em;
+}
+.stat-pill .lbl {
+  font-family: var(--ff-cond);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-l);
+}
+.about-body p {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 0.97rem;
+  line-height: 1.9;
+  color: rgba(0,0,0,0.7);
+  margin-bottom: 1.2rem;
+}
+.about-body strong { color: var(--bg-dark); font-weight: 500; }
+
+/* ============================================================
+   SERVICES (Dark grid)
+   ============================================================ */
+.services {
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: 8rem 0;
+}
+.section-head {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+}
+.section-head h2 {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 1.4rem 0 1rem;
+}
+.section-head h2.dark { color: var(--bg-dark); }
+.section-head .sub {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.55);
+  font-style: italic;
+}
+.section-head h2.dark + .sub { color: var(--muted-l); }
+.gold-sep {
+  width: 100px; height: 1px;
+  background: var(--gold);
+  margin: 2rem auto 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1px;
+  background: var(--gold);
+  border: 1px solid var(--gold);
+}
+.service-card {
+  background: #111;
+  padding: 2.2rem;
+  position: relative;
+  transition: background 0.35s var(--ease), border-left-color 0.35s;
+  border-left: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  min-height: 320px;
+}
+.service-card:hover {
+  background: #1a1a1a;
+  border-left-color: var(--gold);
+}
+.service-card .num {
+  font-family: var(--ff-cond);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+.service-card .icon {
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  filter: hue-rotate(0deg);
+  line-height: 1;
+}
+.service-card h3 {
+  font-family: var(--ff-cond);
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.9rem;
+}
+.service-card p {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 1.4rem;
+  flex: 1;
+}
+.service-card .explore {
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 0.3s, transform 0.3s var(--ease);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.service-card:hover .explore { opacity: 1; transform: translateX(0); }
+
+.services-foot {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
+}
+.services-foot a {
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+  transition: gap 0.3s;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.services-foot a:hover { gap: 1rem; }
+
+/* ============================================================
+   STATS BAND
+   ============================================================ */
+.stats-band {
+  background: linear-gradient(135deg, #0A0A0A 0%, #1a1200 50%, #0A0A0A 100%);
+  border-top: 1px solid rgba(201,168,76,0.2);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  padding: 4rem 2rem;
+}
+.stats-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.stat {
+  text-align: center;
+  position: relative;
+  padding: 0 1.5rem;
+  flex: 1;
+  min-width: 160px;
+}
+.stat:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 18%; bottom: 18%;
+  width: 1px;
+  background: rgba(201,168,76,0.25);
+}
+.stat .num {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  color: var(--gold);
+  line-height: 1;
+  display: inline-flex;
+  align-items: baseline;
+}
+.stat .num em { font-style: normal; font-size: 0.6em; margin-left: 0.05em; }
+.stat .label {
+  display: block;
+  margin-top: 0.7rem;
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ============================================================
+   CLIENTS / PARTNERS
+   ============================================================ */
+.clients {
+  background: var(--bg-light);
+  padding: 7rem 0;
+}
+.client-marquee {
+  margin-top: 3.5rem;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.client-track {
+  display: flex;
+  width: max-content;
+  animation: slideLeft 28s linear infinite;
+}
+.client-cell {
+  background: var(--white);
+  border-radius: 4px;
+  padding: 1rem 1.8rem;
+  margin: 0 0.6rem;
+  height: 90px;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-l);
+  flex-shrink: 0;
+}
+.client-cell img {
+  max-height: 60px;
+  max-width: 140px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.85;
+  transition: filter 0.4s, opacity 0.4s;
+}
+.client-cell:hover img { filter: grayscale(0); opacity: 1; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact {
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: 8rem 0;
+}
+.contact-form {
+  max-width: 680px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+.contact-form .full { grid-column: 1 / -1; }
+.contact-form label {
+  display: block;
+  font-family: var(--ff-cond);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.5rem;
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  border-radius: 2px;
+  padding: 0.85rem 1rem;
+  font-family: var(--ff-body);
+  font-size: 0.95rem;
+  transition: border-color 0.25s, background 0.25s;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.07);
+}
+.contact-form textarea { min-height: 140px; resize: vertical; }
+.contact-form select option { background: var(--bg-dark); color: var(--white); }
+.honey { position: absolute; opacity: 0; pointer-events: none; height: 0; width: 0; }
+.submit-btn {
+  width: 100%;
+  padding: 1.1rem 2rem;
+  background: var(--gold);
+  color: var(--bg-dark);
+  font-family: var(--ff-cond);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: all 0.35s var(--ease);
+  margin-top: 0.5rem;
+}
+.submit-btn:hover {
+  background: var(--gold-soft);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px -12px rgba(201,168,76,0.55);
+}
+.form-note {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  margin-top: 0.4rem;
+}
+
+/* ============================================================
+   MAP
+   ============================================================ */
+.map-section {
+  background: var(--bg-light);
+  padding: 6rem 0;
+}
+.map-panel {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background: var(--white);
+  border: 1px solid var(--border-l);
+  overflow: hidden;
+}
+.map-info {
+  background: var(--navy);
+  color: var(--white);
+  padding: 2rem;
+}
+.map-info .lbl {
+  font-family: var(--ff-cond);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+  display: block;
+}
+.map-info h3 {
+  font-family: var(--ff-cond);
+  font-weight: 700;
+  font-size: 1.3rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+}
+.map-info address {
+  font-family: var(--ff-body);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.65);
+}
+.map-info address span { display: block; }
+.map-info .link {
+  display: block;
+  color: var(--gold);
+  margin-top: 0.5rem;
+  font-weight: 400;
+  transition: color 0.25s;
+}
+.map-info .link:hover { color: var(--gold-soft); }
+.map-panel iframe { width: 100%; height: 380px; border: none; display: block; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--bg-dark);
+  color: var(--white);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 4rem 0 1.5rem;
+}
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid rgba(201,168,76,0.25);
+  margin-bottom: 3rem;
+}
+.footer-top .right {
+  font-family: var(--ff-cond);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+.footer-col .col-lbl {
+  font-family: var(--ff-cond);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.4rem;
+  display: block;
+}
+.footer-col p,
+.footer-col address {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.55);
+  font-style: normal;
+}
+.footer-col .tag {
+  display: inline-block;
+  margin-top: 1rem;
+  font-family: var(--ff-cond);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: var(--gold);
+}
+.footer-col nav { display: flex; flex-direction: column; gap: 0.7rem; }
+.footer-col nav a {
+  font-family: var(--ff-body);
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.25s, padding-left 0.3s;
+}
+.footer-col nav a:hover { color: var(--gold); padding-left: 6px; }
+.footer-col address a { color: var(--gold); transition: color 0.25s; }
+.footer-col address a:hover { color: var(--gold-soft); }
+.social-icons { display: flex; gap: 0.6rem; }
+.social-icons a {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--ff-cond);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.65);
+  transition: all 0.3s var(--ease);
+}
+.social-icons a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-3px);
+}
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.3);
+}
+.footer-bottom .legal { display: flex; gap: 1.4rem; }
+.footer-bottom .legal a { transition: color 0.25s; }
+.footer-bottom .legal a:hover { color: var(--gold); }
+
+/* ============================================================
+   REVEAL ANIMATIONS
+   ============================================================ */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal[data-delay="100"] { transition-delay: 0.1s; }
+.reveal[data-delay="200"] { transition-delay: 0.2s; }
+.reveal[data-delay="300"] { transition-delay: 0.3s; }
+.reveal[data-delay="400"] { transition-delay: 0.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01s !important; transition-duration: 0.01s !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .nav-links, .nav .cta-pill { display: none; }
+  .hamburger { display: block; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-cols { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .map-panel { grid-template-columns: 1fr; }
+  .hero-marquee { bottom: 120px; }
+  .hero-controls { bottom: 60px; right: 24px; }
+  .slide-dots { bottom: 70px; left: 24px; }
+}
+@media (max-width: 640px) {
+  .container, .nav-inner { padding: 0 22px; }
+  .about, .services, .clients, .contact, .map-section { padding: 5rem 0; }
+  .stats-band { padding: 3rem 1rem; }
+  .stat:not(:last-child)::after { display: none; }
+  .footer-cols { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+  .footer-bottom { flex-direction: column; }
+  .hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .hero-marquee .track { font-size: 0.7rem; }
+  .contact-form { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
-  <!-- ═══ NAVBAR ═══ -->
-  <header class="nav" id="top">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo">
-        <img src="Screenshot__689_-removebg-preview (1).png" alt="Al Dali International" onerror="this.style.display='none'" />
-        <span class="bar"></span>
-        <span class="tag">Est. 2003</span>
-      </a>
+<!-- ═══════════════ NAVBAR ═══════════════ -->
+<header class="nav" id="topNav">
+  <div class="nav-inner">
+    <a href="#top" class="logo-text" aria-label="DIC home">
+      <span class="logo-arrow">&#10095;&#10095;</span> DIC
+    </a>
 
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about-us.html">About</a></li>
-        <li>
-          <a href="our-services.html">Services</a>
-          <div class="nav-dropdown">
-            <a href="construction-maintenance.html">Construction & Maintenance</a>
-            <a href="equipment-machinery.html">Equipment & Machinery</a>
-            <a href="upstream-oil-field-services.html">Upstream Oil Field</a>
-            <a href="offshore-marine-services.html">Offshore & Marine</a>
-            <a href="partnership-representation.html">Partnership Representation</a>
-            <a href="medical-health-services.html">Medical & Health</a>
-            <a href="sustainability-services.html">Sustainability</a>
-          </div>
-        </li>
-        <li><a href="our-partners.html">Partners</a></li>
-        <li><a href="our-clients.html">Clients</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="careers.html">Careers</a></li>
-        <li><a href="csr.html">CSR</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+    <ul class="nav-links">
+      <li><a href="#top">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li>
+        <a href="#services">Services <span class="caret">&#9662;</span></a>
+        <div class="dropdown">
+          <a href="#services">Construction &amp; Maintenance</a>
+          <a href="#services">Equipment &amp; Machinery</a>
+          <a href="#services">Upstream Oil Field</a>
+          <a href="#services">Offshore &amp; Marine</a>
+          <a href="#services">Partnership Representation</a>
+          <a href="#services">Medical &amp; Health</a>
+          <a href="#services">Sustainability Services</a>
+        </div>
+      </li>
+      <li><a href="#clients">Our Partners</a></li>
+      <li><a href="#clients">Our Clients</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
 
-      <a href="contact.html" class="nav-cta">Get in Touch</a>
+    <a href="#contact" class="cta-pill">Contact Now</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+<!-- Mobile menu overlay -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+  <a href="#top">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#services">Services</a>
+  <a href="#services" class="sub">Construction &amp; Maintenance</a>
+  <a href="#services" class="sub">Equipment &amp; Machinery</a>
+  <a href="#services" class="sub">Upstream Oil Field</a>
+  <a href="#services" class="sub">Offshore &amp; Marine</a>
+  <a href="#services" class="sub">Partnership Representation</a>
+  <a href="#services" class="sub">Medical &amp; Health</a>
+  <a href="#services" class="sub">Sustainability Services</a>
+  <a href="#clients">Our Partners</a>
+  <a href="#clients">Our Clients</a>
+  <a href="#contact">Contact Us</a>
+</nav>
 
-  <!-- Mobile Nav -->
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="about-us.html">About</a>
-    <a href="our-services.html">Services</a>
-    <a href="construction-maintenance.html" class="sub">Construction & Maintenance</a>
-    <a href="equipment-machinery.html" class="sub">Equipment & Machinery</a>
-    <a href="upstream-oil-field-services.html" class="sub">Upstream Oil Field</a>
-    <a href="offshore-marine-services.html" class="sub">Offshore & Marine</a>
-    <a href="partnership-representation.html" class="sub">Partnership Representation</a>
-    <a href="medical-health-services.html" class="sub">Medical & Health</a>
-    <a href="sustainability-services.html" class="sub">Sustainability</a>
-    <a href="our-partners.html">Partners</a>
-    <a href="our-clients.html">Clients</a>
-    <a href="news.html">News</a>
-    <a href="careers.html">Careers</a>
-    <a href="csr.html">CSR</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<main>
 
-  <!-- ═══ HERO (SRMG black-hero with rotating word) ═══ -->
-  <section class="hero-srmg">
-    <div class="hero-srmg-bg">
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero" id="top">
+  <div class="hero-slides" id="heroSlides">
+    <!-- Replace src with actual video files -->
+    <div class="hero-slide active">
       <video autoplay muted loop playsinline preload="auto">
         <source src="hero-slide-01.mp4" type="video/mp4" />
       </video>
-      <div class="hero-srmg-overlay"></div>
     </div>
-    <div class="hero-srmg-inner">
-      <p class="hero-srmg-label">Integrated Energy &amp; Infrastructure · Kuwait · Est. 2003</p>
-      <h1 class="hero-srmg-title">
-        <span class="we-are">We Are</span>
-        <span class="rotator" id="heroRotator">
-          <span class="word active">Kuwait's Trusted Partner</span>
-          <span class="word">Energy Specialists</span>
-          <span class="word">Infrastructure Builders</span>
-          <span class="word">Marine Operators</span>
-          <span class="word">Drilling Experts</span>
-        </span>
-      </h1>
-      <div class="hero-srmg-bottom">
-        <p class="hero-srmg-desc">
-          Supporting the Nation's key sectors with innovative services in Energy, Construction, Infrastructure &amp; Mobility — for over two decades.
-        </p>
-        <div class="hero-srmg-actions">
-          <a href="contact.html" class="btn btn-gold">Get in Touch <span class="arrow">→</span></a>
-          <a href="about-us.html" class="btn btn-light">Learn More <span class="arrow">→</span></a>
-        </div>
-      </div>
+    <div class="hero-slide">
+      <video muted loop playsinline preload="metadata">
+        <source src="hero-slide-02-sustainable.mp4" type="video/mp4" />
+      </video>
     </div>
+    <div class="hero-slide">
+      <video muted loop playsinline preload="metadata">
+        <source src="hero-slide-03-offshore-marine.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="hero-slide">
+      <video muted loop playsinline preload="metadata">
+        <source src="svc-construction.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
 
-    <div class="hero-srmg-marquee">
-      <div class="track">
-        <span>800+ Employees · 1000+ Equipment · 20+ Years · 7 Business Domains · 50+ Long-Term Clients · </span>
-        <span>800+ Employees · 1000+ Equipment · 20+ Years · 7 Business Domains · 50+ Long-Term Clients · </span>
-        <span>800+ Employees · 1000+ Equipment · 20+ Years · 7 Business Domains · 50+ Long-Term Clients · </span>
-      </div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Al Dali International &middot; Kuwait &middot; Est. 2003</span>
+    <h1>
+      <span class="line l1">Integrated Energy</span>
+      <span class="line l2">&amp; <em>Infrastructure</em></span>
+    </h1>
+    <p class="hero-desc">
+      Supporting the Nation&rsquo;s key sectors with innovative services in Energy, Construction, Infrastructure and Mobility &mdash; for over two decades. DIC is one of the most diversified contractors across the State of Kuwait.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-gold">Get in Touch <span class="arr">&rarr;</span></a>
+      <a href="#about" class="btn btn-ghost">Learn More <span class="arr">&rarr;</span></a>
     </div>
+  </div>
 
-    <div class="hero-scroll">
-      <span class="line"></span>
-      Scroll
+  <div class="hero-marquee" aria-hidden="true">
+    <div class="track">
+      <span>800+ Professionals &middot; 1000+ Heavy Equipment &middot; Est. 2003 &middot; Kuwait &amp; Beyond &middot; 7 Business Domains &middot;&nbsp;</span>
+      <span>800+ Professionals &middot; 1000+ Heavy Equipment &middot; Est. 2003 &middot; Kuwait &amp; Beyond &middot; 7 Business Domains &middot;&nbsp;</span>
+      <span>800+ Professionals &middot; 1000+ Heavy Equipment &middot; Est. 2003 &middot; Kuwait &amp; Beyond &middot; 7 Business Domains &middot;&nbsp;</span>
     </div>
-  </section>
+  </div>
 
-  <!-- ═══ ABOUT (SRMG about-us style) ═══ -->
-  <section class="about" id="about">
-    <div class="about-inner">
-      <div class="about-label">About Us</div>
-      <div class="about-content">
-        <p class="about-pre">For over 20 years, we've been in the business of</p>
-        <h2 class="about-headline">
-          Empowering
-          <span class="of-block">Kuwait's</span>
-          <em>Economic Growth</em>
+  <div class="slide-dots" role="tablist" id="slideDots">
+    <button class="active" data-slide="0" role="tab" aria-label="Slide 1"></button>
+    <button data-slide="1" role="tab" aria-label="Slide 2"></button>
+    <button data-slide="2" role="tab" aria-label="Slide 3"></button>
+    <button data-slide="3" role="tab" aria-label="Slide 4"></button>
+  </div>
+  <div class="hero-controls">
+    <span class="slide-counter"><span id="slideCur">01</span> <span class="total">/ 04</span></span>
+    <button class="slide-btn" id="slidePrev" aria-label="Previous slide">&larr;</button>
+    <button class="slide-btn" id="slideNext" aria-label="Next slide">&rarr;</button>
+  </div>
+</section>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <span class="eyebrow reveal">Welcome</span>
+        <h2 class="reveal" data-delay="100">
+          Al Dali International<br/>
+          General Trading &amp;<br/>
+          <em style="font-style:italic;color:var(--gold);font-weight:700;">Contracting W.L.L</em>
         </h2>
-        <p class="about-body">
-          Founded in 2003 as a private company offering Heavy Equipment and Machinery support services to the industries in Kuwait, today DIC has exponentially grown and established itself as one of the most cherished multi-diversified contractors across the State of Kuwait. DIC's exponential growth since its modest beginning is a reflection of its commitment to customers, who come year after year.
+        <div class="gold-rule reveal" data-delay="200"></div>
+        <div class="about-stats reveal" data-delay="300">
+          <div class="stat-pill"><span class="n" data-count="800">800</span><span class="lbl">Human Assets</span></div>
+          <div class="stat-pill"><span class="n" data-count="1000">1000</span><span class="lbl">Equipment</span></div>
+        </div>
+      </div>
+      <div class="about-body">
+        <p class="reveal" data-delay="100">
+          Founded in 2003 as a private company offering Heavy Equipment and Machinery support services to industries in Kuwait, DIC has exponentially grown and established itself as one of the most cherished multi-diversified contractors across the State of Kuwait.
         </p>
-        <p class="about-body">
-          DIC with dedicated and experienced Human assets of <strong>800+</strong> and Equipment assets exceeding <strong>1000+</strong> Heavy Equipment & Machinery, along with innovative technological partners, is marching towards achieving its vision of becoming a market leader and preferred partner for Integrated Energy and Infrastructure sectors.
+        <p class="reveal" data-delay="200">
+          With dedicated and experienced Human assets of <strong>800+</strong> and Equipment assets exceeding <strong>1000+</strong> Heavy Equipment &amp; Machinery, along with innovative technological partners, DIC is marching towards achieving its vision of becoming a market leader and preferred partner for Integrated Energy and Infrastructure sectors.
         </p>
-        <div class="about-cta-row">
-          <a href="about-us.html" class="btn btn-primary">Learn More <span class="arrow">→</span></a>
-          <a href="our-services.html" class="text-link">Our Services →</a>
-        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ═══ SERVICES (SRMG Latest News card style with videos) ═══ -->
-  <section class="news" id="services">
-    <div class="news-header">
-      <div class="left">
-        <p class="news-pre">Our Services</p>
-        <h2 class="news-title">Business<br/><em>Domains</em></h2>
+<!-- ═══════════════ SERVICES ═══════════════ -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Al Dali Services</span>
+      <h2 class="reveal" data-delay="100">Business Domains</h2>
+      <p class="sub reveal" data-delay="200">Marching towards Sustainable Excellence through Adaptive Business Strategy</p>
+      <div class="gold-sep reveal" data-delay="300"></div>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card reveal" data-delay="100">
+        <span class="num">01</span>
+        <span class="icon">&#127959;</span>
+        <h3>Construction &amp; Maintenance</h3>
+        <p>DIC prefers to be a partner of choice for Sustainable construction, accelerating the transformation of living environments, infrastructure and mobility.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </article>
+
+      <article class="service-card reveal" data-delay="200">
+        <span class="num">02</span>
+        <span class="icon">&#9881;</span>
+        <h3>Equipment &amp; Machinery</h3>
+        <p>Clients in Kuwait choose DIC as their partner for Logistics, equipment and machinery services to achieve operational excellence.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </article>
+
+      <article class="service-card reveal" data-delay="300">
+        <span class="num">03</span>
+        <span class="icon">&#128737;</span>
+        <h3>Upstream Oil Field</h3>
+        <p>DIC is expanding its Upstream Oil Field services to offer Integrated drilling services, leveraging its position as a trusted Kuwaiti contractor.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </article>
+
+      <article class="service-card reveal" data-delay="100">
+        <span class="num">04</span>
+        <span class="icon">&#9875;</span>
+        <h3>Offshore &amp; Marine</h3>
+        <p>With high-profile experienced partners, DIC offers Marine services and equipment ensuring even the biggest offshore jobs are executed safely.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </article>
+
+      <article class="service-card reveal" data-delay="200">
+        <span class="num">05</span>
+        <span class="icon">&#129309;</span>
+        <h3>Partnership Representation</h3>
+        <p>DIC partners with international organisations, providing business development support, marketing expertise and growth strategies.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </article>
+
+      <article class="service-card reveal" data-delay="300">
+        <span class="num">06</span>
+        <span class="icon">&#127973;</span>
+        <h3>Medical &amp; Health</h3>
+        <p>With professional background in Healthcare, DIC provides holistic services that fit the complexities of an ever-changing environment.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </article>
+
+      <article class="service-card reveal" data-delay="400">
+        <span class="num">07</span>
+        <span class="icon">&#127793;</span>
+        <h3>Sustainability Services</h3>
+        <p>Circular carbon economy, renewable energy, and environmental management for pragmatic sustainable growth.</p>
+        <span class="explore">Explore <span>&rarr;</span></span>
+      </article>
+    </div>
+
+    <div class="services-foot reveal">
+      <a href="#contact">Explore All Services <span>&rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ STATS BAND ═══════════════ -->
+<section class="stats-band" id="statsBand">
+  <div class="stats-inner">
+    <div class="stat"><span class="num"><span data-count="800">0</span><em>+</em></span><span class="label">Human Assets</span></div>
+    <div class="stat"><span class="num"><span data-count="1000">0</span><em>+</em></span><span class="label">Equipment Assets</span></div>
+    <div class="stat"><span class="num"><span data-count="20">0</span><em>+</em></span><span class="label">Years of Excellence</span></div>
+    <div class="stat"><span class="num"><span data-count="7">0</span></span><span class="label">Business Domains</span></div>
+  </div>
+</section>
+
+<!-- ═══════════════ CLIENTS / PARTNERS ═══════════════ -->
+<section class="clients" id="clients">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Our Clients</span>
+      <h2 class="dark reveal" data-delay="100">Valued Partners &amp; Clients</h2>
+      <p class="sub reveal" data-delay="200">Collaborating for Greater Success</p>
+      <div class="gold-sep reveal" data-delay="300"></div>
+    </div>
+  </div>
+  <!-- Replace logo src with correct paths or CDN URLs -->
+  <div class="client-marquee">
+    <div class="client-track" id="clientTrack">
+      <div class="client-cell"><img src="KNPC.PNG" alt="KNPC" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="koc1.png" alt="Kuwait Oil Company" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="ministrymain.png" alt="Ministry of Electricity & Water" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="kharafinational.png" alt="Kharafi National" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="LIPIC.PNG" alt="KIPIC" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="CHEVRON.PNG" alt="Chevron KGOC" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="samsungc.png" alt="Samsung C&T" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="sxhlumberger.png" alt="Schlumberger" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="larsenandtourbo.png" alt="Larsen & Toubro" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="hyndaiengiand.png" alt="Hyundai" onerror="this.style.display='none'" /></div>
+      <!-- duplicate set -->
+      <div class="client-cell"><img src="KNPC.PNG" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="koc1.png" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="ministrymain.png" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="kharafinational.png" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="LIPIC.PNG" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="CHEVRON.PNG" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="samsungc.png" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="sxhlumberger.png" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="larsenandtourbo.png" alt="" onerror="this.style.display='none'" /></div>
+      <div class="client-cell"><img src="hyndaiengiand.png" alt="" onerror="this.style.display='none'" /></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow reveal">Private Enquiry</span>
+      <h2 class="reveal" data-delay="100">Start a Conversation</h2>
+      <div class="gold-sep reveal" data-delay="200"></div>
+    </div>
+
+    <form class="contact-form reveal" data-delay="200" method="POST" action="https://formsubmit.co/info@aldali-int.com" autocomplete="on">
+      <input type="hidden" name="_subject" value="DIC Website Enquiry" />
+      <input type="hidden" name="_cc" value="sales@aldali-int.com" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+
+      <div>
+        <label for="f-name">Full Name</label>
+        <input id="f-name" type="text" name="name" required />
       </div>
-      <a href="our-services.html" class="btn btn-outline">See All Services <span class="arrow">→</span></a>
-    </div>
-
-    <div class="news-grid">
-      <!-- Card 1 -->
-      <a href="construction-maintenance.html" class="news-card">
-        <div class="news-card-media">
-          <video autoplay muted loop playsinline><source src="svc-construction.mp4" type="video/mp4" /></video>
-          <span class="play-badge">▶</span>
-        </div>
-        <div class="news-card-body">
-          <div class="news-card-meta"><span class="cat">Domain</span><span class="dot"></span>Construction</div>
-          <h3 class="news-card-title">Construction & Maintenance</h3>
-          <p class="news-card-desc">Partner of choice for sustainable construction, accelerating the transformation of living environments, infrastructure and mobility.</p>
-          <span class="news-card-arrow">Explore <span class="arrow">→</span></span>
-        </div>
-      </a>
-
-      <!-- Card 2 -->
-      <a href="equipment-machinery.html" class="news-card">
-        <div class="news-card-media">
-          <video autoplay muted loop playsinline><source src="svc-equipment.mp4" type="video/mp4" /></video>
-          <span class="play-badge">▶</span>
-        </div>
-        <div class="news-card-body">
-          <div class="news-card-meta"><span class="cat">Domain</span><span class="dot"></span>Logistics</div>
-          <h3 class="news-card-title">Equipment & Machinery</h3>
-          <p class="news-card-desc">Kuwait's preferred partner for logistics, equipment and machinery services to reach operational excellence.</p>
-          <span class="news-card-arrow">Explore <span class="arrow">→</span></span>
-        </div>
-      </a>
-
-      <!-- Card 3 -->
-      <a href="upstream-oil-field-services.html" class="news-card">
-        <div class="news-card-media">
-          <video autoplay muted loop playsinline><source src="svc-upstream.mp4" type="video/mp4" /></video>
-          <span class="play-badge">▶</span>
-        </div>
-        <div class="news-card-body">
-          <div class="news-card-meta"><span class="cat">Domain</span><span class="dot"></span>Oil & Gas</div>
-          <h3 class="news-card-title">Upstream Oil Field</h3>
-          <p class="news-card-desc">Expanding Upstream Oil Field services to offer integrated drilling services with advanced automation.</p>
-          <span class="news-card-arrow">Explore <span class="arrow">→</span></span>
-        </div>
-      </a>
-
-      <!-- Card 4 -->
-      <a href="offshore-marine-services.html" class="news-card">
-        <div class="news-card-media">
-          <video autoplay muted loop playsinline><source src="svc-marine.mp4" type="video/mp4" /></video>
-          <span class="play-badge">▶</span>
-        </div>
-        <div class="news-card-body">
-          <div class="news-card-meta"><span class="cat">Domain</span><span class="dot"></span>Marine</div>
-          <h3 class="news-card-title">Offshore & Marine</h3>
-          <p class="news-card-desc">Marine services and equipment to execute the biggest offshore jobs safely and at ease.</p>
-          <span class="news-card-arrow">Explore <span class="arrow">→</span></span>
-        </div>
-      </a>
-
-      <!-- Card 5 -->
-      <a href="partnership-representation.html" class="news-card">
-        <div class="news-card-media">
-          <video autoplay muted loop playsinline><source src="svc-partnership.mp4" type="video/mp4" /></video>
-          <span class="play-badge">▶</span>
-        </div>
-        <div class="news-card-body">
-          <div class="news-card-meta"><span class="cat">Domain</span><span class="dot"></span>Business</div>
-          <h3 class="news-card-title">Partnership Representation</h3>
-          <p class="news-card-desc">Business development support, marketing expertise and growth strategies for international organisations.</p>
-          <span class="news-card-arrow">Explore <span class="arrow">→</span></span>
-        </div>
-      </a>
-
-      <!-- Card 6 -->
-      <a href="medical-health-services.html" class="news-card">
-        <div class="news-card-media">
-          <video autoplay muted loop playsinline><source src="svc-medical.mp4" type="video/mp4" /></video>
-          <span class="play-badge">▶</span>
-        </div>
-        <div class="news-card-body">
-          <div class="news-card-meta"><span class="cat">Domain</span><span class="dot"></span>Healthcare</div>
-          <h3 class="news-card-title">Medical & Health</h3>
-          <p class="news-card-desc">Holistic healthcare services that fit the complexities of an ever-changing industrial environment.</p>
-          <span class="news-card-arrow">Explore <span class="arrow">→</span></span>
-        </div>
-      </a>
-    </div>
-
-    <div class="news-footer">
-      <a href="sustainability-services.html" class="btn btn-gold">Sustainability Services <span class="arrow">→</span></a>
-    </div>
-  </section>
-
-  <!-- ═══ CTA STRIP (SRMG Reach-style) ═══ -->
-  <section class="cta-strip">
-    <div class="cta-strip-marquee">
-      <span>800+ Employees <em class="dash">—</em> 1000+ Equipment <em class="dash">—</em> 20+ Years <em class="dash">—</em> 800+ Employees <em class="dash">—</em> 1000+ Equipment <em class="dash">—</em> 20+ Years <em class="dash">—</em></span>
-    </div>
-    <div class="cta-strip-bottom">
-      <h3>Join our growing team of <em>800+ professionals</em> across Kuwait</h3>
-      <a href="careers.html" class="btn btn-light">Careers <span class="arrow">→</span></a>
-    </div>
-  </section>
-
-  <!-- ═══ PARTNERS (SRMG partner-grid style) ═══ -->
-  <section class="partners" id="partners">
-    <div class="partners-header">
-      <h2>Our Valued<br/><em>Partners</em></h2>
-      <p>DIC partners with international organizations to grow and expand their business through business development support, marketing expertise, and growth strategies.</p>
-    </div>
-    <div class="partners-grid">
-      <div class="partner-cell"><img src="KNPC.PNG" alt="KNPC" /><span class="name">KNPC</span></div>
-      <div class="partner-cell"><img src="koc1.png" alt="Kuwait Oil Company" /><span class="name">KOC</span></div>
-      <div class="partner-cell"><img src="ministrymain.png" alt="Ministry of Electricity" /><span class="name">MEW</span></div>
-      <div class="partner-cell"><img src="kharafinational.png" alt="Kharafi National" /><span class="name">Kharafi</span></div>
-      <div class="partner-cell"><img src="LIPIC.PNG" alt="KIPIC" /><span class="name">KIPIC</span></div>
-      <div class="partner-cell"><img src="CHEVRON.PNG" alt="Chevron" /><span class="name">Chevron</span></div>
-      <div class="partner-cell"><img src="samsungc.png" alt="Samsung C&T" /><span class="name">Samsung</span></div>
-      <div class="partner-cell"><img src="sxhlumberger.png" alt="Schlumberger" /><span class="name">SLB</span></div>
-      <div class="partner-cell"><img src="larsenandtourbo.png" alt="Larsen & Toubro" /><span class="name">L&T</span></div>
-      <div class="partner-cell"><img src="hyndaiengiand.png" alt="Hyundai" /><span class="name">Hyundai</span></div>
-      <div class="partner-cell"><img src="gruppohera.png" alt="Gruppo Hera" /><span class="name">Hera</span></div>
-      <div class="partner-cell"><img src="veolia.png" alt="Veolia" /><span class="name">Veolia</span></div>
-    </div>
-  </section>
-
-  <!-- ═══ CONTACT ═══ -->
-  <section class="contact" id="contact">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <p class="eyebrow gold">Private Enquiry</p>
-        <h2 class="display" style="font-size:clamp(36px,5vw,72px);">Start a<br/><em style="font-style:italic;color:var(--gold-2);">Conversation</em></h2>
-        <p>All enquiries are handled through Al Dali International's communication channels. We look forward to partnering with you.</p>
-        <div class="contact-info">
-          <div class="contact-info-row">
-            <p class="lbl">Phone</p>
-            <a class="val" href="tel:+96523984890">+965 2398 4890</a>
-          </div>
-          <div class="contact-info-row">
-            <p class="lbl">Email</p>
-            <a class="val" href="mailto:info@aldali-int.com">info@aldali-int.com</a>
-          </div>
-          <div class="contact-info-row">
-            <p class="lbl">Location</p>
-            <p class="val" style="font-size:18px;">Ahmadi Corner, Kuwait</p>
-          </div>
-        </div>
+      <div>
+        <label for="f-email">Email Address</label>
+        <input id="f-email" type="email" name="email" required />
       </div>
-      <form class="contact-form" action="https://formsubmit.co/info@aldali-int.com" method="POST">
-        <input type="hidden" name="_subject" value="New enquiry from Al Dali website" />
-        <input type="hidden" name="_cc" value="sales@aldali-int.com" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://nextgenblueprints.github.io/Aldali/thank-you.html" />
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="honey" />
-
-        <label>Full Name<input type="text" name="name" autocomplete="name" required /></label>
-        <label>Email<input type="email" name="email" autocomplete="email" required /></label>
-        <label>Company<input type="text" name="company" autocomplete="organization" /></label>
-        <label>Service Interest
-          <select name="service">
-            <option value="">Select a service</option>
-            <option>Construction & Maintenance</option>
-            <option>Equipment & Machinery</option>
-            <option>Upstream Oil Field</option>
-            <option>Offshore & Marine</option>
-            <option>Partnership Representation</option>
-            <option>Medical & Health</option>
-            <option>Sustainability Services</option>
-          </select>
-        </label>
-        <label class="wide">Project Notes<textarea name="message" rows="4"></textarea></label>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ═══ MAP ═══ -->
-  <section class="map">
-    <div class="map-inner-wrap">
-      <div class="map-inner" style="padding:0;">
-        <div class="map-side">
-          <p class="lbl">Our Location</p>
-          <h3>Ahmadi Corner Complex</h3>
-          <address>
-            1st Floor, Office # 8 & 9<br/>
-            P.O. Box: 3268, Safat 13033<br/>
-            Kuwait
-          </address>
-          <div class="ico-row">
-            <span class="ico">✆</span>
-            <a href="tel:+96523984890">+965 23984890</a>
-          </div>
-          <div class="ico-row">
-            <span class="ico">✉</span>
-            <a href="mailto:info@aldali-int.com">info@aldali-int.com</a>
-          </div>
-        </div>
-        <div class="map">
-          <iframe
-            title="Al Dali International location"
-            src="https://maps.google.com/maps?width=100%25&height=600&hl=en&q=Ahmadi+Corner+Kuwait&t=&z=14&ie=UTF8&iwloc=B&output=embed"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-          ></iframe>
-        </div>
+      <div>
+        <label for="f-company">Company</label>
+        <input id="f-company" type="text" name="company" />
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ FOOTER ═══ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-col">
-        <div class="footer-brand">
-          <img src="Screenshot__689_-removebg-preview (1).png" alt="DIC" onerror="this.outerHTML='DIC'" />
-        </div>
-        <p class="footer-tag">We strive to be the market leader through our core values of innovation, sustainability, and ethical practices, ensuring quality, health, safety, and environmental stewardship in all operations.</p>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/1212595272091178" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-          <a href="https://www.linkedin.com/search/results/companies/?keywords=Al%20Dali%20International" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        </div>
+      <div>
+        <label for="f-service">Service Interest</label>
+        <select id="f-service" name="service">
+          <option value="">Select a service</option>
+          <option>Construction &amp; Maintenance</option>
+          <option>Equipment &amp; Machinery</option>
+          <option>Upstream Oil Field</option>
+          <option>Offshore &amp; Marine</option>
+          <option>Partnership Representation</option>
+          <option>Medical &amp; Health</option>
+          <option>Sustainability Services</option>
+        </select>
       </div>
-
-      <div class="footer-col">
-        <p class="col-title">Navigation</p>
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="about-us.html">About</a>
-          <a href="our-services.html">Services</a>
-          <a href="our-partners.html">Partners</a>
-          <a href="our-clients.html">Clients</a>
-          <a href="news.html">News</a>
-          <a href="careers.html">Careers</a>
-          <a href="csr.html">CSR</a>
-          <a href="contact.html">Contact</a>
-        </nav>
+      <div class="full">
+        <label for="f-notes">Project Notes</label>
+        <textarea id="f-notes" name="notes" placeholder="Tell us about your project..."></textarea>
       </div>
-
-      <div class="footer-col">
-        <p class="col-title">Services</p>
-        <nav>
-          <a href="construction-maintenance.html">Construction</a>
-          <a href="equipment-machinery.html">Equipment</a>
-          <a href="upstream-oil-field-services.html">Oil Field</a>
-          <a href="offshore-marine-services.html">Marine</a>
-          <a href="partnership-representation.html">Partnership</a>
-          <a href="medical-health-services.html">Medical</a>
-          <a href="sustainability-services.html">Sustainability</a>
-        </nav>
+      <div class="full">
+        <button type="submit" class="submit-btn">Contact DIC</button>
       </div>
+      <p class="form-note">All enquiries are handled through Al Dali International&rsquo;s communication channels.</p>
+    </form>
+  </div>
+</section>
 
-      <div class="footer-col">
-        <p class="col-title">Office</p>
+<!-- ═══════════════ MAP ═══════════════ -->
+<section class="map-section">
+  <div class="container">
+    <div class="map-panel reveal">
+      <div class="map-info">
+        <span class="lbl">Al Dali International</span>
+        <h3>Ahmadi Corner Complex</h3>
         <address>
-          <span>Ahmadi Corner Complex</span>
-          <span>1st Floor, Office 8 & 9</span>
+          <span>1st Floor, Office #8 &amp; 9</span>
           <span>P.O. Box: 3268, Safat 13033</span>
           <span>Kuwait</span>
-          <a href="tel:+96523984890">+965 23984890</a>
+          <a class="link" href="tel:+96523984890">+965 23984890</a>
+          <a class="link" href="mailto:info@aldali-int.com">info@aldali-int.com</a>
+        </address>
+      </div>
+      <iframe src="https://maps.google.com/maps?q=Ahmadi+Corner+Kuwait&output=embed" loading="lazy" title="Al Dali International Office Location"></iframe>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <span class="logo-text"><span class="logo-arrow">&#10095;&#10095;</span> DIC</span>
+      <span class="right">Est. 2003 &middot; Kuwait</span>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <span class="logo-text" style="font-size:1.3rem;margin-bottom:1rem;display:inline-flex;"><span class="logo-arrow">&#10095;&#10095;</span> DIC</span>
+        <p style="margin-top:1rem;">We strive to be the market leader through our core values of innovation, sustainability, and ethical practices, ensuring quality, health, safety, and environmental stewardship in all operations.</p>
+        <span class="tag">Est. 2003 &middot; DIC</span>
+      </div>
+
+      <div class="footer-col">
+        <span class="col-lbl">Navigation</span>
+        <nav>
+          <a href="#top">Home</a>
+          <a href="#about">About Us</a>
+          <a href="#services">Services</a>
+          <a href="#clients">Partners</a>
+          <a href="#clients">Clients</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="footer-col">
+        <span class="col-lbl">Get in Touch</span>
+        <address>
+          1st Floor, Office #8 &amp; 9<br/>
+          Ahmadi Corner Complex<br/>
+          P.O. Box: 3268, Safat 13033, Kuwait<br/>
+          <a href="tel:+96523984890">+965 23984890</a><br/>
           <a href="mailto:info@aldali-int.com">info@aldali-int.com</a>
         </address>
       </div>
 
       <div class="footer-col">
-        <p class="col-title">Newsletter</p>
-        <div class="footer-newsletter">
-          <input type="email" placeholder="Your email address" />
-          <button>Subscribe</button>
+        <span class="col-lbl">Follow Us</span>
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="LinkedIn">in</a>
         </div>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; 2024 Al Dali International. All rights reserved.</span>
-      <div style="display:flex;gap:22px;">
+      <span>Copyright &copy; 2024 Al Dali International. All rights reserved.</span>
+      <div class="legal">
         <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
+        <a href="#">Terms &amp; Conditions</a>
       </div>
     </div>
-  </footer>
+  </div>
+</footer>
 
-  
-<script src="aldali.js?v=20260518200355" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  // ---------- 1. Navbar scroll behavior ----------
+  const nav = document.getElementById('topNav');
+  let lastY = window.scrollY;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 10);
+    if (y > 250 && y > lastY + 4) nav.classList.add('nav-hide');
+    else if (y < lastY - 4) nav.classList.remove('nav-hide');
+    lastY = y;
+  }, { passive: true });
+
+  // ---------- 2. Mobile menu ----------
+  const hamb = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  hamb.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    hamb.classList.toggle('open', open);
+    hamb.setAttribute('aria-expanded', open);
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    hamb.classList.remove('open');
+    hamb.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }));
+
+  // ---------- 3. Smooth scroll for anchors ----------
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    const id = a.getAttribute('href');
+    if (id.length < 2) return;
+    const target = document.querySelector(id);
+    if (!target) return;
+    e.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - 70;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+
+  // ---------- 4. Hero slider (4 slides, crossfade) ----------
+  const slides = document.querySelectorAll('#heroSlides .hero-slide');
+  const dots = document.querySelectorAll('#slideDots button');
+  const counter = document.getElementById('slideCur');
+  let curSlide = 0;
+  let slideTimer;
+  let hovered = false;
+
+  function showSlide(i) {
+    slides[curSlide].classList.remove('active');
+    dots[curSlide].classList.remove('active');
+    curSlide = (i + slides.length) % slides.length;
+    slides[curSlide].classList.add('active');
+    dots[curSlide].classList.add('active');
+    counter.textContent = String(curSlide + 1).padStart(2, '0');
+    // play active video, pause others
+    slides.forEach((s, idx) => {
+      const v = s.querySelector('video');
+      if (!v) return;
+      if (idx === curSlide) { v.play().catch(()=>{}); } else { v.pause(); }
+    });
+  }
+  function nextSlide() { showSlide(curSlide + 1); }
+  function prevSlide() { showSlide(curSlide - 1); }
+  function startTimer() { stopTimer(); slideTimer = setInterval(() => { if (!hovered) nextSlide(); }, 6000); }
+  function stopTimer() { if (slideTimer) clearInterval(slideTimer); }
+
+  document.getElementById('slideNext').addEventListener('click', () => { nextSlide(); startTimer(); });
+  document.getElementById('slidePrev').addEventListener('click', () => { prevSlide(); startTimer(); });
+  dots.forEach((d, i) => d.addEventListener('click', () => { showSlide(i); startTimer(); }));
+  const heroEl = document.querySelector('.hero');
+  heroEl.addEventListener('mouseenter', () => { hovered = true; });
+  heroEl.addEventListener('mouseleave', () => { hovered = false; });
+  showSlide(0);
+  startTimer();
+
+  // ---------- 5. IntersectionObserver reveal ----------
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -50px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  // ---------- 6. Stats counter animation ----------
+  function animateCount(el, target, duration) {
+    const start = performance.now();
+    function tick(now) {
+      const p = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.floor(target * eased).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target.toLocaleString();
+    }
+    requestAnimationFrame(tick);
+  }
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length && 'IntersectionObserver' in window) {
+    const cio = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        const target = parseInt(el.dataset.count, 10);
+        if (!isNaN(target)) animateCount(el, target, 1600);
+        cio.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(c => cio.observe(c));
+  }
+})();
+</script>
 </body>
 </html>
