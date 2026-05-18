@@ -3,16 +3,19 @@
    ============================================================ */
 
 :root {
-  --cream: #f3efe7;
-  --cream-2: #ebe6db;
+  /* DIC brand palette: mustard-gold + black + cream */
+  --cream: #f4ecd8;
+  --cream-2: #ece2c7;
   --paper: #ffffff;
-  --ink: #111111;
-  --ink-2: #1a1a1a;
-  --muted: #6b6b6b;
-  --line: rgba(0, 0, 0, 0.12);
-  --gold: #c9a44c;
-  --gold-2: #b08e36;
-  --navy: #0e1620;
+  --ink: #0a0a0a;
+  --ink-2: #161616;
+  --muted: #5e5e5e;
+  --line: rgba(10, 10, 10, 0.14);
+  --gold: #b89530;          /* DIC logo mustard gold */
+  --gold-2: #8f6f1f;        /* darker hover/accent */
+  --gold-soft: #d9b85a;     /* lighter highlight */
+  --gold-tint: rgba(184, 149, 48, 0.10);
+  --navy: #0a0a0a;          /* logo wordmark is true black */
 
   --ff-display: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
   --ff-sans: 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
