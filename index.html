@@ -633,6 +633,218 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .services-foot a:hover { gap: 1rem; }
 
 /* ============================================================
+   SERVICES — SRMG "Latest News" style with live videos
+   ============================================================ */
+.news-svc {
+  background: var(--bg-light);
+  padding: 8rem 0;
+}
+.news-svc-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-l);
+}
+.news-svc-head h2 {
+  font-family: var(--ff-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--bg-dark);
+  margin: 1.4rem 0 0;
+}
+.news-svc-head h2 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 700;
+}
+.news-svc-sub {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 1.05rem;
+  color: var(--muted-l);
+  font-style: italic;
+  margin-top: 0.8rem;
+  max-width: 540px;
+}
+.news-svc-all {
+  flex-shrink: 0;
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--bg-dark);
+  border-bottom: 1px solid var(--bg-dark);
+  padding-bottom: 6px;
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  transition: gap 0.3s, color 0.3s, border-color 0.3s;
+}
+.news-svc-all:hover { gap: 1.2rem; color: var(--gold); border-color: var(--gold); }
+
+.news-svc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+@media (max-width: 1100px) { .news-svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px)  { .news-svc-grid { grid-template-columns: 1fr; gap: 1.4rem; } }
+
+.news-svc-card { position: relative; }
+.news-svc-link {
+  display: block;
+  height: 100%;
+  background: var(--white);
+  border: 1px solid var(--border-l);
+  overflow: hidden;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s, border-color 0.3s;
+}
+.news-svc-card:hover .news-svc-link {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,0.25);
+  border-color: var(--gold);
+}
+.news-svc-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #111;
+}
+.news-svc-media video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease), filter 0.6s;
+}
+.news-svc-card:hover .news-svc-media video {
+  transform: scale(1.06);
+  filter: saturate(1.15);
+}
+.news-svc-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.35) 100%);
+}
+.play-badge {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 2;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  color: var(--bg-dark);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  padding-left: 3px;
+  transition: background 0.3s, transform 0.3s var(--ease);
+}
+.news-svc-card:hover .play-badge { background: var(--gold); transform: scale(1.08); }
+
+.news-svc-body {
+  padding: 1.8rem 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+.news-svc-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ff-cond);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.news-svc-meta .num { color: var(--gold); }
+.news-svc-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--bg-dark); opacity: 0.4; }
+.news-svc-meta > span:last-child { color: var(--muted-l); }
+.news-svc-body h3 {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+  line-height: 1.15;
+  color: var(--bg-dark);
+  letter-spacing: -0.01em;
+  transition: color 0.3s;
+  margin: 0.2rem 0 0.5rem;
+}
+.news-svc-card:hover .news-svc-body h3 { color: var(--gold); }
+.news-svc-body p {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: rgba(0,0,0,0.62);
+  margin: 0;
+}
+.news-svc-arrow {
+  margin-top: 0.8rem;
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--bg-dark);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: color 0.3s, gap 0.3s;
+}
+.news-svc-card:hover .news-svc-arrow { color: var(--gold); gap: 0.9rem; }
+.news-svc-arrow .arr { transition: transform 0.3s var(--ease); }
+.news-svc-card:hover .news-svc-arrow .arr { transform: translateX(4px); }
+
+/* ============================================================
+   HERO ROTATOR
+   ============================================================ */
+.we-are-tag {
+  display: inline-block;
+  font-family: var(--ff-cond);
+  font-size: clamp(0.95rem, 1.2vw, 1.25rem);
+  font-weight: 600;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  vertical-align: middle;
+  padding-bottom: 1.2rem;
+}
+.hero h1 .rot-line {
+  position: relative;
+  display: block;
+  height: 1em;
+  overflow: hidden;
+  font-style: italic;
+}
+.hero h1 .rotator {
+  position: relative;
+  display: block;
+  height: 1em;
+}
+.hero h1 .rotator .word {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  transform: translateY(110%);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  background: linear-gradient(90deg, var(--white) 0%, var(--gold-soft) 60%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+.hero h1 .rotator .word.active { opacity: 1; transform: translateY(0); }
+.hero h1 .rotator .word.exit { opacity: 0; transform: translateY(-110%); }
+
+/* ============================================================
    STATS BAND
    ============================================================ */
 .stats-band {
@@ -1091,8 +1303,17 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   <div class="hero-content">
     <span class="hero-eyebrow">Al Dali International &middot; Kuwait &middot; Est. 2003</span>
     <h1>
-      <span class="line l1">Integrated Energy</span>
-      <span class="line l2">&amp; <em>Infrastructure</em></span>
+      <span class="line l1"><span class="we-are-tag">We Are</span></span>
+      <span class="line l2">Kuwait's</span>
+      <span class="line l2 rot-line">
+        <span class="rotator" id="heroRot">
+          <span class="word active">Trusted Partner</span>
+          <span class="word">Energy Specialists</span>
+          <span class="word">Infrastructure Builders</span>
+          <span class="word">Marine Operators</span>
+          <span class="word">Drilling Experts</span>
+        </span>
+      </span>
     </h1>
     <p class="hero-desc">
       Supporting the Nation&rsquo;s key sectors with innovative services in Energy, Construction, Infrastructure and Mobility &mdash; for over two decades. DIC is one of the most diversified contractors across the State of Kuwait.
@@ -1153,76 +1374,137 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   </div>
 </section>
 
-<!-- ═══════════════ SERVICES ═══════════════ -->
-<section class="services" id="services">
+<!-- ═══════════════ SERVICES — SRMG "Latest News" style ═══════════════ -->
+<section class="news-svc" id="services">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow reveal">Al Dali Services</span>
-      <h2 class="reveal" data-delay="100">Business Domains</h2>
-      <p class="sub reveal" data-delay="200">Marching towards Sustainable Excellence through Adaptive Business Strategy</p>
-      <div class="gold-sep reveal" data-delay="300"></div>
+    <div class="news-svc-head">
+      <div>
+        <span class="eyebrow reveal">Al Dali Services</span>
+        <h2 class="reveal" data-delay="100">Business <em>Domains</em></h2>
+        <p class="news-svc-sub reveal" data-delay="200">Marching towards Sustainable Excellence through Adaptive Business Strategy</p>
+      </div>
+      <a href="#contact" class="news-svc-all reveal" data-delay="300">See All Services <span>&rarr;</span></a>
     </div>
 
-    <div class="services-grid">
-      <article class="service-card reveal" data-delay="100">
-        <span class="num">01</span>
-        <span class="icon">&#127959;</span>
-        <h3>Construction &amp; Maintenance</h3>
-        <p>DIC prefers to be a partner of choice for Sustainable construction, accelerating the transformation of living environments, infrastructure and mobility.</p>
-        <span class="explore">Explore <span>&rarr;</span></span>
+    <div class="news-svc-grid">
+      <article class="news-svc-card reveal" data-delay="100">
+        <a href="#contact" class="news-svc-link">
+          <div class="news-svc-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="svc-construction.mp4" type="video/mp4" />
+            </video>
+            <span class="play-badge" aria-hidden="true">&#9654;</span>
+          </div>
+          <div class="news-svc-body">
+            <div class="news-svc-meta"><span class="num">Domain 01</span><span class="dot"></span><span>Construction</span></div>
+            <h3>Construction &amp; Maintenance</h3>
+            <p>DIC prefers to be a partner of choice for Sustainable construction, accelerating the transformation of living environments, infrastructure and mobility.</p>
+            <span class="news-svc-arrow">Explore <span class="arr">&rarr;</span></span>
+          </div>
+        </a>
       </article>
 
-      <article class="service-card reveal" data-delay="200">
-        <span class="num">02</span>
-        <span class="icon">&#9881;</span>
-        <h3>Equipment &amp; Machinery</h3>
-        <p>Clients in Kuwait choose DIC as their partner for Logistics, equipment and machinery services to achieve operational excellence.</p>
-        <span class="explore">Explore <span>&rarr;</span></span>
+      <article class="news-svc-card reveal" data-delay="200">
+        <a href="#contact" class="news-svc-link">
+          <div class="news-svc-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="svc-equipment.mp4" type="video/mp4" />
+            </video>
+            <span class="play-badge" aria-hidden="true">&#9654;</span>
+          </div>
+          <div class="news-svc-body">
+            <div class="news-svc-meta"><span class="num">Domain 02</span><span class="dot"></span><span>Logistics</span></div>
+            <h3>Equipment &amp; Machinery</h3>
+            <p>Clients in Kuwait choose DIC as their partner for Logistics, equipment and machinery services to achieve operational excellence.</p>
+            <span class="news-svc-arrow">Explore <span class="arr">&rarr;</span></span>
+          </div>
+        </a>
       </article>
 
-      <article class="service-card reveal" data-delay="300">
-        <span class="num">03</span>
-        <span class="icon">&#128737;</span>
-        <h3>Upstream Oil Field</h3>
-        <p>DIC is expanding its Upstream Oil Field services to offer Integrated drilling services, leveraging its position as a trusted Kuwaiti contractor.</p>
-        <span class="explore">Explore <span>&rarr;</span></span>
+      <article class="news-svc-card reveal" data-delay="300">
+        <a href="#contact" class="news-svc-link">
+          <div class="news-svc-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="svc-upstream.mp4" type="video/mp4" />
+            </video>
+            <span class="play-badge" aria-hidden="true">&#9654;</span>
+          </div>
+          <div class="news-svc-body">
+            <div class="news-svc-meta"><span class="num">Domain 03</span><span class="dot"></span><span>Oil &amp; Gas</span></div>
+            <h3>Upstream Oil Field</h3>
+            <p>DIC is expanding its Upstream Oil Field services to offer Integrated drilling services, leveraging its position as a trusted Kuwaiti contractor.</p>
+            <span class="news-svc-arrow">Explore <span class="arr">&rarr;</span></span>
+          </div>
+        </a>
       </article>
 
-      <article class="service-card reveal" data-delay="100">
-        <span class="num">04</span>
-        <span class="icon">&#9875;</span>
-        <h3>Offshore &amp; Marine</h3>
-        <p>With high-profile experienced partners, DIC offers Marine services and equipment ensuring even the biggest offshore jobs are executed safely.</p>
-        <span class="explore">Explore <span>&rarr;</span></span>
+      <article class="news-svc-card reveal" data-delay="100">
+        <a href="#contact" class="news-svc-link">
+          <div class="news-svc-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="svc-marine.mp4" type="video/mp4" />
+            </video>
+            <span class="play-badge" aria-hidden="true">&#9654;</span>
+          </div>
+          <div class="news-svc-body">
+            <div class="news-svc-meta"><span class="num">Domain 04</span><span class="dot"></span><span>Marine</span></div>
+            <h3>Offshore &amp; Marine</h3>
+            <p>With high-profile experienced partners, DIC offers Marine services and equipment ensuring even the biggest offshore jobs are executed safely.</p>
+            <span class="news-svc-arrow">Explore <span class="arr">&rarr;</span></span>
+          </div>
+        </a>
       </article>
 
-      <article class="service-card reveal" data-delay="200">
-        <span class="num">05</span>
-        <span class="icon">&#129309;</span>
-        <h3>Partnership Representation</h3>
-        <p>DIC partners with international organisations, providing business development support, marketing expertise and growth strategies.</p>
-        <span class="explore">Explore <span>&rarr;</span></span>
+      <article class="news-svc-card reveal" data-delay="200">
+        <a href="#contact" class="news-svc-link">
+          <div class="news-svc-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="svc-partnership.mp4" type="video/mp4" />
+            </video>
+            <span class="play-badge" aria-hidden="true">&#9654;</span>
+          </div>
+          <div class="news-svc-body">
+            <div class="news-svc-meta"><span class="num">Domain 05</span><span class="dot"></span><span>Business</span></div>
+            <h3>Partnership Representation</h3>
+            <p>DIC partners with international organisations, providing business development support, marketing expertise and growth strategies.</p>
+            <span class="news-svc-arrow">Explore <span class="arr">&rarr;</span></span>
+          </div>
+        </a>
       </article>
 
-      <article class="service-card reveal" data-delay="300">
-        <span class="num">06</span>
-        <span class="icon">&#127973;</span>
-        <h3>Medical &amp; Health</h3>
-        <p>With professional background in Healthcare, DIC provides holistic services that fit the complexities of an ever-changing environment.</p>
-        <span class="explore">Explore <span>&rarr;</span></span>
+      <article class="news-svc-card reveal" data-delay="300">
+        <a href="#contact" class="news-svc-link">
+          <div class="news-svc-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="svc-medical.mp4" type="video/mp4" />
+            </video>
+            <span class="play-badge" aria-hidden="true">&#9654;</span>
+          </div>
+          <div class="news-svc-body">
+            <div class="news-svc-meta"><span class="num">Domain 06</span><span class="dot"></span><span>Healthcare</span></div>
+            <h3>Medical &amp; Health</h3>
+            <p>With professional background in Healthcare, DIC provides holistic services that fit the complexities of an ever-changing environment.</p>
+            <span class="news-svc-arrow">Explore <span class="arr">&rarr;</span></span>
+          </div>
+        </a>
       </article>
 
-      <article class="service-card reveal" data-delay="400">
-        <span class="num">07</span>
-        <span class="icon">&#127793;</span>
-        <h3>Sustainability Services</h3>
-        <p>Circular carbon economy, renewable energy, and environmental management for pragmatic sustainable growth.</p>
-        <span class="explore">Explore <span>&rarr;</span></span>
+      <article class="news-svc-card reveal" data-delay="400">
+        <a href="#contact" class="news-svc-link">
+          <div class="news-svc-media">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="svc-sustainability.mp4" type="video/mp4" />
+            </video>
+            <span class="play-badge" aria-hidden="true">&#9654;</span>
+          </div>
+          <div class="news-svc-body">
+            <div class="news-svc-meta"><span class="num">Domain 07</span><span class="dot"></span><span>Sustainability</span></div>
+            <h3>Sustainability Services</h3>
+            <p>Circular carbon economy, renewable energy, and environmental management for pragmatic sustainable growth.</p>
+            <span class="news-svc-arrow">Explore <span class="arr">&rarr;</span></span>
+          </div>
+        </a>
       </article>
-    </div>
-
-    <div class="services-foot reveal">
-      <a href="#contact">Explore All Services <span>&rarr;</span></a>
     </div>
   </div>
 </section>
@@ -1502,7 +1784,24 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
     document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
   }
 
-  // ---------- 6. Stats counter animation ----------
+  // ---------- 6b. Hero rotator (SRMG-style cycling word) ----------
+  const rot = document.getElementById('heroRot');
+  if (rot) {
+    const words = rot.querySelectorAll('.word');
+    let ri = 0;
+    setInterval(() => {
+      const cur = words[ri];
+      cur.classList.remove('active');
+      cur.classList.add('exit');
+      ri = (ri + 1) % words.length;
+      const next = words[ri];
+      next.classList.remove('exit');
+      requestAnimationFrame(() => next.classList.add('active'));
+      setTimeout(() => cur.classList.remove('exit'), 900);
+    }, 3200);
+  }
+
+  // ---------- 7. Stats counter animation ----------
   function animateCount(el, target, duration) {
     const start = performance.now();
     function tick(now) {
