@@ -232,6 +232,29 @@
     });
   }
 
+  /* ---------- 10b. HERO ROTATOR (SRMG-style) ---------- */
+  function initRotator() {
+    const rot = document.getElementById('heroRotator');
+    if (!rot) return;
+    const words = rot.querySelectorAll('.word');
+    if (words.length < 2) return;
+    let idx = 0;
+    setInterval(() => {
+      const cur = words[idx];
+      cur.classList.remove('active');
+      cur.classList.add('exit');
+      idx = (idx + 1) % words.length;
+      const next = words[idx];
+      next.classList.remove('exit');
+      // small delay then activate next
+      requestAnimationFrame(() => {
+        next.classList.add('active');
+      });
+      // clear exit class after transition
+      setTimeout(() => cur.classList.remove('exit'), 900);
+    }, 3200);
+  }
+
   /* ---------- 11. HERO VIDEO SLIDESHOW (if exists) ---------- */
   function initHeroSlides() {
     const wrap = document.getElementById('heroSlides');
@@ -267,6 +290,7 @@
     initStickyNav();
     initMobileNav();
     initMarquee();
+    initRotator();
     initHeroSlides();
     initParallax();
     initTilt();

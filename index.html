@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="aldali.css?v=20260518180417" />
+  <link rel="stylesheet" href="aldali.css?v=20260518200355" />
 </head>
 <body>
 
@@ -72,57 +72,42 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- ═══ HERO (SRMG style) ═══ -->
-  <section class="hero">
-    <div class="hero-grid">
-      <div class="hero-left">
-        <div class="hero-eyebrow">Integrated Energy & Infrastructure</div>
-        <h1 class="hero-title">
-          <span class="we-are">We Are</span>
-          Kuwait's<br/><em>Trusted</em><br/>Partner
-        </h1>
-        <p class="hero-desc">
-          Supporting the Nation's key sectors with innovative services in Energy, Construction, Infrastructure & Mobility since 2003.
+  <!-- ═══ HERO (SRMG black-hero with rotating word) ═══ -->
+  <section class="hero-srmg">
+    <div class="hero-srmg-bg">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="hero-slide-01.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-srmg-overlay"></div>
+    </div>
+    <div class="hero-srmg-inner">
+      <p class="hero-srmg-label">Integrated Energy &amp; Infrastructure · Kuwait · Est. 2003</p>
+      <h1 class="hero-srmg-title">
+        <span class="we-are">We Are</span>
+        <span class="rotator" id="heroRotator">
+          <span class="word active">Kuwait's Trusted Partner</span>
+          <span class="word">Energy Specialists</span>
+          <span class="word">Infrastructure Builders</span>
+          <span class="word">Marine Operators</span>
+          <span class="word">Drilling Experts</span>
+        </span>
+      </h1>
+      <div class="hero-srmg-bottom">
+        <p class="hero-srmg-desc">
+          Supporting the Nation's key sectors with innovative services in Energy, Construction, Infrastructure &amp; Mobility — for over two decades.
         </p>
-        <div class="hero-cta-row">
-          <a href="contact.html" class="btn btn-primary">Get in Touch <span class="arrow">→</span></a>
-          <a href="about-us.html" class="btn btn-outline">Learn More <span class="arrow">→</span></a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="num">800<em>+</em></span>
-            <span class="label">Employees</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">1000<em>+</em></span>
-            <span class="label">Equipment</span>
-          </div>
-          <div class="hero-stat">
-            <span class="num">20<em>+</em></span>
-            <span class="label">Years</span>
-          </div>
+        <div class="hero-srmg-actions">
+          <a href="contact.html" class="btn btn-gold">Get in Touch <span class="arrow">→</span></a>
+          <a href="about-us.html" class="btn btn-light">Learn More <span class="arrow">→</span></a>
         </div>
       </div>
+    </div>
 
-      <div class="hero-right">
-        <div class="hero-vid-card tall">
-          <video autoplay muted loop playsinline preload="auto">
-            <source src="hero-slide-01.mp4" type="video/mp4" />
-          </video>
-          <span class="vid-label">Energy</span>
-        </div>
-        <div class="hero-vid-card">
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src="hero-slide-02-sustainable.mp4" type="video/mp4" />
-          </video>
-          <span class="vid-label">Sustainability</span>
-        </div>
-        <div class="hero-vid-card">
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src="hero-slide-03-offshore-marine.mp4" type="video/mp4" />
-          </video>
-          <span class="vid-label">Marine</span>
-        </div>
+    <div class="hero-srmg-marquee">
+      <div class="track">
+        <span>800+ Employees · 1000+ Equipment · 20+ Years · 7 Business Domains · 50+ Long-Term Clients · </span>
+        <span>800+ Employees · 1000+ Equipment · 20+ Years · 7 Business Domains · 50+ Long-Term Clients · </span>
+        <span>800+ Employees · 1000+ Equipment · 20+ Years · 7 Business Domains · 50+ Long-Term Clients · </span>
       </div>
     </div>
 
@@ -449,6 +434,6 @@
   </footer>
 
   
-<script src="aldali.js?v=20260518180417" defer></script>
+<script src="aldali.js?v=20260518200355" defer></script>
 </body>
 </html>
