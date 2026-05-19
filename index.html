@@ -42,8 +42,8 @@ body {
   font-weight: 300;
   font-size: 16px;
   line-height: 1.65;
-  color: var(--bg-dark);
-  background: var(--bg-light);
+  color: var(--white);
+  background: var(--bg-dark);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -213,6 +213,54 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { top: 13px; transform: rotate(-45deg); }
 
+/* ============================================================
+   NEW CLASSES — Card overlays & nav underlines
+   ============================================================ */
+
+/* 1. Card link positioning */
+.card__link {
+  position: relative !important;
+  display: block !important;
+  overflow: hidden;
+  height: 100%;
+  text-decoration: none;
+}
+
+/* 2. Image scaling */
+.card__img-wrap,
+.card__img-wrap img,
+.card__img-wrap video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  transition: transform 0.5s ease;
+}
+.card__link:hover .card__img-wrap img,
+.card__link:hover .card__img-wrap video {
+  transform: scale(1.05);
+}
+
+/* 3. Content overlay gradient at bottom — merged into .news-svc-body */
+
+/* 4. Navigation underline animation */
+.link-block-wrap {
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.menu-links--underline {
+  height: 2px;
+  background-color: var(--gold);
+  width: 0%;
+  transition: width 0.3s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.link-block-wrap:hover .menu-links--underline {
+  width: 100%;
+}
+
 /* Mobile overlay */
 .mobile-menu {
   position: fixed;
@@ -271,8 +319,8 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,0.92) 100%),
-    radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.4) 100%);
+    linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0.55) 100%),
+    radial-gradient(ellipse at center, transparent 25%, rgba(0,0,0,0.25) 100%);
 }
 
 .hero-content {
@@ -288,33 +336,25 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 }
 .hero-eyebrow {
   font-family: var(--ff-cond);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.4em;
+  letter-spacing: 0.45em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.8rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2.2rem;
   opacity: 0;
   transform: translateY(30px);
   animation: heroIn 0.9s var(--ease) 0.2s forwards;
 }
-.hero-eyebrow::before {
-  content: '';
-  width: 56px; height: 1px;
-  background: var(--gold);
-}
 .hero h1 {
   font-family: var(--ff-display);
   font-weight: 600;
-  font-size: clamp(3.2rem, 9vw, 8rem);
-  line-height: 0.98;
-  letter-spacing: -0.015em;
+  font-size: clamp(3.6rem, 11vw, 10rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   color: var(--white);
-  margin-bottom: 1.6rem;
-  max-width: 1100px;
+  margin-bottom: 2.2rem;
+  max-width: 1200px;
 }
 .hero h1 .line {
   display: block;
@@ -322,7 +362,6 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   transform: translateY(50px);
 }
 .hero h1 .line.l1 { animation: heroIn 1s var(--ease) 0.45s forwards; }
-.hero h1 .line.l2 { animation: heroIn 1s var(--ease) 0.65s forwards; }
 .hero h1 em {
   font-style: italic;
   color: var(--gold);
@@ -331,11 +370,11 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .hero-desc {
   font-family: var(--ff-body);
   font-weight: 300;
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-size: clamp(1rem, 1.4vw, 1.25rem);
   line-height: 1.8;
-  color: rgba(255,255,255,0.78);
-  max-width: 600px;
-  margin-bottom: 2.4rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 580px;
+  margin-bottom: 2.8rem;
   opacity: 0;
   transform: translateY(30px);
   animation: heroIn 0.9s var(--ease) 0.85s forwards;
@@ -348,165 +387,100 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   transform: translateY(30px);
   animation: heroIn 0.9s var(--ease) 1.05s forwards;
 }
-.hero-actions .btn {
-  padding: 1rem 2rem;
+.hero-actions .hero-link {
   font-family: var(--ff-cond);
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  border-radius: 999px;
-  transition: all 0.35s var(--ease);
+  color: var(--white);
+  border-bottom: 1px solid rgba(255,255,255,0.45);
+  padding-bottom: 6px;
+  transition: color 0.3s, border-color 0.3s, gap 0.3s;
   display: inline-flex; align-items: center; gap: 0.7rem;
 }
-.btn-gold { background: var(--gold); color: var(--bg-dark); }
-.btn-gold:hover { background: var(--gold-soft); transform: translateY(-2px); box-shadow: 0 18px 36px -12px rgba(201,168,76,0.55); }
-.btn-ghost { border: 1px solid rgba(255,255,255,0.45); color: var(--white); background: transparent; }
-.btn-ghost:hover { background: var(--white); color: var(--bg-dark); border-color: var(--white); }
-.btn .arr { font-family: var(--ff-cond); font-weight: 700; transition: transform 0.3s var(--ease); }
-.btn:hover .arr { transform: translateX(4px); }
+.hero-link:hover { color: var(--gold); border-color: var(--gold); }
+.hero-link .arr { transition: transform 0.3s var(--ease); }
+.hero-link:hover .arr { transform: translateX(4px); }
 
 @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
-
-/* Hero marquee bar */
-.hero-marquee {
-  position: absolute;
-  bottom: 90px;
-  left: 0; right: 0;
-  z-index: 2;
-  background: rgba(0,0,0,0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  padding: 1rem 0;
-  border-top: 1px solid rgba(255,255,255,0.07);
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-  overflow: hidden;
-}
-.hero-marquee .track {
-  display: flex;
-  width: max-content;
-  animation: slideLeft 38s linear infinite;
-  font-family: var(--ff-cond);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  white-space: nowrap;
-}
-.hero-marquee .track span { padding-right: 0; }
 @keyframes slideLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-/* Slide controls */
-.hero-controls {
-  position: absolute;
-  right: 32px;
-  bottom: 28px;
-  z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-.slide-counter {
-  font-family: var(--ff-cond);
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: rgba(255,255,255,0.85);
-}
-.slide-counter .total { color: var(--muted-d); }
-.slide-btn {
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.35);
-  background: rgba(0,0,0,0.3);
-  color: var(--white);
-  font-size: 1.1rem;
-  display: inline-flex; align-items: center; justify-content: center;
-  transition: all 0.3s var(--ease);
-}
-.slide-btn:hover { background: var(--gold); color: var(--bg-dark); border-color: var(--gold); transform: scale(1.06); }
-.slide-dots {
-  position: absolute;
-  left: 32px;
-  bottom: 36px;
-  z-index: 3;
-  display: flex;
-  gap: 8px;
-}
-.slide-dots button {
-  width: 28px; height: 2px;
-  background: rgba(255,255,255,0.3);
-  transition: background 0.3s, width 0.3s;
-}
-.slide-dots button.active { background: var(--gold); width: 48px; }
 
 /* ============================================================
    ABOUT
    ============================================================ */
 .about {
-  background: var(--bg-light);
-  padding: 8rem 0;
+  background: var(--bg-dark);
+  color: var(--white);
+  padding: 10rem 0;
 }
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5rem;
+  gap: 6rem;
   align-items: start;
+}
+.about .eyebrow {
+  color: var(--gold);
+  margin-bottom: 2.2rem;
 }
 .about h2 {
   font-family: var(--ff-display);
   font-weight: 600;
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
   line-height: 1.05;
-  text-transform: uppercase;
-  color: var(--bg-dark);
-  margin-top: 1.2rem;
+  letter-spacing: -0.015em;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+}
+.about h2 em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 700;
+}
+.about-sub {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 2.5rem;
 }
 .about .gold-rule {
   width: 60px; height: 2px;
   background: var(--gold);
-  margin: 1.6rem 0 2rem;
+  margin: 2.2rem 0;
 }
-.about-stats {
-  display: flex;
-  gap: 1.4rem;
-  margin-top: 1rem;
-  flex-wrap: wrap;
-}
-.stat-pill {
-  background: var(--white);
-  border: 1px solid var(--border-l);
-  padding: 1rem 1.6rem;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  border-radius: 2px;
-}
-.stat-pill .n {
-  font-family: var(--ff-cond);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--gold);
-  letter-spacing: 0.02em;
-}
-.stat-pill .lbl {
-  font-family: var(--ff-cond);
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--muted-l);
+.about-body {
+  padding-top: 3.8rem;
 }
 .about-body p {
   font-family: var(--ff-body);
   font-weight: 300;
-  font-size: 0.97rem;
+  font-size: 1.05rem;
   line-height: 1.9;
-  color: rgba(0,0,0,0.7);
-  margin-bottom: 1.2rem;
+  color: rgba(255,255,255,0.72);
+  margin-bottom: 1.6rem;
 }
-.about-body strong { color: var(--bg-dark); font-weight: 500; }
+.about-body strong {
+  color: var(--white);
+  font-weight: 500;
+}
+.about-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--ff-cond);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 6px;
+  margin-top: 1.2rem;
+  transition: gap 0.3s;
+}
+.about-cta:hover { gap: 1.1rem; }
 
 /* ============================================================
    SERVICES (Dark grid)
@@ -530,7 +504,6 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   color: var(--white);
   margin: 1.4rem 0 1rem;
 }
-.section-head h2.dark { color: var(--bg-dark); }
 .section-head .sub {
   font-family: var(--ff-body);
   font-weight: 300;
@@ -538,7 +511,6 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   color: rgba(255,255,255,0.55);
   font-style: italic;
 }
-.section-head h2.dark + .sub { color: var(--muted-l); }
 .gold-sep {
   width: 100px; height: 1px;
   background: var(--gold);
@@ -636,7 +608,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
    SERVICES — SRMG "Latest News" style with live videos
    ============================================================ */
 .news-svc {
-  background: var(--bg-light);
+  background: var(--bg-dark);
   padding: 8rem 0;
 }
 .news-svc-head {
@@ -647,7 +619,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   flex-wrap: wrap;
   margin-bottom: 4rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border-l);
+  border-bottom: 1px solid var(--border-d);
 }
 .news-svc-head h2 {
   font-family: var(--ff-display);
@@ -655,7 +627,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   font-size: clamp(2.6rem, 5.5vw, 4.4rem);
   line-height: 1;
   text-transform: uppercase;
-  color: var(--bg-dark);
+  color: var(--white);
   margin: 1.4rem 0 0;
 }
 .news-svc-head h2 em {
@@ -667,7 +639,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   font-family: var(--ff-body);
   font-weight: 300;
   font-size: 1.05rem;
-  color: var(--muted-l);
+  color: rgba(255,255,255,0.55);
   font-style: italic;
   margin-top: 0.8rem;
   max-width: 540px;
@@ -679,8 +651,8 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   font-size: 0.85rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--bg-dark);
-  border-bottom: 1px solid var(--bg-dark);
+  color: var(--white);
+  border-bottom: 1px solid var(--white);
   padding-bottom: 6px;
   display: inline-flex; align-items: center; gap: 0.6rem;
   transition: gap 0.3s, color 0.3s, border-color 0.3s;
@@ -698,29 +670,32 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 .news-svc-card { position: relative; }
 .news-svc-link {
   display: block;
-  height: 100%;
-  background: var(--white);
-  border: 1px solid var(--border-l);
+  height: 520px;
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
   overflow: hidden;
   transition: transform 0.4s var(--ease), box-shadow 0.4s, border-color 0.3s;
+  position: relative;
 }
 .news-svc-card:hover .news-svc-link {
   transform: translateY(-6px);
-  box-shadow: 0 30px 60px -25px rgba(0,0,0,0.25);
+  box-shadow: 0 30px 60px -25px rgba(0,0,0,0.5);
   border-color: var(--gold);
 }
 .news-svc-media {
-  position: relative;
-  aspect-ratio: 16 / 10;
+  position: absolute;
+  inset: 0;
   overflow: hidden;
   background: #111;
 }
-.news-svc-media video {
+.news-svc-media video,
+.news-svc-media img {
   width: 100%; height: 100%;
   object-fit: cover;
   transition: transform 0.9s var(--ease), filter 0.6s;
 }
-.news-svc-card:hover .news-svc-media video {
+.news-svc-card:hover .news-svc-media video,
+.news-svc-card:hover .news-svc-media img {
   transform: scale(1.06);
   filter: saturate(1.15);
 }
@@ -728,32 +703,66 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.35) 100%);
+  background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%);
 }
-.play-badge {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.2rem;
-  z-index: 2;
-  width: 38px; height: 38px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.92);
-  color: var(--bg-dark);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  padding-left: 3px;
-  transition: background 0.3s, transform 0.3s var(--ease);
-}
-.news-svc-card:hover .play-badge { background: var(--gold); transform: scale(1.08); }
-
 .news-svc-body {
-  padding: 1.8rem 1.8rem 2rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.4rem;
+  z-index: 5;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.75) 100%);
 }
+.news-svc-body .news-svc-meta {
+  font-family: var(--ff-cond);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.news-svc-body .news-svc-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.35); }
+.news-svc-body h3 {
+  font-family: var(--ff-display);
+  font-weight: 600;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  line-height: 1.15;
+  color: var(--white);
+  margin: 0 0 0.4rem;
+}
+.news-svc-body p {
+  font-family: var(--ff-body);
+  font-weight: 300;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.news-svc-body .news-svc-arrow {
+  margin-top: 0.6rem;
+  font-family: var(--ff-cond);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--white);
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  transition: color 0.3s, gap 0.3s;
+}
+.news-svc-card:hover .news-svc-body h3 { color: var(--gold); }
+.news-svc-card:hover .news-svc-arrow { color: var(--gold); gap: 0.9rem; }
+.news-svc-arrow .arr { transition: transform 0.3s var(--ease); }
+.news-svc-card:hover .news-svc-arrow .arr { transform: translateX(4px); }
+
 .news-svc-meta {
   display: inline-flex;
   align-items: center;
@@ -766,67 +775,20 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   color: var(--gold);
 }
 .news-svc-meta .num { color: var(--gold); }
-.news-svc-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--bg-dark); opacity: 0.4; }
-.news-svc-meta > span:last-child { color: var(--muted-l); }
-.news-svc-body h3 {
-  font-family: var(--ff-display);
-  font-weight: 600;
-  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
-  line-height: 1.15;
-  color: var(--bg-dark);
-  letter-spacing: -0.01em;
-  transition: color 0.3s;
-  margin: 0.2rem 0 0.5rem;
-}
-.news-svc-card:hover .news-svc-body h3 { color: var(--gold); }
-.news-svc-body p {
-  font-family: var(--ff-body);
-  font-weight: 300;
-  font-size: 0.92rem;
-  line-height: 1.75;
-  color: rgba(0,0,0,0.62);
-  margin: 0;
-}
-.news-svc-arrow {
-  margin-top: 0.8rem;
-  font-family: var(--ff-cond);
-  font-weight: 600;
-  font-size: 0.78rem;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--bg-dark);
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  transition: color 0.3s, gap 0.3s;
-}
-.news-svc-card:hover .news-svc-arrow { color: var(--gold); gap: 0.9rem; }
-.news-svc-arrow .arr { transition: transform 0.3s var(--ease); }
-.news-svc-card:hover .news-svc-arrow .arr { transform: translateX(4px); }
-
 /* ============================================================
    HERO ROTATOR
    ============================================================ */
-.we-are-tag {
-  display: inline-block;
-  font-family: var(--ff-cond);
-  font-size: clamp(0.95rem, 1.2vw, 1.25rem);
-  font-weight: 600;
-  letter-spacing: 0.45em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  vertical-align: middle;
-  padding-bottom: 1.2rem;
-}
 .hero h1 .rot-line {
   position: relative;
   display: block;
-  height: 1em;
+  height: 1.1em;
   overflow: hidden;
   font-style: italic;
 }
 .hero h1 .rotator {
   position: relative;
   display: block;
-  height: 1em;
+  height: 1.1em;
 }
 .hero h1 .rotator .word {
   position: absolute;
@@ -902,7 +864,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
    CLIENTS / PARTNERS
    ============================================================ */
 .clients {
-  background: var(--bg-light);
+  background: var(--bg-dark);
   padding: 7rem 0;
 }
 .client-marquee {
@@ -917,7 +879,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   animation: slideLeft 28s linear infinite;
 }
 .client-cell {
-  background: var(--white);
+  background: rgba(255,255,255,0.04);
   border-radius: 4px;
   padding: 1rem 1.8rem;
   margin: 0 0.6rem;
@@ -926,7 +888,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--border-l);
+  border: 1px solid rgba(255,255,255,0.08);
   flex-shrink: 0;
 }
 .client-cell img {
@@ -1021,14 +983,14 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
    MAP
    ============================================================ */
 .map-section {
-  background: var(--bg-light);
+  background: var(--bg-dark);
   padding: 6rem 0;
 }
 .map-panel {
   display: grid;
   grid-template-columns: 280px 1fr;
-  background: var(--white);
-  border: 1px solid var(--border-l);
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
   overflow: hidden;
 }
 .map-info {
@@ -1198,22 +1160,19 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   .nav-links, .nav .cta-pill { display: none; }
   .hamburger { display: block; }
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-body { padding-top: 0; }
   .footer-cols { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .map-panel { grid-template-columns: 1fr; }
-  .hero-marquee { bottom: 120px; }
-  .hero-controls { bottom: 60px; right: 24px; }
-  .slide-dots { bottom: 70px; left: 24px; }
 }
 @media (max-width: 640px) {
   .container, .nav-inner { padding: 0 22px; }
-  .about, .services, .clients, .contact, .map-section { padding: 5rem 0; }
+  .about, .news-svc, .clients, .contact, .map-section { padding: 5rem 0; }
   .stats-band { padding: 3rem 1rem; }
   .stat:not(:last-child)::after { display: none; }
   .footer-cols { grid-template-columns: 1fr; }
   .footer-top { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
   .footer-bottom { flex-direction: column; }
-  .hero h1 { font-size: clamp(2.6rem, 12vw, 4rem); }
-  .hero-marquee .track { font-size: 0.7rem; }
+  .hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); }
   .contact-form { grid-template-columns: 1fr; }
 }
 </style>
@@ -1228,26 +1187,29 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
     </a>
 
     <ul class="nav-links">
-      <li><a href="#top">Home</a></li>
-      <li><a href="#about">About Us</a></li>
+      <li><a href="index.html" class="link-block-wrap">Home<span class="menu-links--underline"></span></a></li>
+      <li><a href="about-us.html" class="link-block-wrap">About Us<span class="menu-links--underline"></span></a></li>
       <li>
-        <a href="#services">Services <span class="caret">&#9662;</span></a>
+        <a href="our-services.html" class="link-block-wrap">Services <span class="caret">&#9662;</span><span class="menu-links--underline"></span></a>
         <div class="dropdown">
-          <a href="#services">Construction &amp; Maintenance</a>
-          <a href="#services">Equipment &amp; Machinery</a>
-          <a href="#services">Upstream Oil Field</a>
-          <a href="#services">Offshore &amp; Marine</a>
-          <a href="#services">Partnership Representation</a>
-          <a href="#services">Medical &amp; Health</a>
-          <a href="#services">Sustainability Services</a>
+          <a href="construction-maintenance.html">Construction &amp; Maintenance</a>
+          <a href="equipment-machinery.html">Equipment &amp; Machinery</a>
+          <a href="upstream-oil-field-services.html">Upstream Oil Field</a>
+          <a href="offshore-marine-services.html">Offshore &amp; Marine</a>
+          <a href="partnership-representation.html">Partnership Representation</a>
+          <a href="medical-health-services.html">Medical &amp; Health</a>
+          <a href="sustainability-services.html">Sustainability Services</a>
         </div>
       </li>
-      <li><a href="#clients">Our Partners</a></li>
-      <li><a href="#clients">Our Clients</a></li>
-      <li><a href="#contact">Contact Us</a></li>
+      <li><a href="our-partners.html" class="link-block-wrap">Our Partners<span class="menu-links--underline"></span></a></li>
+      <li><a href="our-clients.html" class="link-block-wrap">Our Clients<span class="menu-links--underline"></span></a></li>
+      <li><a href="news.html" class="link-block-wrap">News<span class="menu-links--underline"></span></a></li>
+      <li><a href="careers.html" class="link-block-wrap">Careers<span class="menu-links--underline"></span></a></li>
+      <li><a href="csr.html" class="link-block-wrap">CSR<span class="menu-links--underline"></span></a></li>
+      <li><a href="contact.html" class="link-block-wrap">Contact Us<span class="menu-links--underline"></span></a></li>
     </ul>
 
-    <a href="#contact" class="cta-pill">Contact Now</a>
+    <a href="contact.html" class="cta-pill">Contact Now</a>
     <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -1256,19 +1218,22 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 
 <!-- Mobile menu overlay -->
 <nav class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
-  <a href="#top">Home</a>
-  <a href="#about">About Us</a>
-  <a href="#services">Services</a>
-  <a href="#services" class="sub">Construction &amp; Maintenance</a>
-  <a href="#services" class="sub">Equipment &amp; Machinery</a>
-  <a href="#services" class="sub">Upstream Oil Field</a>
-  <a href="#services" class="sub">Offshore &amp; Marine</a>
-  <a href="#services" class="sub">Partnership Representation</a>
-  <a href="#services" class="sub">Medical &amp; Health</a>
-  <a href="#services" class="sub">Sustainability Services</a>
-  <a href="#clients">Our Partners</a>
-  <a href="#clients">Our Clients</a>
-  <a href="#contact">Contact Us</a>
+  <a href="index.html">Home</a>
+  <a href="about-us.html">About Us</a>
+  <a href="our-services.html">Services</a>
+  <a href="construction-maintenance.html" class="sub">Construction &amp; Maintenance</a>
+  <a href="equipment-machinery.html" class="sub">Equipment &amp; Machinery</a>
+  <a href="upstream-oil-field-services.html" class="sub">Upstream Oil Field</a>
+  <a href="offshore-marine-services.html" class="sub">Offshore &amp; Marine</a>
+  <a href="partnership-representation.html" class="sub">Partnership Representation</a>
+  <a href="medical-health-services.html" class="sub">Medical &amp; Health</a>
+  <a href="sustainability-services.html" class="sub">Sustainability Services</a>
+  <a href="our-partners.html">Our Partners</a>
+  <a href="our-clients.html">Our Clients</a>
+  <a href="news.html">News</a>
+  <a href="careers.html">Careers</a>
+  <a href="csr.html">CSR</a>
+  <a href="contact.html">Contact Us</a>
 </nav>
 
 <main>
@@ -1301,17 +1266,15 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
-    <span class="hero-eyebrow">Al Dali International &middot; Kuwait &middot; Est. 2003</span>
+    <span class="hero-eyebrow">We Are</span>
     <h1>
-      <span class="line l1"><span class="we-are-tag">We Are</span></span>
-      <span class="line l2">Kuwait's</span>
-      <span class="line l2 rot-line">
+      <span class="line l1 rot-line">
         <span class="rotator" id="heroRot">
-          <span class="word active">Trusted Partner</span>
-          <span class="word">Energy Specialists</span>
-          <span class="word">Infrastructure Builders</span>
-          <span class="word">Marine Operators</span>
-          <span class="word">Drilling Experts</span>
+          <span class="word active">Kuwait's Partner</span>
+          <span class="word">Energy Leaders</span>
+          <span class="word">Infrastructure</span>
+          <span class="word">Marine Experts</span>
+          <span class="word">Drilling Pros</span>
         </span>
       </span>
     </h1>
@@ -1319,29 +1282,8 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       Supporting the Nation&rsquo;s key sectors with innovative services in Energy, Construction, Infrastructure and Mobility &mdash; for over two decades. DIC is one of the most diversified contractors across the State of Kuwait.
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-gold">Get in Touch <span class="arr">&rarr;</span></a>
-      <a href="#about" class="btn btn-ghost">Learn More <span class="arr">&rarr;</span></a>
+      <a href="about-us.html" class="hero-link">Learn More <span class="arr">&rarr;</span></a>
     </div>
-  </div>
-
-  <div class="hero-marquee" aria-hidden="true">
-    <div class="track">
-      <span>800+ Professionals &middot; 1000+ Heavy Equipment &middot; Est. 2003 &middot; Kuwait &amp; Beyond &middot; 7 Business Domains &middot;&nbsp;</span>
-      <span>800+ Professionals &middot; 1000+ Heavy Equipment &middot; Est. 2003 &middot; Kuwait &amp; Beyond &middot; 7 Business Domains &middot;&nbsp;</span>
-      <span>800+ Professionals &middot; 1000+ Heavy Equipment &middot; Est. 2003 &middot; Kuwait &amp; Beyond &middot; 7 Business Domains &middot;&nbsp;</span>
-    </div>
-  </div>
-
-  <div class="slide-dots" role="tablist" id="slideDots">
-    <button class="active" data-slide="0" role="tab" aria-label="Slide 1"></button>
-    <button data-slide="1" role="tab" aria-label="Slide 2"></button>
-    <button data-slide="2" role="tab" aria-label="Slide 3"></button>
-    <button data-slide="3" role="tab" aria-label="Slide 4"></button>
-  </div>
-  <div class="hero-controls">
-    <span class="slide-counter"><span id="slideCur">01</span> <span class="total">/ 04</span></span>
-    <button class="slide-btn" id="slidePrev" aria-label="Previous slide">&larr;</button>
-    <button class="slide-btn" id="slideNext" aria-label="Next slide">&rarr;</button>
   </div>
 </section>
 
@@ -1350,25 +1292,22 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   <div class="container">
     <div class="about-grid">
       <div>
-        <span class="eyebrow reveal">Welcome</span>
+        <span class="eyebrow reveal">About Us</span>
         <h2 class="reveal" data-delay="100">
-          Al Dali International<br/>
-          General Trading &amp;<br/>
-          <em style="font-style:italic;color:var(--gold);font-weight:700;">Contracting W.L.L</em>
+          Welcome to<br/>
+          Al Dali <em>International</em>
         </h2>
-        <div class="gold-rule reveal" data-delay="200"></div>
-        <div class="about-stats reveal" data-delay="300">
-          <div class="stat-pill"><span class="n" data-count="800">800</span><span class="lbl">Human Assets</span></div>
-          <div class="stat-pill"><span class="n" data-count="1000">1000</span><span class="lbl">Equipment</span></div>
-        </div>
+        <p class="about-sub reveal" data-delay="200">Co. for General Trading &amp; Contracting W.L.L</p>
+        <div class="gold-rule reveal" data-delay="300"></div>
       </div>
       <div class="about-body">
         <p class="reveal" data-delay="100">
-          Founded in 2003 as a private company offering Heavy Equipment and Machinery support services to industries in Kuwait, DIC has exponentially grown and established itself as one of the most cherished multi-diversified contractors across the State of Kuwait.
+          Founded in 2003 as a private Company offering Heavy Equipment and Machinery support services to the Industries in Kuwait, today DIC has exponentially grown and established itself as one of the most cherished multi diversified contractor across the State of Kuwait. DIC exponential growth since its modest beginning is a reflection of its commitment to customers, who comes year after year.
         </p>
         <p class="reveal" data-delay="200">
-          With dedicated and experienced Human assets of <strong>800+</strong> and Equipment assets exceeding <strong>1000+</strong> Heavy Equipment &amp; Machinery, along with innovative technological partners, DIC is marching towards achieving its vision of becoming a market leader and preferred partner for Integrated Energy and Infrastructure sectors.
+          DIC with dedicated and experienced Human assets of <strong>800+</strong> nos. and with Equipment assets exceeding <strong>1000+</strong> nos. of Heavy Equipment &amp; Machinery along with Innovative technological partners, is marching towards achieving its vision of becoming a market leader and preferred partner for Integrated Energy and Infrastructure sectors services provider closer to the heart of its clients.
         </p>
+        <a href="our-services.html" class="about-cta reveal" data-delay="300">Our Services <span class="arr">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -1383,19 +1322,18 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
         <h2 class="reveal" data-delay="100">Business <em>Domains</em></h2>
         <p class="news-svc-sub reveal" data-delay="200">Marching towards Sustainable Excellence through Adaptive Business Strategy</p>
       </div>
-      <a href="#contact" class="news-svc-all reveal" data-delay="300">See All Services <span>&rarr;</span></a>
+      <a href="our-services.html" class="news-svc-all reveal" data-delay="300">See All Services <span>&rarr;</span></a>
     </div>
 
     <div class="news-svc-grid">
       <article class="news-svc-card reveal" data-delay="100">
-        <a href="#contact" class="news-svc-link">
-          <div class="news-svc-media">
+        <a href="construction-maintenance.html" class="news-svc-link card__link">
+          <div class="news-svc-media card__img-wrap">
             <video autoplay muted loop playsinline preload="metadata">
               <source src="svc-construction.mp4" type="video/mp4" />
             </video>
-            <span class="play-badge" aria-hidden="true">&#9654;</span>
           </div>
-          <div class="news-svc-body">
+          <div class="news-svc-body c--wrap__card">
             <div class="news-svc-meta"><span class="num">Domain 01</span><span class="dot"></span><span>Construction</span></div>
             <h3>Construction &amp; Maintenance</h3>
             <p>DIC prefers to be a partner of choice for Sustainable construction, accelerating the transformation of living environments, infrastructure and mobility.</p>
@@ -1405,14 +1343,13 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       </article>
 
       <article class="news-svc-card reveal" data-delay="200">
-        <a href="#contact" class="news-svc-link">
-          <div class="news-svc-media">
+        <a href="equipment-machinery.html" class="news-svc-link card__link">
+          <div class="news-svc-media card__img-wrap">
             <video autoplay muted loop playsinline preload="metadata">
               <source src="svc-equipment.mp4" type="video/mp4" />
             </video>
-            <span class="play-badge" aria-hidden="true">&#9654;</span>
           </div>
-          <div class="news-svc-body">
+          <div class="news-svc-body c--wrap__card">
             <div class="news-svc-meta"><span class="num">Domain 02</span><span class="dot"></span><span>Logistics</span></div>
             <h3>Equipment &amp; Machinery</h3>
             <p>Clients in Kuwait choose DIC as their partner for Logistics, equipment and machinery services to achieve operational excellence.</p>
@@ -1422,14 +1359,13 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       </article>
 
       <article class="news-svc-card reveal" data-delay="300">
-        <a href="#contact" class="news-svc-link">
-          <div class="news-svc-media">
+        <a href="upstream-oil-field-services.html" class="news-svc-link card__link">
+          <div class="news-svc-media card__img-wrap">
             <video autoplay muted loop playsinline preload="metadata">
               <source src="svc-upstream.mp4" type="video/mp4" />
             </video>
-            <span class="play-badge" aria-hidden="true">&#9654;</span>
           </div>
-          <div class="news-svc-body">
+          <div class="news-svc-body c--wrap__card">
             <div class="news-svc-meta"><span class="num">Domain 03</span><span class="dot"></span><span>Oil &amp; Gas</span></div>
             <h3>Upstream Oil Field</h3>
             <p>DIC is expanding its Upstream Oil Field services to offer Integrated drilling services, leveraging its position as a trusted Kuwaiti contractor.</p>
@@ -1439,14 +1375,13 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       </article>
 
       <article class="news-svc-card reveal" data-delay="100">
-        <a href="#contact" class="news-svc-link">
-          <div class="news-svc-media">
+        <a href="offshore-marine-services.html" class="news-svc-link card__link">
+          <div class="news-svc-media card__img-wrap">
             <video autoplay muted loop playsinline preload="metadata">
               <source src="svc-marine.mp4" type="video/mp4" />
             </video>
-            <span class="play-badge" aria-hidden="true">&#9654;</span>
           </div>
-          <div class="news-svc-body">
+          <div class="news-svc-body c--wrap__card">
             <div class="news-svc-meta"><span class="num">Domain 04</span><span class="dot"></span><span>Marine</span></div>
             <h3>Offshore &amp; Marine</h3>
             <p>With high-profile experienced partners, DIC offers Marine services and equipment ensuring even the biggest offshore jobs are executed safely.</p>
@@ -1456,14 +1391,13 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       </article>
 
       <article class="news-svc-card reveal" data-delay="200">
-        <a href="#contact" class="news-svc-link">
-          <div class="news-svc-media">
+        <a href="partnership-representation.html" class="news-svc-link card__link">
+          <div class="news-svc-media card__img-wrap">
             <video autoplay muted loop playsinline preload="metadata">
               <source src="svc-partnership.mp4" type="video/mp4" />
             </video>
-            <span class="play-badge" aria-hidden="true">&#9654;</span>
           </div>
-          <div class="news-svc-body">
+          <div class="news-svc-body c--wrap__card">
             <div class="news-svc-meta"><span class="num">Domain 05</span><span class="dot"></span><span>Business</span></div>
             <h3>Partnership Representation</h3>
             <p>DIC partners with international organisations, providing business development support, marketing expertise and growth strategies.</p>
@@ -1473,14 +1407,13 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       </article>
 
       <article class="news-svc-card reveal" data-delay="300">
-        <a href="#contact" class="news-svc-link">
-          <div class="news-svc-media">
+        <a href="medical-health-services.html" class="news-svc-link card__link">
+          <div class="news-svc-media card__img-wrap">
             <video autoplay muted loop playsinline preload="metadata">
               <source src="svc-medical.mp4" type="video/mp4" />
             </video>
-            <span class="play-badge" aria-hidden="true">&#9654;</span>
           </div>
-          <div class="news-svc-body">
+          <div class="news-svc-body c--wrap__card">
             <div class="news-svc-meta"><span class="num">Domain 06</span><span class="dot"></span><span>Healthcare</span></div>
             <h3>Medical &amp; Health</h3>
             <p>With professional background in Healthcare, DIC provides holistic services that fit the complexities of an ever-changing environment.</p>
@@ -1490,14 +1423,13 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       </article>
 
       <article class="news-svc-card reveal" data-delay="400">
-        <a href="#contact" class="news-svc-link">
-          <div class="news-svc-media">
+        <a href="sustainability-services.html" class="news-svc-link card__link">
+          <div class="news-svc-media card__img-wrap">
             <video autoplay muted loop playsinline preload="metadata">
               <source src="svc-sustainability.mp4" type="video/mp4" />
             </video>
-            <span class="play-badge" aria-hidden="true">&#9654;</span>
           </div>
-          <div class="news-svc-body">
+          <div class="news-svc-body c--wrap__card">
             <div class="news-svc-meta"><span class="num">Domain 07</span><span class="dot"></span><span>Sustainability</span></div>
             <h3>Sustainability Services</h3>
             <p>Circular carbon economy, renewable energy, and environmental management for pragmatic sustainable growth.</p>
@@ -1524,7 +1456,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   <div class="container">
     <div class="section-head">
       <span class="eyebrow reveal">Our Clients</span>
-      <h2 class="dark reveal" data-delay="100">Valued Partners &amp; Clients</h2>
+      <h2 class="reveal" data-delay="100">Valued Partners &amp; Clients</h2>
       <p class="sub reveal" data-delay="200">Collaborating for Greater Success</p>
       <div class="gold-sep reveal" data-delay="300"></div>
     </div>
@@ -1650,12 +1582,15 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
       <div class="footer-col">
         <span class="col-lbl">Navigation</span>
         <nav>
-          <a href="#top">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#services">Services</a>
-          <a href="#clients">Partners</a>
-          <a href="#clients">Clients</a>
-          <a href="#contact">Contact</a>
+          <a href="index.html">Home</a>
+          <a href="about-us.html">About Us</a>
+          <a href="our-services.html">Services</a>
+          <a href="our-partners.html">Partners</a>
+          <a href="our-clients.html">Clients</a>
+          <a href="news.html">News</a>
+          <a href="careers.html">Careers</a>
+          <a href="csr.html">CSR</a>
+          <a href="contact.html">Contact</a>
         </nav>
       </div>
 
@@ -1743,11 +1678,11 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 
   function showSlide(i) {
     slides[curSlide].classList.remove('active');
-    dots[curSlide].classList.remove('active');
+    if (dots[curSlide]) dots[curSlide].classList.remove('active');
     curSlide = (i + slides.length) % slides.length;
     slides[curSlide].classList.add('active');
-    dots[curSlide].classList.add('active');
-    counter.textContent = String(curSlide + 1).padStart(2, '0');
+    if (dots[curSlide]) dots[curSlide].classList.add('active');
+    if (counter) counter.textContent = String(curSlide + 1).padStart(2, '0');
     // play active video, pause others
     slides.forEach((s, idx) => {
       const v = s.querySelector('video');
@@ -1760,8 +1695,10 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   function startTimer() { stopTimer(); slideTimer = setInterval(() => { if (!hovered) nextSlide(); }, 6000); }
   function stopTimer() { if (slideTimer) clearInterval(slideTimer); }
 
-  document.getElementById('slideNext').addEventListener('click', () => { nextSlide(); startTimer(); });
-  document.getElementById('slidePrev').addEventListener('click', () => { prevSlide(); startTimer(); });
+  const slideNext = document.getElementById('slideNext');
+  const slidePrev = document.getElementById('slidePrev');
+  if (slideNext) slideNext.addEventListener('click', () => { nextSlide(); startTimer(); });
+  if (slidePrev) slidePrev.addEventListener('click', () => { prevSlide(); startTimer(); });
   dots.forEach((d, i) => d.addEventListener('click', () => { showSlide(i); startTimer(); }));
   const heroEl = document.querySelector('.hero');
   heroEl.addEventListener('mouseenter', () => { hovered = true; });
