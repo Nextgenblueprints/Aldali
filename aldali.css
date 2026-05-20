@@ -1027,7 +1027,7 @@ section { padding: 120px 0; }
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.75)),
-              url('https://aldali-int.com/wp-content/uploads/2021/08/Mask-Group-1@2x1.jpg') center/cover;
+              url('Mask-Group-1@2x1.jpg') center/cover;
   z-index: 0;
 }
 .page-banner > * { position: relative; z-index: 1; }
