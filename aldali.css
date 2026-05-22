@@ -1281,7 +1281,7 @@ section { padding: 120px 0; }
   align-items: center;
   gap: 10px;
 }
-.footer-brand img { height: 40px; filter: brightness(0) invert(1); }
+.footer-brand img { height: 40px; }
 .footer-tag {
   font-size: 14px;
   line-height: 1.7;

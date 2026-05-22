@@ -1066,6 +1066,31 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   color: var(--white);
   border-top: 1px solid rgba(255,255,255,0.08);
   padding: 4rem 0 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.footer > .container {
+  position: relative;
+  z-index: 2;
+}
+.footer-slides { position: absolute; inset: 0; z-index: 0; }
+.footer-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out;
+}
+.footer-slide.active { opacity: 1; }
+.footer-slide video,
+.footer-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.85);
+  z-index: 1;
 }
 .footer-top {
   display: flex;
@@ -1206,7 +1231,7 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 <header class="nav" id="topNav">
   <div class="nav-inner">
     <a href="#top" class="logo-text" aria-label="DIC home">
-      <span class="logo-arrow">&#10095;&#10095;</span> DIC
+      <img src="https://aldali-int.com/wp-content/uploads/2021/08/g11760.png" alt="DIC Logo" style="max-height: 48px; width: auto;" />
     </a>
 
     <ul class="nav-links">
@@ -1588,15 +1613,36 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="footer">
+  <div class="footer-slides" id="footerSlides">
+    <div class="footer-slide active">
+      <video autoplay muted loop playsinline>
+        <source src="hero-slide-01.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="footer-slide">
+      <video autoplay muted loop playsinline>
+        <source src="hero-slide-02-sustainable.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="footer-slide">
+      <video autoplay muted loop playsinline>
+        <source src="hero-slide-03-offshore-marine.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div class="footer-slide">
+      <img src="Upstream-Oilfield-Services.jpg" alt="Integrated Upstream Oil Field Services" />
+    </div>
+  </div>
+  <div class="footer-overlay"></div>
   <div class="container">
     <div class="footer-top">
-      <span class="logo-text"><span class="logo-arrow">&#10095;&#10095;</span> DIC</span>
+      <a href="#top" aria-label="DIC home"><img src="https://aldali-int.com/wp-content/uploads/2021/08/g11760.png" alt="DIC Logo" style="max-height: 48px; width: auto;" /></a>
       <span class="right">Est. 2003 &middot; Kuwait</span>
     </div>
 
     <div class="footer-cols">
       <div class="footer-col">
-        <span class="logo-text" style="font-size:1.3rem;margin-bottom:1rem;display:inline-flex;"><span class="logo-arrow">&#10095;&#10095;</span> DIC</span>
+        <a href="#top" aria-label="DIC home" style="margin-bottom:1rem;display:inline-block;"><img src="https://aldali-int.com/wp-content/uploads/2021/08/g11760.png" alt="DIC Logo" style="max-height: 48px; width: auto;" /></a>
         <p style="margin-top:1rem;">We strive to be the market leader through our core values of innovation, sustainability, and ethical practices, ensuring quality, health, safety, and environmental stewardship in all operations.</p>
         <span class="tag">Est. 2003 &middot; DIC</span>
       </div>
@@ -1727,6 +1773,20 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   heroEl.addEventListener('mouseleave', () => { hovered = false; });
   showSlide(0);
   startTimer();
+
+  // ---------- 5. Footer slider (Sync with Hero if possible or independent) ----------
+  const footerSlides = document.querySelectorAll('#footerSlides .footer-slide');
+  let fSlideCur = 0;
+  setInterval(() => {
+    if(!footerSlides.length) return;
+    footerSlides[fSlideCur].classList.remove('active');
+    const prevV = footerSlides[fSlideCur].querySelector('video');
+    if(prevV) prevV.pause();
+    fSlideCur = (fSlideCur + 1) % footerSlides.length;
+    footerSlides[fSlideCur].classList.add('active');
+    const newV = footerSlides[fSlideCur].querySelector('video');
+    if(newV) newV.play().catch(()=>{});
+  }, 6000);
 
   // ---------- 5. IntersectionObserver reveal ----------
   if ('IntersectionObserver' in window) {
