@@ -15,8 +15,8 @@
 body {
   font-family: 'Inter', sans-serif;
   margin: 0;
-  background: var(--bg-light);
-  color: #333;
+  background: var(--bg-dark) !important;
+  color: #fff !important;
 }
 
 section {

@@ -281,7 +281,23 @@
   }
 
   /* ---------- INIT ---------- */
-  function init() {
+  function initServiceSliders() {
+  document.querySelectorAll('.service-slider').forEach(slider => {
+    const slides = slider.querySelectorAll('.slide');
+    let idx = 0;
+    const showSlide = i => {
+      slides.forEach((s, si) => s.classList.toggle('active', si === i));
+    };
+    const prevBtn = slider.querySelector('.slider-prev');
+    const nextBtn = slider.querySelector('.slider-next');
+    prevBtn && prevBtn.addEventListener('click', () => { idx = (idx - 1 + slides.length) % slides.length; showSlide(idx); });
+    nextBtn && nextBtn.addEventListener('click', () => { idx = (idx + 1) % slides.length; showSlide(idx); });
+    showSlide(idx);
+    // auto-advance every 5s
+    setInterval(() => { idx = (idx + 1) % slides.length; showSlide(idx); }, 5000);
+  });
+}
+function init() {
     initPageFade();
     applyRevealAttrs();
     initReveal();
@@ -296,6 +312,7 @@
     initTilt();
     initMagnetic();
     initCursor();
+    initServiceSliders();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();

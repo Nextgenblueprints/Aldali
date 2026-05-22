@@ -1101,6 +1101,18 @@ section { padding: 120px 0; }
   .split-grid.reverse > :first-child { order: 0; }
 }
 
+/* Service layout and slider */
+.service-split { padding: 120px 0; }
+.split-left { display:flex; flex-direction:column; gap:1.5rem; }
+.service-video { width:100%; height:auto; object-fit:cover; border-radius:8px; }
+.service-slider { padding: 80px 0; }
+.slider-inner { position:relative; overflow:hidden; height:400px; }
+.slider-inner .slide { position:absolute; inset:0; opacity:0; transition:opacity .5s ease; }
+.slider-inner .slide.active { opacity:1; }
+.slider-prev, .slider-next { position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.5); color:#fff; border:none; padding:10px; cursor:pointer; z-index:2; }
+.slider-prev { left:10px; }
+.slider-next { right:10px; }
+.slider-prev:hover, .slider-next:hover { background:rgba(0,0,0,0.8); }
 /* Stat block */
 .stat-row {
   background: var(--cream-2);
