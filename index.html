@@ -102,17 +102,28 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   justify-content: space-between;
   gap: 32px;
 }
-.logo-text {
-  font-family: var(--ff-cond);
-  font-weight: 700;
-  font-size: 1.6rem;
-  letter-spacing: 0.06em;
-  color: var(--white);
-  display: inline-flex;
+.nav-logo {
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 10px;
+  font-family: var(--ff-display);
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  flex-shrink: 0;
 }
-.logo-arrow { color: var(--gold); font-family: var(--ff-cond); font-weight: 700; letter-spacing: -0.05em; }
+.nav-logo img { height: 38px; width: auto; }
+.nav-logo .bar { width: 1px; height: 20px; background: var(--border-d); }
+.nav-logo .tag {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--muted-d);
+}
+
 
 .nav-links {
   display: flex;
@@ -1230,8 +1241,10 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
 <!-- ═══════════════ NAVBAR ═══════════════ -->
 <header class="nav" id="topNav">
   <div class="nav-inner">
-    <a href="#top" class="logo-text" aria-label="DIC home">
-      <img src="https://aldali-int.com/wp-content/uploads/2021/08/g11760.png" alt="DIC Logo" style="max-height: 48px; width: auto;" />
+    <a href="index.html" class="nav-logo" aria-label="DIC home">
+      <img src="dic-logo.png" alt="Al Dali International" onerror="this.style.display='none'" />
+      <span class="bar"></span>
+      <span class="tag">Est. 2003</span>
     </a>
 
     <ul class="nav-links">
@@ -1636,13 +1649,13 @@ button { font: inherit; background: none; border: none; color: inherit; cursor: 
   <div class="footer-overlay"></div>
   <div class="container">
     <div class="footer-top">
-      <a href="#top" aria-label="DIC home"><img src="https://aldali-int.com/wp-content/uploads/2021/08/g11760.png" alt="DIC Logo" style="max-height: 48px; width: auto;" /></a>
+      <a href="#top" aria-label="DIC home"><img src="dic-logo.png" alt="DIC Logo" style="max-height: 48px; width: auto;" /></a>
       <span class="right">Est. 2003 &middot; Kuwait</span>
     </div>
 
     <div class="footer-cols">
       <div class="footer-col">
-        <a href="#top" aria-label="DIC home" style="margin-bottom:1rem;display:inline-block;"><img src="https://aldali-int.com/wp-content/uploads/2021/08/g11760.png" alt="DIC Logo" style="max-height: 48px; width: auto;" /></a>
+        <a href="#top" aria-label="DIC home" style="margin-bottom:1rem;display:inline-block;"><img src="dic-logo.png" alt="DIC Logo" style="max-height: 48px; width: auto;" /></a>
         <p style="margin-top:1rem;">We strive to be the market leader through our core values of innovation, sustainability, and ethical practices, ensuring quality, health, safety, and environmental stewardship in all operations.</p>
         <span class="tag">Est. 2003 &middot; DIC</span>
       </div>
