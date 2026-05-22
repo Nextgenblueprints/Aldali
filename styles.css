@@ -1394,7 +1394,7 @@ dd {
   gap: 16px;
   padding: clamp(22px, 3vw, 38px);
   border-inline-end: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.94);
+  background: #ffffff;
   color: var(--ink);
   text-align: center;
 }
@@ -1420,7 +1420,6 @@ dd {
   max-width: min(100%, 220px);
   max-height: 92px;
   object-fit: contain;
-  mix-blend-mode: multiply;
 }
 
 @keyframes partner-slide {

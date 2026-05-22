@@ -729,7 +729,7 @@ section { padding: 120px 0; }
   border: 1px solid var(--line);
 }
 .partner-cell {
-  background: var(--paper);
+  background: #ffffff;
   aspect-ratio: 4 / 3;
   display: flex;
   flex-direction: column;
@@ -739,16 +739,15 @@ section { padding: 120px 0; }
   text-align: center;
   transition: background 0.3s;
 }
-.partner-cell:hover { background: var(--cream); }
+.partner-cell:hover { background: #f9f9f9; }
 .partner-cell img {
   max-height: 60px;
   max-width: 80%;
   width: auto;
   object-fit: contain;
-  filter: grayscale(1) opacity(0.55);
-  transition: filter 0.3s;
+  transition: filter 0.3s, transform 0.3s;
 }
-.partner-cell:hover img { filter: grayscale(0) opacity(1); }
+.partner-cell:hover img { transform: scale(1.05); }
 .partner-cell .name {
   margin-top: 12px;
   font-size: 10px;
@@ -772,7 +771,7 @@ section { padding: 120px 0; }
   padding: 24px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background: var(--paper);
+  background: #ffffff;
   mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
 }
@@ -787,10 +786,9 @@ section { padding: 120px 0; }
 .brand-marquee-track img {
   height: 44px;
   width: auto;
-  filter: grayscale(1) opacity(0.55);
-  transition: filter 0.3s;
+  transition: transform 0.3s;
 }
-.brand-marquee-track img:hover { filter: grayscale(0) opacity(1); }
+.brand-marquee-track img:hover { transform: scale(1.05); }
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -1463,9 +1461,9 @@ h1[data-reveal], h2[data-reveal], h3[data-reveal],
   filter: saturate(1.1);
 }
 
-.partner-cell:hover { background: var(--gold-tint); border-color: var(--gold) !important; }
-.partner-cell img { transition: transform 0.5s cubic-bezier(.2,.8,.2,1), filter 0.4s; }
-.partner-cell:hover img { transform: scale(1.08); filter: grayscale(0); }
+.partner-cell:hover { background: #f9f9f9; border-color: var(--gold) !important; }
+.partner-cell img { transition: transform 0.5s cubic-bezier(.2,.8,.2,1); }
+.partner-cell:hover img { transform: scale(1.08); }
 
 .service-row { position: relative; overflow: hidden; }
 .service-row::before {
