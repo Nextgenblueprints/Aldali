@@ -14,9 +14,11 @@
 }
 .split-grid img {
   width: 100%;
+  max-width: 600px;
   height: auto;
   border-radius: 8px;
-  object-fit: cover;
+  object-fit: contain;
+  margin: 0 auto;
 }
 .split-content .eyebrow {
   margin-bottom: 12px;
@@ -117,8 +119,8 @@
   justify-content: center;
 }
 .carpet-roll-item {
-  flex: 1 1 calc(25% - 12px);
-  max-width: calc(25% - 12px);
+  flex: 1 1 calc(50% - 12px);
+  max-width: calc(50% - 12px);
   overflow: hidden;
   border-radius: 8px;
   opacity: 0;
@@ -170,6 +172,11 @@
   max-width: 180px;
   height: auto;
   border-radius: 6px;
+}
+/* Force the fifth certificate onto a new row */
+.cert-gallery-item:nth-child(5) {
+  flex-basis: 100%;
+  max-width: 100%;
 }
 
 /* Responsive tweaks */
